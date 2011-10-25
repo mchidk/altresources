@@ -1,0 +1,28 @@
+@import 'partials/base';
+
+@import "compass/layout/sticky-footer";
+@import "compass/css3/inline-block";
+
+@import "blueprint";
+@import "partials/common";
+
+body {
+  @include blueprint-print(true); }
+
+#logo {
+  display: block;
+  &:after { content: url(/images/logo.png); } 
+}
+
+a, #qe-link, .dashboard, .share-bar, .hidden, .tooltip, .qtip, [qtip], .errors,
+.error, #errorExplanation, #error_explanation, ul.menu,
+#top, #top-nav, #main-nav, #banner, #share-bar, #breadcrumbs, #sidebar,
+#footer-wrapper, #flash-messages, #comment-form, form, input, .actions, .action-links {
+  display: none; }
+
+a[class=tag] {
+  display: inline; }
+
+.comment {
+  display: block;
+  clear: both; }

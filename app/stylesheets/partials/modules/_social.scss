@@ -1,0 +1,62 @@
+@import 'compass/utilities/general/clearfix';
+@import 'includes/common';
+@import 'includes/typography';
+
+ul.social-module {
+  @include blank-list;
+  padding: 0;
+  margin: 0;
+  white-space: normal; 
+
+  li { 
+    @include clearfix;
+    margin: 0 0 $global_spacing_margin;
+  }
+  a {
+    font-weight: normal;
+    font-style: italic;
+    font-size: $small-font-size;
+    @include column(2);
+    @include append(1);
+    height: 75px;
+    margin-top: 6px;
+    .text {
+      margin-top: 4px;
+    }
+    &.hello {
+      @include column(6, true);
+      padding-right: 0;
+      .text { width: 130px; }
+      span {
+        display: block;
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
+a.social-link {
+  @include clearfix;
+  @include h4-typography;
+  @include alt-link-colors;
+
+  &:hover {
+    text-decoration: underline;
+    .text { text-decoration: inherit; }
+  }
+
+  .img, .text { 
+    float: left; 
+  }
+  .img { margin-right: 8px; }
+}
+
+.social-feed-title {
+  line-height: 35px;
+  a.social-link .text { display: none; } 
+}
+
+/* social popup form */
+#social-networking-form {
+  textarea { height: 140px; }
+}

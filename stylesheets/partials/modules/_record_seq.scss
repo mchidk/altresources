@@ -1,0 +1,51 @@
+@import 'includes/colors';
+@import 'includes/typography';
+@import 'includes/global';
+
+.record-seq {
+  .record-seq-dateline, 
+  .record-seq-author, 
+  .record-seq-summary, 
+  .record-seq-title { 
+    margin: 3px 0; 
+  }
+
+	.record-seq-title { 
+		font-weight: bold; 
+	}
+
+  .record-seq-link {
+    @include base-font;
+    margin-bottom: 0.6em;
+    a {
+      @include alt-link-colors;
+      text-decoration: none;
+      span { text-decoration: underline; }
+      margin-bottom: .7em;
+      font-weight: bold;
+    }
+  }
+
+  .record-seq-prev, .record-seq-next { 
+    float: left; 
+
+    &.record-seq-next { 
+      width: 45%; 
+      padding-left: 4%; 
+    }
+
+    &.record-seq-prev { 
+      border-right: $global-border-style;
+      width: 45%; 
+      padding-right: 3%; 
+    }
+  }
+
+  .record-seq-dateline, .record-seq-author { 
+    @include tiny-font;
+  }
+
+  .record-seq-summary { 
+    @include small-font;
+  }
+}

@@ -1,0 +1,108 @@
+$table_border_style:          $global_border_style !default;
+$table_header_background:     #aaa !default;
+$table_ordered_column_image:  '/images/buttons/arrow_admin.png' !default;
+
+@mixin table {
+  margin-bottom: 1.5em; 
+  width: 100%;
+  border-collapse: collapse\9;
+  &.records {
+    thead th { 
+      @include gradient(#AAA,#989898);
+      font-weight: bold; 
+      color: #DDD;  
+    }
+  }
+  & { border: #{$global_border_style}\9; }
+
+  th { font-weight: bold; }
+  thead th { }
+  th, td, caption { padding: 4px 10px 4px 5px; }
+  tr {
+    td {
+      border-bottom: $table_border_style;
+      font-size: 12px;
+      padding: 0 0.5em;
+
+      &.checkbox {
+        text-align: center;
+      }
+
+      &.links, &.num {
+        text-align: right;
+      }
+    }
+    &.even td { } 
+    &.odd td { } 
+  }
+
+  tfoot { font-style: italic; }
+  caption { background-color: $background_color; }
+
+  &.records {
+    tr { height: 40px; }
+
+    thead {
+      tr { border: 0 none; }
+      th {
+        &:first-child { 
+          border-left: none; 
+          @include border-top-left-radius(4px); 
+        }
+        &:last-child { 
+          border-left: none; 
+          @include border-top-right-radius(4px); 
+        }
+        text-align: center;
+        .ordered-column {
+          @include clearfix;
+          position: relative;
+          // width: 100%;
+          a { 
+            padding-right: 10px; 
+            text-decoration: none;
+            color: #FFF;
+          }
+          span.asc, span.desc {
+            height: 9px;
+            width: 10px;
+            margin-top: -5px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            background: url($table_ordered_column_image) no-repeat; 
+          }
+          span.asc, span.h-asc.hover { background-position: top left; }
+          span.desc, span.h-desc.hover { background-position: bottom left; } 
+        } 
+      } 
+    }
+    tbody {
+      tr { 
+        &:hover { background: $admin_records_table_hover_background; }
+        td:first-child { border-left: $global-border-style; }        
+        td:last-child { border-right: $global-border-style; }
+        *:first-child+html & td:first-child { border-left: 0 none; }
+      }
+      td.links { 
+        font-size: 11px; 
+        text-decoration: none; 
+        text-transform: uppercase; 
+        a {
+          @include inline-block;
+          @include site-button;
+          margin-bottom: 3px;
+          font-size: 10px;   
+          padding: 2px 4px; 
+
+          //border-radius: 4px; 
+          //color: #341C01; 
+          //color: rgba(0,0,0,.5); 
+          //background: rgba(0,0,0,.2); 
+          //text-decoration: none; 
+          //white-space: nowrap;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+$admin_tag_border: 1px solid #ccc !default;
+$admin_tag_border_radius: 12px !default;
+$admin_tag_padding: 5px !default;
+$admin_tag_field_width: 200px !default;
+
+fieldset.tags {
+  input[type=text] { width: $admin_tag_field_width; }
+  .field, .actions { float: left; margin: 0 0.5em 0 0; }
+  .actions { 
+		padding: 1.75em 0.5em 0 0; 
+		clear: none;
+		margin-top: .5em;
+	}
+  .context-list { margin: 0.75em 0; > span { font-weight: bold; display: block; margin: 0.333em 0; } }
+  a { text-decoration: none; display: block; float: left; margin-right: 3px; }
+  ul { 
+    li {
+      @include inline-block;
+      @include border-radius($admin_tag_border_radius);
+      @include clearfix;
+      padding: $admin_tag_padding;
+      border: $admin_tag_border;
+      span { float: left; span { margin: 0 0.5em; white-space: nowrap; } } 
+    }
+  } 
+  #tag-fields, #tag-contexts .context-list { @include clearfix; }
+  #tag-contexts { clear: both; } 
+} 
+

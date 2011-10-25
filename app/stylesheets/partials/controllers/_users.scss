@@ -1,0 +1,64 @@
+@import 'includes/blueprint';
+@import 'includes/global';
+
+body.controller-users {
+  .users .user, .user-section {
+    margin-bottom: $global-spacing-margin;
+    padding-bottom: $global-spacing-margin;
+    border-bottom: $global-border-style-3;
+  }
+  .avatar {
+    @include column(3);
+    /* ugh */
+    width: 95px;
+  }
+  .user-body {
+    display: inline;
+    float: left;
+		width:580px;
+  }
+
+  .user-link {
+    //@include h3_color;
+    //@include h3_typography;
+    margin-bottom: 0;
+    padding-bottom: 5px;
+		a { 
+      @include link-colors($theme-tertiary, $theme-primary);
+			font-weight:bold;
+			font-size:$base-font-size; 
+    }
+  }
+  .user-email {
+    margin-bottom: 5px;
+  }
+
+  .matches {
+    margin-top: $global-spacing-margin;
+    .match-type {
+      font-weight: bold;
+    }
+  }
+
+  .header {
+    @include h4_typography;
+    @include h4_color;
+  }
+
+  .user-title, .map, .attr-category {
+    margin-bottom: $global-spacing-margin;
+  }
+
+  .attr-category-name {
+    @include h5_typography;
+    @include h5_color;
+  }
+
+  .user-company {
+    font-style: bold;
+  }
+
+  .relative-info {
+    font-style: italic;
+  }
+}

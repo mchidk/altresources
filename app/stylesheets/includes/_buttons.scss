@@ -1,0 +1,46 @@
+@import 'includes/css3';
+@import 'compass/css3/inline-block';
+
+$button-padding: 0.4em 1em 0.4em 1em !default;
+$button-margin: 0 0 0.5em 0 !default;
+
+@mixin button {
+	font-size: $small-font-size;
+  @include inline-block;
+  padding: $button-padding;
+  margin: $button-margin;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  @include border-radius;
+  border: solid 1px $base-accent; //edited by chris.cr
+	@include box-shadow(#aaa 1px 1px 1px);
+	font-weight:bold;
+
+  &, &:hover {
+    text-decoration: none;
+  }
+  &:active {
+    position: relative;
+    top: 1px;
+		@include box-shadow(transparent 0 0 0);
+  }
+}
+
+@mixin button-color($background) {
+  border: solid 1px darken($background, 4%);
+  &, &:visited, &:hover {
+    color: mix(#fff, $background, 95%);
+  }
+  &, &:visited {
+    @include linear-gradient(lighten($background, 23%), lighten($background, 11%));
+  }
+  &:hover {
+		@include linear-gradient(lighten($background, 10%), darken($background, 5%)); 
+  }
+  &:active {
+    @include linear-gradient($background, lighten($background, 10%));
+    color: mix(#fff, $background, 70%);
+  }
+}

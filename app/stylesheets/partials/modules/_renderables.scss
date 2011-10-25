@@ -1,0 +1,110 @@
+@import 'compass/utilities/general/clearfix';
+@import 'includes/typography';
+@import 'includes/colors';
+
+/* ensure clearfix for quickedit */
+.renderable, .region {
+  @include legacy-pie-clearfix;
+
+}
+
+.renderable-body {
+  &, > * {
+    @include legacy-pie-clearfix;
+  }
+}
+
+$renderable-bottom-margin: 1em;
+
+/**
+ * Most sidebar renderables have automatic bottom borders,
+ * with padding to match the margin;
+ */
+#left, #right {
+  .renderable {
+    margin-bottom: $renderable-bottom-margin;
+  }
+
+	.info { color: #000; }
+
+  .renderable-body > * {
+    &:first-child { margin-top: 0; }
+    margin-top: 0.5em;
+  }
+
+  .renderable {
+    &.feed_widget, &.top_widget, &.slideshow_widget, &.poll {
+      padding-bottom: $renderable-bottom-margin;
+      border-bottom: $global-border-style-1;
+    }
+
+    &:empty {
+      margin: 0;
+    }
+  }
+}
+
+.renderable-body {
+
+  font-size: $small-font-size;
+
+  .h2, h2, .h3, h3 {
+    font-size: $base-font-size;
+    margin: 0.33em 0;
+  }
+
+  h3 a {
+    @include sans;
+    font-size: $small_font_size;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.renderable-header {
+  @include h2_typography;
+  @include h2_color;
+  margin: 0 0 $renderable-bottom-margin;
+  padding: 0 0 0.2em;
+  a { @include alt-link-colors; }
+}
+
+
+.default-feed-module {
+	p { 
+    font-size: 12px; 
+    margin-bottom: 0;
+  }
+  h3 { 
+		margin-bottom: .3em; 
+		font-size: 12px;
+		a {
+			color: #000;
+			text-decoration: none;
+		}
+	}
+  .info {
+    font-size: $tiny-font-size;
+    margin-bottom: 0.33em;
+    p {
+      margin: 0;
+			font-size: inherit;
+    }
+  }
+}
+
+.title-author-module {
+  @include column(8);
+  @include append(1);
+  .image { 
+    a { margin: 0; }
+    margin-right: 0.5em; 
+  }
+  h3 { color: #8a2529; }
+  a { display: block; }
+  p, h3, a {
+    margin: 0 0 0.33em;
+    padding: 0;
+  }
+}

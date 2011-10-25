@@ -1,0 +1,108 @@
+@import "includes/global";
+@import "includes/colors";
+@import "compass/css3/gradient";
+@import "compass/css3/inline-block";
+
+.e9-poll {
+  .poll-question {
+    padding: 0;
+  }
+  form.edit_poll .actions {
+    margin: 10px 5px 0 0;
+    float: left;
+  }
+  .view-poll-results {
+    @include inline-block;
+    font-size: 12px;
+    margin-top: 10px;
+    line-height: 33px;
+    height: 33px;
+  }
+  .poll-answers {
+    padding-top: 0;
+    .actions {
+      margin: 0;
+    }
+  }
+  label {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+form {
+  .poll-answers {
+    $width: 500px;
+    padding: 1.2em 1.2em 0;
+    margin-bottom: 1em; 
+
+    .field, textarea {
+      width: $width;
+      height: 60px;
+    }
+    .actions {
+      margin: 1em 0;
+    }
+
+    .destroy-nested-association {
+      vertical-align: top !important;
+    }
+  }
+}
+
+.poll-header {
+  font-size: 14px;
+  @extend .h5;
+}
+
+.poll-question {
+  @extend .renderable-header;
+  padding: 0 1.2em; 
+}
+
+.poll-answer-bar {
+  height: 15px;
+  display: block; }
+
+.poll-answer-bar-outer {
+  display: block;
+  background-color: #eee; }
+
+.poll-answer {
+  &:first-child { margin-top: 0; }
+  margin-top: 1em;
+  clear: both;
+  textarea {
+    height: 3em;
+    margin-bottom: 0; }
+  .field {
+    margin-bottom: 0; } }
+
+form.edit_poll .actions { margin: 1em 0; }
+
+/*  Poll answers or poll percentage.  */
+
+.poll-answer-votes {
+  display: none; }
+
+.poll-answer-percentage {}
+
+/*
+ * Individual bar styles 
+ * (the default is 5 rotating classes, but this can be changed in config).
+ */
+
+.pab-1 {
+  $color: $maroon;
+  @include linear-gradient(color-stops($color + #111, $color - #111));
+}
+
+.pab-2 {
+  $color: $off-gray;
+  @include linear-gradient(color-stops($color + #111, $color - #111));
+}
+
+.pab-3 {
+  $color: $light-maroon;
+  @include linear-gradient(color-stops($color + #111, $color - #111));
+}

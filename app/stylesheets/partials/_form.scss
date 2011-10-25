@@ -1,0 +1,282 @@
+@import 'compass/css3/box-sizing';
+@import 'compass/css3/border-radius';
+@import 'compass/utilities/general/clearfix';
+@import 'includes/form';
+@import 'includes/typography';
+
+form.inline { @include inline-form; }
+
+/* 
+ * Most form elements are display block by default, for spacing and so
+ * their labels, which are typically inline, can successfully use the "req"
+ * style, which pads right and uses the required "*" as a background.
+ */
+.input,
+input[type=email], 
+input[type=text], 
+input[type=password], 
+input[type=file], 
+textarea, 
+select 
+{
+  display: block;
+}
+
+//created by @chris.cr 9.23.11 trying to address input field wrapping
+.actions input {
+  display: inline;
+	}
+
+
+/* 
+ * A default width is set for most form elements, but note that this is
+ * overridden on elements inside .field divs, which manage their own width.
+ */
+.input,
+input[type=email], 
+input[type=text], 
+input[type=password], 
+input[type=file],
+select
+{
+  padding: $input_padding;
+  margin:  0;
+  width:   $input_width;
+}
+
+.controller-pages #right{
+	/* override for front facing page
+	 */
+	.input,
+	input[type=email], 
+	input[type=text], 
+	input[type=password], 
+	input[type=file],
+	select
+	{
+	  width:   264px;
+	}
+}
+
+.input,
+input[type=email], 
+input[type=text], 
+input[type=password], 
+input[type=file], 
+textarea {
+  @include box-sizing('border-box');
+padding-bottom:.25em;
+}
+
+/*.input,*/
+/*input[type=email], */
+/*input[type=text], */
+/*input[type=password], */
+/*input[type=file], */
+/*textarea,*/
+/*fieldset {*/
+  /*@include border-radius(4px);*/
+/*}*/
+
+textarea {
+  padding: $input_padding;
+  margin: $input_margin;
+  width: 100%;
+  height: $textarea_height;
+}
+
+label, fieldset legend {
+  &.req, &.required { 
+    padding-right: 9px; 
+    background: url(/images/star.png) no-repeat right center; 
+  } 
+}
+
+
+.field_with_errors { 
+    color:red;
+		font-size:$small-font-size; 
+  } 
+
+
+
+label { 
+  color: $label-color; 
+  @include h4_typography;
+}
+
+.field_with_errors label {
+  color: $error-color;
+}
+
+legend { 
+  padding: 0 5px;
+  color: $legend-color; 
+  label { margin: 0; padding: 0; }
+}
+
+body fieldset {
+  &.radio, &.checkbox {
+    padding-bottom: 5px;
+  }
+  border: $fieldset_border;
+  padding: $fieldset_padding;
+  margin: $fieldset_margin;
+  //width: $fieldset_width;
+}
+
+/* 
+ * Text input styles
+ */
+.input,
+input[type=text],
+input[type=password],
+select,
+textarea
+{
+  color: $field_color;
+  background: $field_background;
+  border:     $field_border;
+  &:focus { 
+    background: $field_focus_background; 
+    border: $field_focus_border;
+  }
+  &.field_with_errors {
+    color: $error_color;
+    background: $field_with_errors_background; 
+    border: $field_with_errors_border;
+    &:focus {
+      background: $field_with_errors_focus_background; 
+      border: $field_with_errors_focus_border;
+    }
+    label {
+      color: $field_with_errors_label_color;
+    }
+  }
+}
+
+/* pesky oddball label for the feed widget form */
+#ft-mixed label { display: block; }
+
+.field {
+  @include clearfix;
+  margin: 0 0 $global_spacing_margin 0;
+  padding: 0.1em 0 0;
+
+  input, select {
+    margin-top: 0;
+  }
+
+  .date-field {
+    > * { vertical-align: top; }
+    input { @include inline-block; }
+    .ui-button-icon-only {
+      height: 30px;
+      width: 30px;
+    }
+  }
+	
+  img {
+    margin: $input_margin;
+    display: block;
+  }
+
+  &.tinymce {
+    textarea { 
+      height: $tinymce_height; 
+    }
+  }
+
+  &.radio, &.checkbox {
+    @include inline-block;
+    vertical-align: top;
+    width: 25%;
+    position: relative;
+    padding-left: 18px;
+    input[type=radio], input[type=checkbox] {
+      background: none;
+      position: absolute;
+      left: 1px;
+      margin: 2px 0;
+      width: 13px;
+      height: 13px;
+			top:3px;
+    }
+		
+    label {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.email-wrapper{
+	position:relative;
+}
+
+html body .nested-associations .field.checkbox{
+	height:$base-line-height;
+	width:100%;
+	position:relative;
+	display:block;
+}
+
+/*fix for merge contacts radio button being on right side of inputs*/
+	
+#new_contact{
+	position:relative;
+	
+	.contact-b-value, .contact-b-value{
+		position:relative;
+		width:40%;
+		}
+		
+	#contact_avatar_a, #contact_avatar_b{
+		position:absolute;
+		margin:0 !important;
+		padding:0 !important;
+		z-index:10;
+		top:6px;
+		left:4px;
+		
+	}
+
+.sandwich{
+	margin:10px;
+}
+	
+	div{
+		 margin-bottom:5px;
+		}
+	
+	  .field {
+			input, select {
+    	float: left;
+			line-height: 1em;
+			position: relative;
+			margin-right:4px;
+		}
+	}
+}
+
+
+#left, #right {
+	.field {
+		&.radio, &.checkbox {
+	    width: auto;//edited by chris used to be 100% but broke sidebar labels
+	  }
+	}
+}
+
+.mceEditor { 
+  display: block;
+  margin: 0.25em 0; 
+  .mceIframeContainer {
+    padding: 0.5em 0;
+    background-color: $background_color;
+  }
+}
+
+.nested-association .field {
+	margin-bottom:.5em;
+}

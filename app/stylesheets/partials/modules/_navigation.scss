@@ -1,0 +1,127 @@
+@import 'includes/common';
+@import 'includes/colors';
+@import 'compass/css3/box-shadow';
+
+ul.menu {
+  &, ul {
+    @include blank-list;
+  }
+}
+
+#nav {
+  ul.menu {
+
+    /* top level are inline block because of the way centering is handled */
+    > li { 
+      @include inline-block; 
+			&:first-child { border-left: 1px solid #fff; }
+
+      > ul {
+        border-top: $global-border-style-1;
+      }
+    }
+
+    ul li { display: block; }
+
+    overflow: visible;
+ 	//below commented out by @chris.cr, not needed for the new full width look, moved to #nav-wrapper
+    //border-bottom: $global-border-style-1;
+    text-align: center; 
+    background: #EEE; 
+
+    li { 
+      position: relative;
+
+      $a-width: 160px;
+      $a-hpadding: 18px;
+      $li-width: $a-width + 2 * $a-hpadding + 1px;
+
+      /* dropdown positioning behavior */
+      &:hover > ul { 
+        left: auto; 
+        > li:hover {
+          > ul {
+            top: 0;
+            left: $li-width;
+          }
+        }
+      }
+
+      ul { 
+        display: block; 
+        position: absolute; 
+        z-index: 999;
+        left: -999em; 
+        text-align: left; 
+        background: inherit;
+        border-bottom: 1px solid #ddd;
+        @include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
+      }
+
+      /* all links */
+      a { 
+        @include link-colors(#666, $light-maroon);
+        display: block;
+        text-decoration: none; 
+        padding: 13px $a-hpadding; 
+        background: #EEE; 
+        display: block; 
+        border: 1px solid #fff;
+        border-width: 0px 1px 0px 0px;
+        font-size: 15px;
+      }
+
+      /* dropdown links */
+      ul a { 
+        color: #666;
+        width: $a-width; 
+        border-width: 1px 1px 0px 0px;
+        border-right-color: #ddd;
+        font-size: 13px; 
+      }
+    } 
+  }
+}
+
+#left, #right {
+  .menu {
+    border-bottom: $global-border-style-1;
+    li { 
+      a { 
+        padding: 3px 0; 
+        font-size: 15px; 
+        color: #8a2529; 
+        font-weight: bold; 
+        text-decoration: none; 
+        display: block;
+      }
+      ul {
+        li {
+          margin-bottom: 0;
+          a { 
+            color: #000; 
+            padding: 7px 0 7px 17px; 
+            display: block;  
+            border-top: $global-border-style-1; 
+            &:hover { color: #cfc0c0; }   
+          }
+          ul {
+            li {
+              margin-bottom: 0;
+              a { 
+                color: #666; 
+                font-size: 13px; 
+                padding: 5px 0 5px 24px; 
+                font-weight: normal; 
+                border: 0 none;   
+              }
+              &:first-child {
+                a  { border-top: $global-border-style-1; }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

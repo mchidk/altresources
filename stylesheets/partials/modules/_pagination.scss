@@ -1,0 +1,12 @@
+@import '../../mixins/common';
+
+$disabled_color: #ddd !default;
+
+.pagination {
+  @include horizontal-bordered-list;
+  em { font-style: normal; font-weight: bold; } 
+	a{
+		font-weight: bold;
+		color: #aa7175;
+	}
+}

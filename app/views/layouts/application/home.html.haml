@@ -1,0 +1,19 @@
+- content_for :main_nav_content do
+  = render_region 'main-nav'
+- content_for :banner_content do
+  = render_region 'main-banner'
+
+- content_for :application_content do
+  #content
+    #content-top
+      = render_region 'content-top'
+    #content-main
+      = flash_messages
+      = content_for?(:default_content) ? yield(:default_content) : yield
+    #content-bottom
+      = render_region 'content-bottom'
+  #right
+    = render_region 'right'
+
+- add_body_class("home sidebar-right")
+= render :file => 'layouts/application'

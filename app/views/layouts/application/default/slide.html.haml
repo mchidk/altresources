@@ -1,0 +1,10 @@
+- content_for :default_content do
+  #slide-wrapper
+    #slide
+      = content_for?(:slide_content) ? yield(:slide_content) : yield
+
+  #slide-bottom
+    = yield :slide_bottom
+
+- add_body_class("slide")
+= render :file => 'layouts/application/default'

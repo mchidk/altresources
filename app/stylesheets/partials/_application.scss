@@ -1,0 +1,288 @@
+@import 'compass/utilities/general/clearfix';
+@import 'includes/blueprint';
+@import 'includes/typography';
+@import 'includes/colors';
+@import 'includes/global';
+
+#footer, #top-nav > div, #banner > div, #body, #bottom-footer, #nav {
+  @include container;
+}
+
+//added by @chris.cr: Sept 22, 2011 - tweak to admin template, wraps nav menu with a color so it appears full width
+#nav-wrapper {
+	background: #eee;
+	width:100%;
+	border-bottom: $global-border-style-1;
+	
+}
+
+body.controller-users {
+  .user {
+    @include clearfix;
+  }
+}
+
+#body {
+  margin: 1.5em auto;
+}
+
+#bottom-footer {
+  font-size: 10px;
+  line-height: 25px;
+  border-top: 1px solid #fff;
+  margin-top: 5px;
+
+  a { text-decoration: none; }
+	a.remove { text-decoration: normal; }
+
+  span {
+    float: left;
+    margin-left: 0.5em;
+  }
+
+  .copyright, .marketsmiths { 
+    display: block; 
+  }
+
+  span.e9digital {
+    float: right; 
+    a { 
+      line-height: 16px;
+      @include inline-block;
+      text-indent: -999em; 
+      width: 118px; 
+      height: 16px; 
+      background: url('/images/site/e9_logo.png') no-repeat;
+      &:hover {
+        background-position: 0 -16px; 
+      }
+    }
+  }
+}
+
+/* --- Header (w/ Nav) --- */
+#main-nav, #admin-nav { margin-bottom: 30px; }
+
+#banner {
+  height: 287px;
+}
+
+#top-nav { 
+  border-bottom: 1px solid #EEE;
+  font-size: 13px; 
+  color: #666; 
+  text-align: right; 
+  a { 
+    text-decoration: none; 
+    &:link    { color: #666; }
+    &:visited { color: #666; }
+    &:hover   { color: #aa7175; } 
+    &:active  { color: #8a2529; }
+  }
+  ul {
+    @include blank-list;
+    text-align: right;
+    li { 
+      @include inline-block; 
+      padding: 10px 6px; 
+    }
+    .welcome { 
+      color: #8a2529; 
+      font-weight: bold; 
+    }
+  }
+}
+
+//added by @chris.cr, 9.22.11 - to fix slide out search field bug
+#top-nav-region ul{
+	width:100%;
+}
+
+#logo {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  margin-left: $blueprint-container-size * -0.5;
+  width: 325px;
+  height: 233px;
+  a { 
+    display: block;
+    width: inherit;
+    height: inherit;
+    background: url(/images/logo.png) no-repeat top left;
+    text-indent: -999em;
+  }
+}
+
+body.admin #logo {
+  width: 291px;
+  height: 20px;
+  top: 8px;
+  a { background-image: url(/images/logo_admin.png); }
+}
+
+.content-feed {
+  .header { 
+    color: #8a2529; 
+    font-size: 15px; 
+    font-weight: bold; 
+    width: 100%; 
+    border-bottom: $global-border-style-1;
+    margin-bottom: 10px; 
+  }
+  ul{
+    color: #000;
+  }
+  .title {
+    display: inline;
+    a { 
+      font-size: 12px; 
+      font-weight: bold; 
+      text-decoration: none; 
+      color: #000; 
+    }
+  }
+  .listing {
+    float: left; clear: both; 
+    margin-bottom: 1em;
+    .image { float: left; margin-right: 5px; }
+    .published-date{
+      margin-top: 5px;
+    }
+    .published-date, .updated-date, .author{ font-size: 9px; }
+    .summary { 
+      font-size: 11px;  
+      margin-top: 3px; 
+    }
+  }
+}
+
+.footer-module {
+  @include column(15, true);
+
+  a { text-decoration: none; }
+
+  .footer-menu {
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #fff;
+    font-weight: bold;
+		li{
+			margin-left: 35px;
+      &:first-child {
+        margin-left: 0;
+      }
+		}
+  }
+
+  ul {
+    &, li { list-style-type: none; }
+    li {
+      margin-left: 27px;
+      &:first-child {
+        margin-left: 0;
+      }
+      display: inline;
+    }
+  }
+}
+
+$footer-border: 1px;
+$footer-height: 163px;
+
+@import 'compass/layout/sticky-footer';
+@include sticky-footer($footer-height, '#root', '#root-footer', '#footer-wrapper');
+
+#footer-wrapper {
+  background: #eee;
+  border-top: 1px solid #ccc;
+  color: $gray;
+  a {
+    @include link-colors($gray, $link_hover_color);
+  }
+  #bottom-footer {
+    &, a { color: #999; }
+  }
+}
+
+#footer { 
+  padding-top: 12px;
+  .renderable {
+    float: left;
+  }
+
+  > div {
+    @include inline-block;
+  }
+  #sub-footer-menu { 
+    @include column(16, true);
+    color: #f09;
+    margin-top: 15px;
+    border-bottom: 1px solid white;
+    padding-bottom: 2px; 
+    li { 
+      color: #f09;
+      @include inline-block;
+      margin-right: 10px; 
+      a { 
+        text-decoration: none;
+        font-weight: bold;
+        color: #666; font-size: 12px; 
+        &:hover { color: #cfc0c0; } 
+      } 
+    }
+  }
+  .footer-bios { 
+    @include column(17);
+    .feed-listing {  
+      float: left; 
+      width: 240px; 
+      margin-top: 20px;
+      .feed-image { float: left; margin-right: 8px; } 
+      .feed-summary { font-size: 11px; color: #666; line-height: 1.2;}
+      .feed-author { font-weight: bold; color: #8a2529; margin-top: 3px; margin-bottom: 2px; }
+      .feed-title {
+        a { text-decoration: none; color: #666; font-style: italic; font-size: 10px; }
+      }
+    }
+  }
+  .get-in-touch {
+    @include column(16, true); 
+    padding-top: 15px; 
+    dl {
+      width: 75px; float: left; 
+      dt { width: 35px; height: 35px; }
+      dd { font-size: 10px; font-style: italic; color: #666; margin-top: 5px; }
+    }
+    .hello {
+      float: left; 
+      a {
+        float: left;
+      } 
+      dl {
+        margin-left: 10px; width: 135px; 
+        dt { font-size: 16px; }
+        dd { color: #8a2529; font-weight: bold; }
+      }
+      .more-info { font-style: italic; font-size: 13px; color: #666; font-weight: normal; width: auto; height: auto;  }  
+    }
+  }
+}
+
+h4.help a {
+	color:red;
+	text-decoration:underline;
+}
+
+div.help {
+	color:red;
+	font-size:$medium-font-size;
+	margin:1.75em 0 .4em 0;
+}
+
+.user_new .actions a{
+	
+		font-size:$small-font-size;
+		font-weight:bold;
+	
+}

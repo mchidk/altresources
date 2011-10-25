@@ -1,0 +1,43 @@
+/* styles for "blocks", namely "block" and "left-block", components of lists and content views */
+
+@import 'compass/css3/inline-block';
+@import 'includes/typography';
+@import 'includes/global';
+@import 'includes/colors';
+
+/* note this mixin exists to make it easier to have different sized left blocks, like on jbreshin */
+@mixin left-blockish($padding, $width: $avatar-width, $height: $avatar-height) {
+  $outer-width: $width + 2px;
+  width: $outer-width;
+  float: left; 
+  margin: 0 12px 8px 0;
+  text-align: center; 
+  .actions { 
+    text-align: left;
+    ul {
+      @include blank-list;
+      li { display: block; }
+    }
+    a { 
+      @include alt-link-colors;
+      @include inline-block;
+      border: $global-border-style;
+      border-top: none;
+      font-weight: bold; 
+      padding: 0.5em $padding;
+      width: $width - $padding * 2;
+      text-decoration: underline;
+    }
+  }
+  .thumb, .avatar {
+    img { 
+      border: $global-border-style;
+      width: $width;
+      height: $height;
+    }
+  }
+}
+
+.left-block {
+  @include left-blockish(8px);
+} 

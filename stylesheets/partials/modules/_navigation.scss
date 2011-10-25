@@ -1,0 +1,102 @@
+#nav {
+  .menu {
+    overflow: visible; 
+    border-bottom: $global-border-style;
+    text-align: center; 
+    background: #EEE; 
+    li { 
+      @include inline-block; 
+      vertical-align: middle;
+			&:first-child{
+				border-left: 1px solid #fff;
+			}
+      &.hover {
+        > ul { 
+          z-index: 10; 
+          left: auto; 
+          .hover {
+            ul {
+              left: -203px !important;
+              top: 0;
+            }
+          }
+        }
+      }
+      a { 
+        text-decoration: none; 
+        color: #666;
+        padding: 13px 18px; 
+        background: #EEE; 
+        display: block; 
+        border-right: 1px solid #FFF; 
+        font-size: 15px;
+        &:hover { color: #aa7175; }
+      }
+      ul { 
+        overflow: visible; 
+        position: absolute; 
+        left: -999em; 
+        text-align: left; 
+        display: block; 
+        width: 160px; 
+        background: #EEE; 
+        box-shadow: 0px 0px 1px rgba(0,0,0,.3); 
+        border-left: 1px solid #FFF; 
+        border-bottom: 1px solid #DDD;
+        li { 
+          width: 100%; 
+          a { 
+            border-left: 0 none; 
+            font-size: 13px; 
+            border-top: 1px solid white;
+            ul { margin-left: 200px; }
+          }
+        } 
+      }
+    } 
+  }
+}
+
+#left, #right {
+  .menu {
+    border-bottom: $global-border-style;
+    li { 
+      a { 
+        padding: 3px 0; 
+        font-size: 15px; 
+        color: #8a2529; 
+        font-weight: bold; 
+        text-decoration: none; 
+        width: 100%; 
+        display: block;
+      }
+      ul {
+        li {
+          margin-bottom: 0;
+          a { 
+            color: #000; 
+            padding: 7px 0 7px 17px; 
+            display: block;  
+            border-top: $global-border-style; 
+            &:hover { color: #cfc0c0; }   
+          }
+          ul {
+            li {
+              margin-bottom: 0;
+              a { 
+                color: #666; 
+                font-size: 13px; 
+                padding: 5px 0 5px 24px; 
+                font-weight: normal; 
+                border: 0 none;   
+              }
+              &:first-child {
+                a  { border-top: $global-border-style; }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

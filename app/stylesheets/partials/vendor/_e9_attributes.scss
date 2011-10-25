@@ -1,0 +1,72 @@
+@import 'compass/css3/inline-block';
+
+form.edit_user, form.new_user {
+  input[type=text], textarea {
+    width: 315px;
+    &.short {
+      width: 100px;
+    }
+  }
+  textarea {
+    height: 100px;
+
+  }
+
+  input[type="text"]{
+    height: 2.25em;
+  }
+
+  input, select, textarea {
+    margin-top: 0;
+  }
+
+  .info-bio textarea {
+    width: 100%;
+    height: 150px;
+  }
+  
+  select {
+	font-size:12px;
+	  //height:1.75em;
+    width: 125px;
+  }
+}
+
+
+
+
+
+form.edit_user, form.new_user, form.edit_poll, form.new_poll {
+  .add-nested-association, .destroy-nested-association {
+    cursor: pointer;
+  }
+
+  .nested-association .field, .destroy-nested-association {
+    @include inline-block;
+    vertical-align: top;
+  }
+
+  .add-nested-association {
+    margin-top: 3px;
+  }
+
+  .nested-association .field { 
+    margin: 0;
+    padding-top: 0;
+  }
+  .ui-button-icon-only {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.page form.edit_user .record-attribute .field {
+  input[type=text], textarea {
+    width: 200px;
+		margin:6px 0 5px 12px;
+	}
+	
+	select{
+		margin:6px 0 10px 12px;
+	}
+}

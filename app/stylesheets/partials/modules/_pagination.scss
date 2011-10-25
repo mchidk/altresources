@@ -1,0 +1,12 @@
+@import 'compass/typography/lists/horizontal-list';
+
+$disabled_color: #ddd !default;
+
+.pagination {
+  @include horizontal-list;
+  em { font-style: normal; font-weight: bold; } 
+	a{
+		font-weight: bold;
+		color: #aa7175;
+	}
+}

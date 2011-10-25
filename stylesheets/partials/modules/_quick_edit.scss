@@ -1,0 +1,62 @@
+.qe-tooltip {
+
+  > div { white-space: nowrap; }
+
+  a {
+    @include inline-block;
+    margin-left: 5px;
+    padding-left: 5px; 
+  }
+  a:first-child {
+    background: none;
+    margin-left: 0px;
+    padding-left: 0px; 
+  } 
+
+}
+
+#qe-link {
+  @include gradient(#ccc, #666);
+  @include border-radius(6px);
+  @include single-text-shadow(rgba(0,0,0,.5),0,-2px,2px);
+  @include box-shadow(0,1px,0,rgba(255,255,255,0.4),inset);
+  text-decoration: none;
+  font-size: 11px;
+  cursor: pointer;
+  border-width: 1px 1px 0px 1px;
+  border-color: #ccc;
+  border-style: solid;
+  font-family: "Lucida Grande", "Arial", sans-serif;
+  display: block;
+  position: fixed;
+  color: #FFF;
+  font-weight : bold\9;
+  text-align: center;
+  top: 0; 
+  left: 0;
+  padding: 9px 12px 10px 12px;
+  line-height: 1;
+  width: auto;
+  margin-top: ceil(5px);
+  margin-left: ceil(5px);
+  z-index: 500; 
+  &:hover { 
+    @include gradient(#ccc,#555);
+  }
+
+  &:active { 
+    color: rgba(255,255,255,.6); 
+  }
+
+}
+
+.renderable-edit-layer {
+  @include rgba-background-inline(rgba(50, 50, 200, 0.15));
+  display: none;
+  z-index: 998;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

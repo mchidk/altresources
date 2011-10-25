@@ -1,0 +1,77 @@
+@import 'compass/utilities/general/clearfix';
+@import 'includes/global';
+@import 'includes/typography';
+
+.no-display {
+  display: none;
+}
+
+/** hide focus outlines for graphical links */
+*:focus { outline: none; }
+
+.image, .avatar, .thumb
+{ 
+  img { display: block; } 
+}
+
+/** image borders */
+img, a img { 
+  border: $global-border-style-1; 
+}
+
+a:hover img {
+  border: $global-border-style-2;
+}
+
+/** images that should have no borders */
+.banner
+{
+  img {
+    border: none;
+  }
+}
+
+.title {
+  .actions {
+    margin: $global-spacing-margin 0;
+  }
+}
+
+#content, .listing {
+  > .block > * {
+    margin-bottom: $global-spacing-margin;
+  }
+}
+
+.byline, 
+.dateline, 
+.created-byline, 
+.last-reply-byline,
+.prefix
+{ 
+  span { font-weight: bold; }
+  @include small-font-size;
+  font-style: italic;
+}
+
+.prefix {
+  margin-bottom: 3px;
+}
+
+.info {
+  p { margin: 0 }
+  @include tiny-font-size;
+  margin-bottom: $global_spacing_margin;
+}
+
+.prefix { 
+  font-style: italic;
+  .author-name { 
+    font-weight: bold; 
+    font-style: normal; 
+  }
+}
+
+.contact-who-name{
+	font-weight:bold;
+}

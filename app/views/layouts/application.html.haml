@@ -1,0 +1,51 @@
+!!! 5
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html; CHARSET=utf-8'}/
+    %title= meta_title
+    = meta_tags
+
+    = yield :stylesheets 
+    = render 'shared/head'
+    = yield :javascripts
+    = yield :head
+
+    - if (code = E9::Config[:header_text]).present?
+      = code.html_safe
+
+  %body{:class => body_class}
+    #root
+      #header
+        #top-nav
+          = render_region 'top-nav'
+        #logo
+          = link_to(E9::Config[:site_name], "/")
+
+        - if content_for?(:banner_content)
+          #banner
+            = yield(:banner_content)
+
+        - if content_for?(:main_nav_content)
+          #nav-wrapper
+            #nav
+              = yield(:main_nav_content)
+
+      #body-wrapper
+        #body
+          = content_for?(:application_content) ? yield(:application_content) : yield
+
+      #root-footer
+
+    #footer-wrapper
+      #footer
+        = render_region 'footer'
+      #bottom-footer
+        = render_region 'bottom-footer'
+
+    .no-display
+      = yield :bottom_javascripts
+
+    - unless !Rails.env.production? || @hide_google_analytics
+      - if (code = E9::Config['google_analytics_code']).present?
+        = code.html_safe
+

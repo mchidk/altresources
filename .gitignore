@@ -1,0 +1,15 @@
+*.tmproj
+.bundle
+.DS_Store
+db/*.sqlite3
+log/*.log
+tmp/*
+*.swp
+*.swo
+public/stylesheets/*.css
+public/assets/*
+public/uploads/*
+public/images/share_sites/*
+public/vendor
+rerun.txt
+config/database.yml

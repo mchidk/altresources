@@ -1,0 +1,106 @@
+defaults: &defaults
+  add_sales_contact_intro: ""
+  admin_records_per_page: 10
+  avatar_size: 90
+  slide_embeddable_width: 590 
+  slide_embeddable_height: 390 
+  wide_thumb_width: 156
+  wide_thumb_height: 102
+  banner_width: 985
+  banner_height: 287
+  blog_allow_comments: true
+  blog_pagination_records: 10
+  slide_pagination_records: 4
+  blog_show_author_info: true
+  blog_display_actions: true
+  blog_show_date: true
+  blog_show_labels: true
+  blog_show_social_bookmarks: true
+  blog_submenu: 'pagination'
+  blog_teaser_body_length: 200
+  blog_view: 'digest'
+  contact_form_page_text: ""
+  contact_form_page_title: "Contact Us"
+  contact_thanks_page_text: ""
+  contact_thanks_page_title: "Thanks!"
+  content_icon_size: 100
+  copyright_start_year: "2009"
+  debug_mode: false
+  default_html_email: |
+    <p>Dear #first_name#,</p>
+    <p>****REPLACE WITH YOUR CONTENT HERE****</p>
+    <p>Many thanks!</p>
+    <p>The {{ config.site_name }} Team<br />{{ config.can_spam_mailing_address}}</p>
+    <p>PS: If you have any trouble or have questions, you can simply reply to this email and let us know!</p>
+    <p>To unsubscribe from this list, click the following link or paste it into your browser:<br />#unsubscribe_url#</p>
+  default_menu_truncation: 25
+  default_meta_description: 'default meta description'
+  default_meta_keywords: 'default, meta, keywords'
+  default_text_email: |
+    Dear #first_name#,
+
+    ****REPLACE WITH YOUR CONTENT HERE****
+
+    Many thanks!
+
+    The {{ config.site_name }} Team
+    {{ config.can_spam_mailing_address}}
+
+    PS: If you have any trouble or have questions, you can simply reply to this email and let us know!
+
+    To unsubscribe from this list, click the following link or paste it into your browser:
+    #unsubscribe_url#
+  domain_name: "www.example.com"
+  excerpt_display_chars: 400
+  e9_standard_help: "<div><iframe src=\"https://docs.google.com/document/pub?id=1bf82OyLzootm1TbgAjDl8OiikD8hzyquwHyYa8kRpi0&amp;embedded=true\" style=\"width:100%;height:1000px;\"></iframe></div>"
+  faq_show_author_info: true
+  faq_show_date: true
+  feed_max_title_characters: 100
+  feed_records: 10
+  feed_summary_characters: 100
+  forum_pagination_records: 3
+  google_analytics_code: "<script>var google_conversion_id = 123456789;</script>"
+  google_site_verification_code: 'google_site_verification_code'
+  home_records_per_page: 4
+  layout_preview_height: 162
+  layout_preview_width: 200
+  maximum_share_site_count: 8
+  menu_icon_size: 30
+  menu_record_count: 5
+  page_allow_comments: true
+  page_show_author_info: true
+  page_display_actions: true
+  page_show_date: true
+  page_show_labels: true
+  page_show_social_bookmarks: true
+  page_submenu: 'pagination'
+  records_per_page: 10
+  sales_email: "sales@example.com"
+  search_records_per_page: 5
+  share_site_icon_size: 30
+  sign_in_page_title: "Sign In"
+  sign_up_page_title: "Sign Up"
+  site_email_address: 'site@example.com'
+  site_name: 'Site Name'
+  slide_allow_comments: true
+  slide_show_author_info: true
+  slide_display_actions: true
+  slide_display_more_info: true
+  slide_show_date: true
+  slide_show_labels: true
+  slide_show_social_bookmarks: true
+  bitly_username: e9digital
+  bitly_api_key: R_e3a7627deda2b73f2a4e047988d70387
+  smtp_address: smtp.sendgrid.net
+
+development:
+  <<: *defaults
+  smtp_username: admin@e9digital.com
+  smtp_password: '#3nzym3#!'
+  smtp_domain: e9digital.com
+production:
+  <<: *defaults
+staging:
+  <<: *defaults
+test:
+  <<: *defaults

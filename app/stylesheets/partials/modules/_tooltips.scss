@@ -1,0 +1,38 @@
+@import 'compass/typography/lists/horizontal-list';
+
+$tooltip_label_color: #333 !default;
+$tooltip_border: 1px solid #ccc !default;
+$tooltip_label_font_size: 9.5px !default;
+$tooltip_permalink_width: 300px !default;
+$tooltip_permalink_padding: 3px !default;
+
+[rel=tooltip] {
+  cursor: pointer;
+}
+
+.ui-tooltip {
+  ul { @include horizontal-list(0px); }
+}
+
+.qtip {
+  width: auto !important;
+
+  fieldset { border: 0; padding: 0; margin: 0; }
+  .section { margin-bottom: 0.5em; }
+
+  .label { 
+    font-size: $tooltip_label_font_size; 
+    color: $tooltip_label_color; 
+  }
+  .qtip-content { 
+    border: $tooltip_border; 
+    padding-top: 3em; 
+  }
+  .permalink {
+    input[readonly] {
+      width: $tooltip_permalink_width;
+      padding: $tooltip_permalink_padding;
+      margin-left: 4px;
+    }
+  }
+}

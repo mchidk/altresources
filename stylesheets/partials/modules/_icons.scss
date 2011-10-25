@@ -1,0 +1,90 @@
+@import '../../mixins/icons';
+
+.icon { @include icon; };
+
+a.i0  { @include icon_states(0);  }
+a.i1  { @include icon_states(1);  }
+a.i2  { @include icon_states(2);  }
+a.i3  { @include icon_states(3);  }
+a.i4  { @include icon_states(4);  }
+a.i5  { @include icon_states(5);  }
+a.i6  { @include icon_states(6);  }
+a.i7  { @include icon_states(7);  }
+a.i8  { @include icon_states(8);  }
+a.i9  { @include icon_states(9);  }
+a.i10 { @include icon_states(10); }
+a.i11 { @include icon_states(11); }
+a.i12 { @include icon_states(12); }
+a.i13 { @include icon_states(13); }
+a.i14 { @include icon_states(14); }
+a.i15 { @include icon_states(15); }
+a.i16 { @include icon_states(16); }
+a.i17 { @include icon_states(17); }
+a.i18 { @include icon_states(18); }
+a.i19 { @include icon_states(19); }
+a.i20 { @include icon_states(20); }
+a.i21 { @include icon_states(21); }
+a.i22 { @include icon_states(22); }
+a.i23 { @include icon_states(23); }
+a.i24 { @include icon_states(24); }
+a.i25 { @include icon_states(25); }
+a.i26 { @include icon_states(26); }
+a.i27 { @include icon_states(27); }
+a.i28 { @include icon_states(28); }
+a.i29 { @include icon_states(29); }
+a.i30 { @include icon_states(30); }
+a.i31 { @include icon_states(31); }
+a.i32 { @include icon_states(32); }
+a.i33 { @include icon_states(33); }
+a.i34 { @include icon_states(34); }
+
+a.help              { @extend .icon; @include icon_states(0);  }
+.icon-delete       { @extend .icon; @include icon-states(4);  }
+.icon-print        { @extend .icon; @include icon_states(7);  }
+.icon-edit         { @extend .icon; @include icon-states(8);  }
+.icon-friend-email { @extend .icon; @include icon_states(9);  }
+.icon-permalink     { @extend .icon; @include icon_states(19); float: left; }
+//a.feed              { @extend .icon; @include icon_states(24, true); }
+.icon-favorite     { @extend .icon; @include icon-states(25); }
+.icon-unfavorite   { @extend .icon; @include icon-states(32); }
+a.feed{
+	width: 15px;
+	height: 15px;
+	background: url('/images/buttons/rss_snippets.png') no-repeat;
+	margin-right: 5px;
+	margin-bottom: 3px;
+	&:hover{
+		background: url('/images/buttons/rss_snippets.png') no-repeat 0 -15px;
+	}
+}
+
+// small icon uses a different size and path (and is reversed)
+a.small-icon-feed {
+  @include icon(0, true, 15px, 15px, '/images/buttons/rss_snippets.png');
+}
+
+a.social-link { 
+  $w: 35px;
+  $h: 35px;
+
+  @include inline-block;
+  vertical-align: top;
+  width: 75px;
+  font-size: 10.5px;
+  text-decoration: none;
+
+  .img {
+    @include icon_behavior($w, $h, '/images/buttons/share_icons_footer.png');
+    margin-bottom: 5px;
+  }
+
+  &.facebook .img { @include icon_states(0, false, $w, $h); }
+  &.twitter .img { @include icon_states(1, false, $w, $h); }
+  &.linked-in .img { @include icon_states(2, false, $w, $h); } 
+  &.hello {
+    .img { @include icon_states(3, false, $w, $h); }
+    width: 180px;
+    .text, .img { float: left; }
+    .text { width: 135px; margin-left: 10px; }
+  }
+}

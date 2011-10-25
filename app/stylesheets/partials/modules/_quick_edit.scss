@@ -1,0 +1,32 @@
+@import 'compass/css3/inline-block';
+@import 'includes/typography';
+@import 'rgbapng';
+
+.qe-tooltip {
+  > div { white-space: nowrap; }
+  a {
+    @include inline-block;
+    margin: 0 5px;
+    &:first-child { margin-left: 0px; } 
+  }
+}
+
+#qe-link {
+  font-size: $small-font-size;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  display: block;
+  z-index: 500; 
+}
+
+.renderable-edit-layer {
+  @include rgba-background-inline(rgba(50, 50, 200, 0.15));
+  display: none;
+  z-index: 998;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,92 @@
+@import 'includes/global';
+
+$tiny-font-size:  10px !default;
+$small-font-size: 11px !default;
+$base-font-size:  14px !default;
+$large-font-size: 16px !default;
+$huge-font-size:  24px !default;
+
+$sans-font-family:        Arial, Verdana, sans-serif !default;
+$serif-font-family:       "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+$fixed-width-font-family: "andale mono", "lucida console", monospace !default;
+
+$base-font: $base-font-size $serif-font;
+$base-line-height: 1.2 !default;
+
+@mixin sans        { font-family: $sans-font-family; }
+@mixin serif       { font-family: $serif-font-family; }
+@mixin fixed-width { font: 1em $fixed-width-font-family; line-height: 1.5; }
+
+@mixin tiny-font   { font-size: $tiny-font-size; }
+@mixin small-font  { font-size: $small-font-size; }
+@mixin base-font   { font-size: $base-font-size; }
+@mixin large-font  { font-size: $large-font-size; }
+@mixin huge-font   { font-size: $huge-font-size; }
+@mixin giant-font  { font-size: $giant-font-size; }
+
+
+/*
+ * Headers
+ */
+
+@mixin h_typography {
+  font-weight: bold;
+  line-height: 1.1;
+  a { text-decoration: none }
+}
+
+@mixin h1_typography {
+  @include h_typography;
+  font-size: 18px; 
+  margin: 0 0 0.37em; 
+  padding: 0 0 0.33em; 
+}
+
+@mixin h2_typography {
+  @include h_typography;
+  font-size: $large-font-size;
+  margin: 0 0 0.37em; 
+  padding: 0 0 0.33em; 
+}
+
+@mixin h3_typography {
+  @include h_typography;
+  font-size: $large-font-size;
+  margin: 0 0 0.25em; 
+  padding: 0 0 0.25em; 
+}
+
+@mixin h4_typography {
+  @include h_typography;
+  font-size: $base-font-size;
+  margin: 0 0 0.25em; 
+  padding: 0 0 0.25em; 
+}
+
+@mixin h5_typography {
+  @include h_typography;
+  font-size: $base-font-size;
+  margin: 0 0 0.125em; 
+  padding: 0 0 0.125em; 
+}
+
+@mixin h6_typography {
+  @include h_typography;
+  font-size: $base-font-size;
+}
+
+
+/*
+ * Misc
+ */
+
+@mixin blank-list {
+  &, li {
+    margin: 0;
+    padding: 0; 
+  }
+  li {
+    list-style: outside none none;
+    display: inline;
+  }
+}

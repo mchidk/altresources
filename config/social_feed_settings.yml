@@ -1,0 +1,36 @@
+defaults: &defaults
+  facebook_forum_template: "{% username %} created a {% content_type %}: {% title %}"
+  facebook_forums_by_default: false
+  facebook_pages_by_default: false
+  facebook_slides_by_default: false
+  facebook_blog_posts_by_default: false
+  facebook_slideshows_by_default: false
+  facebook_page_template: "{% username %} created a {% content_type %}: {% title %}"
+  facebook_company_page_url: 'http://facebook.com'
+
+  twitter_page_template: "{% username %} created a {% content_type %}: {% title %}"
+  twitter_forum_template: "{% username %} created a {% content_type %}: {% title %}"
+  twitter_forums_by_default: false
+  twitter_pages_by_default: false
+  twitter_slides_by_default: false
+  twitter_blog_posts_by_default: false
+  twitter_slideshows_by_default: false
+  twitter_company_page_url: 'http://twitter.com'
+
+  linked_in_company_page_url: 'http://linkedin.com'
+
+development:
+  <<: *defaults
+  facebook_app_id: "155577647799335"
+  facebook_app_secret: "36a8d602a5a5abf16db2fc9137e1398a"
+  facebook_access_token: "155577647799335|1bae03331749f077d1be05ba.0-46300895|dkcDw0GZbFCm3-iylWBEyONutZA"
+  twitter_app_id: "ym5Aq01PMdayEZ8c5SOSA"
+  twitter_app_secret: "DX5FloOiixoRlsmHEJH8ZSkqgb0ye57YBX5SyZowVo"
+  twitter_access_token: "197161961-5Z7YSofDf3cq7uFhbB2kGsgz22KLjM4tRBxLGyfg"
+  twitter_secret_token: "hdoLw96si5NdaLXz9mLmiFIPW7z7o0g195aBHY"
+production:
+  <<: *defaults
+staging:
+  <<: *defaults
+test:
+  <<: *defaults

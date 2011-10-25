@@ -1,0 +1,15 @@
+- content_for :application_content do
+  #content
+    = flash_messages
+    = breadcrumbs_helper
+    #content-top
+      = render_region 'content-top'
+    #content-main
+      = content_for?(:default_content) ? yield(:default_content) : yield
+    #content-bottom
+      = render_region 'content-bottom'
+  #right
+    = render_region 'right'
+
+- add_body_class("sidebar-right")
+= render :file => 'layouts/application'

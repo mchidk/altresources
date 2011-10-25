@@ -1,0 +1,28 @@
+/* ensure clearfix for quickedit */
+.renderable, .region {
+  @include legacy-pie-clearfix;
+}
+
+$renderable-bottom-margin: 1em;
+
+.renderable {
+  margin-bottom: $renderable-bottom-margin;
+}
+
+/**
+ * Most sidebar renderables have automatic bottom borders,
+ * with padding to match the margin;
+ */
+#left, #right {
+  .renderable {
+
+    &.feed_widget, &.top_widget, &.slideshow_widget, &.poll {
+      padding-bottom: $renderable-bottom-margin;
+      border-bottom: $global-border-style;
+    }
+
+    &:empty {
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+body.controller-admin-layouts {
+  fieldset label { @extend .large-type; }
+  fieldset.layout-group { margin-bottom: 1.5em; } 
+  .layout {
+    .links { margin-bottom: 0.333em; }
+    float: left;
+    padding-right: 1em;
+    width: $layout_preview_width;
+    overflow: hidden; 
+  }
+}

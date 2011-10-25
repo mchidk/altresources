@@ -1,0 +1,113 @@
+@import 'compass/typography/links/link-colors';
+
+/**
+ * Base
+ */
+
+$maroon:                      #8A2529 !default;
+$light-maroon:                #AA7175 !default;
+$gray:                           #666 !default;
+$off-gray:                    #CFC0C0 !default;
+
+$text-color:                    $gray !default;
+$alt-text-color:              $maroon !default;
+$background-color:               #fff !default;
+$error-color:                    #844 !default;
+$table-header-color:        $off-gray !default;
+$highlight-color:                #ff0 !default;
+$global-border-color-1:          #ccc !default;
+$global-border-color-2:     $off-gray !default;
+$global-border-color-3:       $light-maroon !default;
+
+//*------Main theme colors------*/ added by chris.cr
+$theme-primary:#9F9F9F;
+$theme-secondary:#eee;
+$theme-alternate:#ccc;
+
+$theme-tertiary:#AA7175;
+$theme-accent:#fff;
+
+$theme-spot:#CFC0C0;
+$theme-alert:#CFC0C0;
+
+$theme-wildcard:#CFC0C0;
+
+//*------E9 baseline colors------*/ added by chris.cr
+$base-primary:#9F9F9F; 
+$base-secondary:navy;
+$base-alternate:gray;
+
+$base-tertiary:#efefef;
+$base-accent:#ccc;
+
+$base-spot:white;
+$base-alert:yellow;
+
+$base-wildcard:yellow;
+
+@mixin base-color { color: $text-color; }
+@mixin alt-color  { color: $alt-text-color; }
+
+/**
+ * Headers
+ */
+
+$h1-color: $maroon !default;
+$h2-color: $maroon !default;
+$h3-color:   $gray !default;
+$h4-color: $maroon !default;
+$h5-color:   $gray !default;
+$h6-color: $maroon !default;
+
+@mixin h1-color { color: $h1-color; }
+@mixin h2-color { color: $h2-color; }
+@mixin h3-color { color: $h3-color; }
+@mixin h4-color { color: $h4-color; }
+@mixin h5-color { color: $h5-color; }
+@mixin h6-color { color: $h6-color; }
+
+/**
+ * Links
+ */
+
+$link-color:                       $gray !default;
+$link-hover-color:         $light-maroon !default;
+$link-active-color:          $link-color !default;
+$link-visited-color:         $link-color !default;
+$link-focus-color:           $link-color !default;
+$link-current-color:   $link-hover-color !default;
+
+$alt-link-color:                 $maroon !default;
+$alt-link-hover-color:             $gray !default;
+
+@mixin base-link-colors { @include link-colors($link-color, $link-hover-color, $link-active-color, $link-visited-color, $link-focus-color); }
+@mixin alt-link-colors { @include link-colors($alt-link-color, $alt-link-hover-color); }
+
+/**
+ * Forms
+ */
+
+$field-background-color:                  #fdfafa !default;
+$field-focus-background-color:               #fff !default;
+$field-border-color:                         #999 !default;
+$field-focus-border-color:                   #aaa !default;
+$field-with-errors-background:               #ffc !default;
+$field-with-errors-focus-background:         #ffd !default;
+$field-color:                         $text-color !default;
+$label-color:                         $text-color !default;
+$legend-color:                       $label-color !default;
+$field-with-errors-label-color:      $error-color !default;
+
+/**
+ * Misc
+ */
+
+$button-color:                      #666 !default;
+
+@mixin classed-color($color, $hover-color: false) {
+  &, a { color: $color; }
+  a { text-decoration: underline; }
+  @if $hover-color {
+    a:hover { color: $hover-color; }
+  }
+}

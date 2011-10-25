@@ -1,0 +1,12 @@
+body.sidebar-right { 
+  #body {
+    background: url(/images/site/divider-vertical.png) repeat-y top right;
+  }
+  #content { 
+    @include column(23); 
+    @include append(1); 
+  }
+  #right { 
+    @include column(9, true); 
+  }
+}

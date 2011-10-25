@@ -1,0 +1,12 @@
+@import 'compass/css3/inline-block';
+
+@mixin button($w, $h, $img: false, $hx: 0, $hy: false) {
+  @if ( not $hy ) { $hy: -1 * $h; }
+  @include inline-block;
+  text-indent: -999em;
+  width: $w;
+  height: $h;
+  background: #fff scroll no-repeat;
+  @if ( $img ) { background-image: url($img); }
+  &:hover { background-position: $hx $hy; }
+}

@@ -1,0 +1,46 @@
+puts "Building Admin Menu"
+
+admin_menu = Menu.create!(:name => "Admin Menu", :identifier => 'admin_menu', :system => true, :editable => false)
+
+admin_home  = HardLink.create!(:parent => admin_menu, :name => "Admin Home",        :href => "/admin/home")
+HardLink.create!(:parent => admin_home,  :name => "Analytics",         :href => "http://google.com/analytics",        :external => true)
+HardLink.create!(:parent => admin_home,  :name => "Flagged Comments",  :href => "/admin/comments/flagged")
+HardLink.create!(:parent => admin_home,  :name => "Search Log",        :href => "/admin/search_log")
+HardLink.create!(:parent => admin_home,  :name => "Social Feeds",      :href => "/admin/social_feeds")
+HardLink.create!(:parent => admin_home,  :name => "Users",             :href => "/admin/users")
+
+content_nav = HardLink.create!(:parent => admin_menu, :name => "Content",           :href => "/admin/pages")
+HardLink.create!(:parent => content_nav, :name => "Blog Posts",        :href => "/admin/blog_posts")
+HardLink.create!(:parent => content_nav, :name => "FAQs",              :href => "/admin/faqs")
+HardLink.create!(:parent => content_nav, :name => "Layouts",           :href => "/admin/layouts")
+HardLink.create!(:parent => content_nav, :name => "Menus",             :href => "/admin/menus/main/submenus")
+HardLink.create!(:parent => content_nav, :name => "Pages",             :href => "/admin/pages")
+HardLink.create!(:parent => content_nav, :name => "Slides",            :href => "/admin/slides")
+HardLink.create!(:parent => content_nav, :name => "System Pages",      :href => "/admin/system_pages")
+
+widget_nav  = HardLink.create!(:parent => admin_menu, :name => "Widgets",           :href => "/admin/feed_widgets")
+HardLink.create!(:parent => widget_nav, :name => "Banners",           :href => "/admin/banners")
+HardLink.create!(:parent => widget_nav,  :name => "Content Feed",      :href => "/admin/feed_widgets")
+HardLink.create!(:parent => widget_nav,  :name => "Feed Templates",    :href => "/admin/widget_templates")
+HardLink.create!(:parent => widget_nav,  :name => "Polls",             :href => "/admin/polls")
+HardLink.create!(:parent => widget_nav,  :name => "Slideshow Widget",  :href => "/admin/slideshow_widgets")
+HardLink.create!(:parent => widget_nav,  :name => "Snippets",          :href => "/admin/snippets")
+HardLink.create!(:parent => widget_nav,  :name => "Top Content Feed",  :href => "/admin/top_widgets")
+
+email_nav   = HardLink.create!(:parent => admin_menu, :name => "Email Newsletters", :href => "/admin/email/pending")
+HardLink.create!(:parent => email_nav,   :name => "Create Newsletter", :href => "/admin/email/pending/new")
+HardLink.create!(:parent => email_nav,   :name => "Sent Newsletters",  :href => "/admin/email/sent")
+
+setting_nav = HardLink.create!(:parent => admin_menu, :name => "Settings",          :href => "/admin/settings")
+HardLink.create!(:parent => setting_nav, :name => "Content Settings",  :href => "/admin/settings/content")
+HardLink.create!(:parent => setting_nav, :name => "Email Settings",    :href => "/admin/settings/email")
+HardLink.create!(:parent => setting_nav, :name => "General Settings",  :href => "/admin/settings/general")
+HardLink.create!(:parent => setting_nav, :name => "Social Settings",   :href => "/admin/settings/social")
+HardLink.create!(:parent => setting_nav, :name => "Blogs",             :href => "/admin/blogs")
+HardLink.create!(:parent => setting_nav, :name => "Forums",            :href => "/admin/forums")
+HardLink.create!(:parent => setting_nav, :name => "Mailing Lists",     :href => "/admin/email/lists")
+HardLink.create!(:parent => setting_nav, :name => "Share Sites",       :href => "/admin/settings/share_sites")
+HardLink.create!(:parent => setting_nav, :name => "Slideshows",        :href => "/admin/slideshows")
+HardLink.create!(:parent => setting_nav, :name => "System Email",      :href => "/admin/email/system")
+
+help_nav    = HardLink.create!(:parent => admin_menu, :name => "Help",              :href => "/admin/help")

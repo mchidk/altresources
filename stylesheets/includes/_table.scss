@@ -1,0 +1,81 @@
+@import "compass/css3/border-radius";
+@import "includes/global";
+@import "includes/colors";
+@import "includes/typography";
+
+$table_border_style:          $global_border_style_1 !default;
+$table_header_background:     $background-color !default;
+$table_ordered_column_image:  '/images/buttons/arrow_admin.png' !default;
+
+@mixin table {
+  border-collapse: separate;
+  margin-bottom: 1.5em; 
+  width: 100%;
+  
+  th {
+    background: $table_header_background;
+    text-align: center;
+    text-align: center; 
+    line-height: 2em;
+  } 
+
+  td, th {
+    &.ui-widget-content, &.ui-state-default {
+      border-left-width: 0;
+      &:first-child { border-left-width: 1px; }
+    }
+
+    &.ui-widget-content {
+      border-top-width: 0;
+    }
+  }
+
+  td {
+
+    @include small-font;
+    font-weight: normal !important; 
+    border-top-width: 0px; 
+    padding: 0.5em;
+
+    .viewable-status {
+      margin-left: 5px;
+    }
+
+    &.links { 
+      text-decoration: none; 
+      text-transform: uppercase; 
+      white-space: nowrap;
+      a {
+        @include tiny-font;
+      }
+    }
+
+    &.link {
+      a, a:link, a:visited {
+        text-decoration: underline;
+      }
+    }
+
+    &.checkbox {
+      text-align: center;
+    }
+
+    &.links, &.num {
+      text-align: right;
+    }
+  }
+
+  tbody tr { line-height: 1.33; }
+  tfoot { font-style: italic; }
+  caption { background-color: $background_color; }
+
+  th .ordered-column {
+    a { text-decoration: none; }
+    a:hover span.text {
+      text-decoration: underline;
+    }
+    span.order-gfx {
+      margin-left: 0.5em;
+    }
+  } 
+}

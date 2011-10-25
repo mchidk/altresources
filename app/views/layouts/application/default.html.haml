@@ -1,0 +1,7 @@
+- content_for :main_nav_content do
+  = render_region 'main-nav'
+- content_for :banner_content do
+  = render_region 'main-banner'
+
+- add_body_class("default")
+= render :file => 'layouts/application/sidebar_right'

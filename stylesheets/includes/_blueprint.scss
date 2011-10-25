@@ -1,0 +1,15 @@
+$blueprint_grid_columns:            33;
+$blueprint_grid_margin:            5px;
+$blueprint_grid_width:            25px;
+
+@import 'blueprint/grid';
+
+@mixin container($pie: true) {
+  width: $blueprint_container_size;
+  margin: 0 auto;
+  @if ($pie) {
+    @include pie-clearfix;
+  } @else {
+    @include clearfix;
+  }
+}

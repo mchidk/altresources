@@ -1,0 +1,29 @@
+@import 'compass/css3/inline-block';
+
+$icon-width: 23px;
+$icon-height: 23px;
+$icon-path: '/images/buttons/share_icons.png';
+
+@mixin icon($n: 0, $reverse: false, $w: $icon-width, $h: $icon-height, $path: $icon-path) {
+  @include icon_behavior($w, $h, $path);
+  @include icon_states($n, $reverse, $w, $h);
+}
+
+@mixin icon_behavior($w: $icon-width, $h: $icon-height, $path: $icon-path) {
+  @include inline-block;
+  width: $w;
+  height: $h;
+  text-indent: -999em;
+  background: transparent url($path) scroll no-repeat;
+}
+
+@mixin icon_states($n: 0, $reverse: false, $w: $icon-width, $h: $icon-height) {
+  @if ($reverse) {
+    background-position: -($n * $w) 0;
+    &:hover { background-position: -($n * $w) (-1 * $h); } } 
+  @else {
+    background-position: -($n * $w) (-1 * $h);
+    &:hover { background-position: -($n * $w) 0; } }
+
+  &.active, &.selected { background-position: -($n * $w) (-2 * $h); }
+}

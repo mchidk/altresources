@@ -1,0 +1,60 @@
+@import 'includes/common';
+@import 'includes/colors';
+@import 'includes/global';
+
+$field-background-color: #eee !default;
+$field-background: $field-background-color;
+
+$field-focus-background-color: #fff !default;
+$field-focus-background: $field-focus-background-color;
+
+$field-border-color: #333 !default;
+$field-border: 1px solid $field-border-color;
+
+$field-focus-border-color: #666 !default;
+$field-focus-border: 1px solid $field-focus-border-color;
+
+$field-with-errors-background: #ffc !default;
+$field-with-errors-border: $field-focus-border;
+
+$field-with-errors-focus-background: #ffd !default;
+$field-with-errors-focus-border: $field-focus-border;
+
+$field-color: $text-color !default;
+$label-color: $text-color !default;
+$field-with-errors-label-color: $error-color !default;
+
+$input-padding: 0.4em !default;
+$input-margin: 0.33em 0 !default; 
+$input-width: 300px !default;
+
+$textarea-height: 250px;
+$tinymce-height: 600px;
+
+$fieldset-border: $global-border-style-1;
+$fieldset-padding: 1% 2%;
+//$fieldset-width: 93%;
+$fieldset-margin: 0 0 0.67em;
+
+@mixin inline-form {
+  display: inline;
+  input, select, label { display: inline; margin: 0 0.33em 0 0; }
+  /*input[type=text] { width: 100%; }*/
+  select { width: 200px; }
+  p { margin: 0; }
+}
+
+@mixin form-label {
+}
+
+//created by chris@cr 9.23 to edit contact tool bar
+@mixin toolbar-form($width: 315px) {
+	width: $width;
+	
+	input[type="text"], select {
+		//adjustments for toolbar-middle
+		float:right;
+		width:$sidebar-global-select-width;
+		margin-right:6px;
+		}
+}

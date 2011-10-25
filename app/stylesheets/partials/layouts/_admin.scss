@@ -1,0 +1,238 @@
+@import 'compass/utilities/general/min';
+@import 'compass/css3/inline-block';
+@import 'includes/colors';
+@import 'includes/form';
+@import 'includes/blueprint';
+
+@mixin contact-details-module(){
+	margin:4px 4px 4px 4px default;
+	width:180px;
+}
+
+.contacts-details-edit-item{
+	@include contact-details-module;
+}
+
+body.admin {
+	
+	.contact-photo img{
+		width:90px;
+		height:90px;
+	}
+	
+  #banner { display: none; }
+
+  &.controller-e9-crm-contacts {
+    table.records {
+      table-layout: fixed;
+      td { 
+        text-align: left;
+   		//edited by @chris.cr, 9.22.11- fixes disappeared border of left side of contacts table
+        //border-left: 0 none;
+        vertical-align: top;
+		//edited by @chris.cr, 9.22.11- previous setting didnt account for top and bottom
+        padding: .5em;
+        &.links { 
+          text-align: right; 
+          padding-right: 10px; 
+        }
+      }
+      .record-avatar {
+        width: 80px;
+        padding-right: 15px;
+        img { width: inherit; }
+      }
+    }
+  }
+
+  .nested-associations {
+    .field, .destroy-nested-association {
+      @include inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  #index-body { 
+    @include column(24);
+  }
+
+  #index-sidebar {
+    @include column(9, last);
+    input[type="text"], select, ul.select {
+      width: 90%;
+    }
+  }
+
+  #form { 
+    padding: 0.25em 0 0; 
+    margin-bottom: 1em;
+  }
+
+  fieldset.regions {
+    .region {
+      margin: 0;
+    }
+    ul.region-types {
+      margin: 0;
+    }
+    #regions { float: left; 
+	}
+
+    #selected-layout {
+      float: right;
+      margin: 0 1em 1em 0;
+      label { 
+        display: block; 
+        margin-bottom: 0.5em; 
+      }
+    }
+  }
+
+  #banner-images > .field {
+    label { display: block; }
+    padding: 1em;
+    border: $global-border-style-1;
+    width: 33%;
+  }
+
+  .published-status.unpublished { color: #028e48; }
+}
+
+//style for admin header h1, need to revisit
+.admin h1{
+	text-indent:.5em;
+	background-color:$base-primary;//edited by chris.cr
+	color:#fff;
+	line-height:1.5em;
+	height:1.5em;
+	padding:.3em .3em .3em .3em;
+	margin-bottom:0;
+}
+
+.contact-contact-fields input[type="text"]{
+	@extend .contacts-details-edit-item;
+	margin:12px 4px 0 12px;
+}
+
+	html .record-attribute .ui-button{
+	position:absolute !important;
+	right:6px;
+	top:6px;
+	height:23px;
+	width:23px;
+	}
+	
+.page .record-attribute {
+	position:relative;
+	background-color:#FDFAFA;
+	width:44%;
+	float:left;
+	display:inline;
+	margin:0 $global-spacing-margin $global-spacing-margin 0;
+	border:1px #bbb solid;
+	
+	select, .contact-email{
+		@extend .contacts-details-edit-item;
+		margin-left:12px;
+		width:200px; //$sidebar-global-select-width;
+	}
+		
+}
+
+.admin .record-attribute{
+	position:relative;
+	background-color:#FDFAFA;
+	width:31%;
+  float:left;
+	display:inline;
+	margin:0 $global-spacing-margin $global-spacing-margin 0;
+	border:1px #bbb solid;
+	min-height:107px;
+	
+	select{
+		@extend .contacts-details-edit-item;
+		margin-left:12px;
+		width:200px; //$sidebar-global-select-width;
+	}
+	
+	.contact-email{
+		@extend .contacts-details-edit-item;
+		margin-left:12px;
+		width:272px; //$sidebar-global-select-width;
+		font-size:$small-font-size;
+	}
+	
+	div.field input[type="text"]{
+		@extend .contacts-details-edit-item;
+		//margin-left:12px;
+		width:200px;
+	}
+	
+	textarea{
+	margin-top:34px;
+	margin-left:14px;
+	width:220px;	
+	}
+	
+	.contact-email input[type="text"]{
+		@include contact-details-module;
+	}
+	
+	.controls{
+		width:100%;
+		display:block;
+		margin:0 8px 0 8px;
+		
+	.destroy-nested-association{
+		position:absolute !important;
+		right:6px;
+		top:6px;
+		height:23px;
+		width:23px;
+		}
+	}
+	
+	.contact-email{
+		float:left;
+		display:block;
+	}
+}
+
+legend{
+	font-size:11px;
+}
+
+.admin-content-main{
+	display: inline;
+	float: left;
+	margin-right: 5px;
+	width: 685px;
+	padding-right: 30px;
+	
+}
+
+.deal-contact{
+	margin-bottom:1em;
+}
+
+.admin-sidebar-right{
+	display: inline;
+	float: left;
+	margin-right: 0;
+	width: 265px;
+	font-size:$medium-font-size;
+	line-height:1.45em;
+	
+	.contact-address{
+		position:relative;
+		margin-bottom:5px;
+		
+		.actions{
+			position:absolute;
+			height:1em;
+			width:9em;
+			left:80px;
+			top:0;
+		}
+	}
+}

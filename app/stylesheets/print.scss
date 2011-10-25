@@ -1,0 +1,31 @@
+/* basic colors and typography */
+@import 'reset';
+@import 'partials/colors';
+@import 'partials/typography';
+
+/* plus blueprint "print" mixin */
+@import "blueprint";
+body { @include blueprint-print(true); }
+
+/* 
+ * Background images don't play nice with print.
+ * Attempt to insert the logo as content after #logo 
+ */
+#logo {
+  display: block;
+  &:after { content: url(/images/logo.png); } 
+}
+
+/* hide a bunch of UI elements */
+a, #qe-link, .dashboard, .share-bar, .hidden, .tooltip, .qtip, [qtip], .errors,
+.error, #errorExplanation, #error_explanation, ul.menu, #top, #top-nav, #main-nav, 
+#banner, #share-bar, #breadcrumbs, #sidebar, #footer-wrapper, #flash-messages, 
+#comment-form, form, input, .actions, .action-links 
+{ 
+  display: none; 
+}
+
+a[class=tag] 
+{ 
+  display: inline; 
+}

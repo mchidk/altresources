@@ -1,0 +1,48 @@
+package_assets:          on
+embed_assets:            off
+compress_assets:         on
+gzip_assets:             on
+javascript_compressor:   yui
+template_function:       _.template
+
+javascripts: 
+  base: 
+    - vendor/e9_base/app/javascripts/vendor/jquery-1.4.2.js
+    - vendor/e9_base/app/javascripts/vendor/jquery-ui-1.8.6.custom.js
+    - vendor/e9_base/app/javascripts/vendor/base/*.js
+    - vendor/e9_base/app/javascripts/e9/base.js
+    - vendor/e9_base/app/javascripts/e9/base/colorbox.js
+    - vendor/e9_base/app/javascripts/e9/base/e9_tags.js
+    - vendor/e9_base/app/javascripts/e9/base/faqs.js
+    - vendor/e9_base/app/javascripts/e9/base/favorites.js
+    - vendor/e9_base/app/javascripts/e9/base/flash.js
+    - vendor/e9_base/app/javascripts/e9/base/hacks.js
+    - vendor/e9_base/app/javascripts/e9/base/quickedit.js
+    - vendor/e9_base/app/javascripts/e9/base/search.js
+    - vendor/e9_base/app/javascripts/e9/base/slideshows.js
+    - vendor/e9_base/app/javascripts/e9/base/tooltips.js
+    - vendor/e9_base/app/javascripts/e9/base/widgets.js
+    - vendor/e9_base/app/javascripts/e9/base/yql.js
+    - vendor/e9_base/app/javascripts/application.js
+    - public/javascripts/application.js
+    - public/javascripts/e9_crm.js
+
+  images:
+    - vendor/e9_base/app/javascripts/vendor/images/*.js
+    - vendor/e9_base/app/javascripts/e9/images/crop.js
+    - vendor/e9_base/app/javascripts/e9/images/upload.js
+    - vendor/e9_base/app/javascripts/e9/images/upload_and_crop.js
+
+  slideshows:
+    - vendor/e9_base/app/javascripts/vendor/slideshows/*.js
+    - vendor/e9_base/app/javascripts/e9/slideshows.js
+
+  slides:
+    - vendor/e9_base/app/javascripts/vendor/slides/*.js
+    - vendor/e9_base/app/javascripts/e9/slides.js
+    - app/views/layouts/application/default/slides/*.jst
+
+  admin:
+    - vendor/e9_base/app/javascripts/vendor/admin/*.js
+    - vendor/e9_base/app/javascripts/e9/admin.js
+    - vendor/e9_base/app/javascripts/e9/admin/*.js
