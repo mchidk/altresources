@@ -21,10 +21,6 @@
         #logo
           = link_to(E9::Config[:site_name], "/")
 
-        - if content_for?(:banner_content)
-          #banner
-            = yield(:banner_content)
-
         - if content_for?(:main_nav_content)
           #nav-wrapper
             #nav

@@ -19,6 +19,7 @@ input[type=file],
 textarea, 
 select 
 {
+	color:$gray;
   display: block;
 }
 
@@ -134,7 +135,7 @@ input[type=password],
 select,
 textarea
 {
-  color: $field_color;
+  color: $gray;
   background: $field_background;
   border:     $field_border;
   &:focus { 

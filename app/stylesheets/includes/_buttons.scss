@@ -14,7 +14,7 @@ $button-margin: 0 0 0.5em 0 !default;
   text-align: center;
   text-decoration: none;
   @include border-radius;
-  border: solid 1px $base-accent; //edited by chris.cr
+  border: solid 1px $theme-accent; //edited by chris.cr
 	@include box-shadow(#aaa 1px 1px 1px);
 	font-weight:bold;
 

@@ -10,41 +10,68 @@ ul.menu {
 
 #nav {
   ul.menu {
-
     /* top level are inline block because of the way centering is handled */
     > li { 
       @include inline-block; 
-			&:first-child { border-left: 1px solid #fff; }
+			&:first-child { }//border-left: 1px solid #fff; }
 
       > ul {
-        border-top: $global-border-style-1;
+        //border-top: $global-border-style-1;
       }
     }
-
+		
     ul li { display: block; }
 
     overflow: visible;
  	//below commented out by @chris.cr, not needed for the new full width look, moved to #nav-wrapper
     //border-bottom: $global-border-style-1;
-    text-align: center; 
-    background: #EEE; 
+    text-align: right; 
+    //background: #EEE; 
 
-    li { 
+		li { 
       position: relative;
 
       $a-width: 160px;
       $a-hpadding: 18px;
       $li-width: $a-width + 2 * $a-hpadding + 1px;
+			
+			&.current, &.active{
+				a, ul li a:hover{
+				color:$theme-alternate;//change this of main nav current
+				border-top:0;
+				border-bottom:0;
+					}
+					
+				ul li a{
+						color:$theme-spot;
+						//background-image:none;
+					}
+					
+				ul li.current a{
+							color:$theme-alternate;
+						}
+				
+				ul li a:hover{
+						//background-image:none;
+					}
+				}
 
       /* dropdown positioning behavior */
       &:hover > ul { 
-        left: auto; 
+        left: 30px;
+				top:34px;
+	      padding-top:22px; 
+        background: transparent url(images/tab_green.png) top left no-repeat; 
         > li:hover {
           > ul {
             top: 0;
             left: $li-width;
           }
         }
+
+				&.current a{
+					color:$theme-alternate;
+				}
       }
 
       ul { 
@@ -53,31 +80,32 @@ ul.menu {
         z-index: 999;
         left: -999em; 
         text-align: left; 
-        background: inherit;
+        //background: inherit;
         border-bottom: 1px solid #ddd;
-        @include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
+        //@include box-shadow(0px 1px 3px rgba(0,0,0,0.1));
       }
 
       /* all links */
       a { 
-        @include link-colors(#666, $light-maroon);
+        @include link-colors(#666, $theme-alternate);
         display: block;
         text-decoration: none; 
-        padding: 13px $a-hpadding; 
-        background: #EEE; 
+        padding: 13px 15px;//$a-hpadding; 
+        //background: #EEE; 
         display: block; 
-        border: 1px solid #fff;
+        //border: 1px solid #fff;
         border-width: 0px 1px 0px 0px;
         font-size: 15px;
       }
 
       /* dropdown links */
       ul a { 
-        color: #666;
+        color: white;
+        background: $theme-alternate;
         width: $a-width; 
         border-width: 1px 1px 0px 0px;
         border-right-color: #ddd;
-        font-size: 13px; 
+        font-size: 13px;
       }
     } 
   }
@@ -116,7 +144,7 @@ ul.menu {
                 border: 0 none;   
               }
               &:first-child {
-                a  { border-top: $global-border-style-1; }
+                a  { }//border-top: $global-border-style-1; }
               }
             }
           }

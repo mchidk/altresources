@@ -5,15 +5,17 @@
 
 - content_for :application_content do
   #content
-    #content-top
-      = render_region 'content-top'
-    #content-main
-      = flash_messages
-      = content_for?(:default_content) ? yield(:default_content) : yield
+    #content-main-wrapper
+      #content-slide-wrapper
+        #content-slide
+          #slide
+            #content-top
+              = render_region 'content-top'
+      #content-main
+        = flash_messages
+        = content_for?(:default_content) ? yield(:default_content) : yield
     #content-bottom
       = render_region 'content-bottom'
-  #right
-    = render_region 'right'
 
-- add_body_class("home sidebar-right")
+- add_body_class("home")
 = render :file => 'layouts/application'

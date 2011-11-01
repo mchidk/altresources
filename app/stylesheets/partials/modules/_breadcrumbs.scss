@@ -2,12 +2,10 @@
 
 .breadcrumbs { 
   font-size: 11px; 
-  margin: 0 0 1em;
+  margin: 0 0 0;
   padding: 5px 0;
-
-  a { 
-    padding-right: 3px; 
-  }
+	background-color:$theme-primary;
+  padding-right: 3px;
 
   li { 
     display: inline; 
@@ -15,7 +13,7 @@
   }
 
   .last { 
-    color: $maroon;
+    color: white;
     font-style: normal;
     font-weight: bold;
   }    

@@ -7,7 +7,13 @@ body {
 
 a { @include base-link-colors; }
 a.alt { @include alt-link-colors; }
-
+.breadcrumbs a {
+		color:white;
+		&:hover{
+		color: $theme-tertiary;
+		}
+	}
+		
 blockquote      { color: $alt-text-color; }
 abbr, acronym   { border-color: $global-border-color-1; }
 del             { color: $alt-text-color; }
