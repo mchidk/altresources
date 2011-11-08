@@ -1,9 +1,0 @@
-@import 'partials/base';
-
-/* these includes are from mixins */
-@import 'mixins';
-body { @include form; background: #91d8d5; }
-table { @include table; }
-
-@import 'partials/common';
-@import 'partials/typography';
