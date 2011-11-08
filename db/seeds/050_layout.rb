@@ -202,6 +202,7 @@ add_renderable(mv, 'footer', layouts)
 puts "Generating Footer Feed 1"
 mv = FeedWidget.create!(:name => "Single Blog Feed", :region_types => [footer_region, column_regions].flatten, :widget_template => default_feed_template, :options => {
   :header_text => 'Latest News and Events',
+  :content_type => 'blog_post',
   :limit => 1
 })
 add_renderable(mv, 'footer', layouts)
@@ -231,6 +232,7 @@ add_renderable(mv, 'footer', layouts)
 puts "Generating Footer Feed 1"
 mv = FeedWidget.create!(:name => "Career Blog Feed", :region_types => [footer_region, column_regions].flatten, :widget_template => titles_template, :options => {
   :header_text => 'Career Opportunities',
+  :content_type => 'blog_post',
   :limit => 2
 })
 add_renderable(mv, 'footer', layouts)
@@ -320,3 +322,11 @@ prev_next_links = Snippet.create!(:name => "Previous/Next Links", :template => <
 {% endif %}
 TEMPLATE
 Layout.for(Blog).region("right").add_renderable!(prev_next_links)
+
+puts "Generating sidebar feed"
+mv = FeedWidget.create!(:name => "Sidebar Blog Feed", :region_types => column_regions, :widget_template => default_feed_template, :options => {
+  :header_text => 'Latest News and Events',
+  :limit => 2,
+  :content_type => 'blog_post'
+})
+add_renderable(mv, 'right', layouts)

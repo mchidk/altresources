@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 page_layout  = Layout.for(UserPage)
 forum_layout = Layout.for(Forum)
 blog_layout  = Layout.for(Blog)
@@ -31,9 +33,11 @@ onecol_layout.prototype!(LinkableSystemPage, :title => "Slideshows",       :auth
 page_layout.prototype!(LinkableSystemPage, :title => "Super User FAQs",    :author => author, :identifier => 'superuser_faqs',     :permalink => 'superuser/faqs',     :role => 'superuser',     :editable_content => false)
 page_layout.prototype!(LinkableSystemPage, :title => "User FAQs",          :author => author, :identifier => 'user_faqs',          :permalink => 'user/faqs',          :role => 'user',          :editable_content => false)
 
-home_layout.prototype!(LinkableSystemPage, :title => "Home", :author => author, :identifier => Page::Identifiers::HOME, :permalink => '', :display_title => false, :editable_content => true, :body => <<-HTML)
+html = <<-HTML
 <p>Bibendum euismod, leo diam interdum ligula, eu scelerisque sem purus in tellus.</p>
 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In sit amet nunc id quam porta varius. Ut aliquet facilisis turpis. Etiam pellentesque quam et erat. Praesent suscipit justo.</p>
 <p>Cras nec metus pulvinar sem tempor hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam in nulla. Mauris elementum. Curabitur tempor, quam ac rutrum placerat, nunc augue ullamcorper est, vitae molestie neque nunc a nunc. Integer justo dolor, consequat id.</p>
 <p><a href="#">« Existing Fund Mangers</a> | <a href="#"> New Fund Managers »</a></p>
 HTML
+
+home_layout.prototype!(LinkableSystemPage, :title => "Home", :author => author, :identifier => Page::Identifiers::HOME, :permalink => '', :display_title => false, :editable_content => true, :body => html)
