@@ -40,4 +40,5 @@
 
 .left-block {
   @include left-blockish(8px);
+	margin:0 12px 8px $global-horiz-margin;
 } 

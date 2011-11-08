@@ -31,3 +31,8 @@
     display: inline;
   }
 }
+
+.footer-module ul.menu li,
+.footer-module .actions ul li{
+	display:list-item;
+}

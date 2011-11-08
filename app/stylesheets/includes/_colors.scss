@@ -35,7 +35,7 @@ $background-color:               $theme-accent !default;
 $error-color:                    $theme-alert !default;
 $table-header-color:        		 $utility-color-1 !default;
 $highlight-color:                $theme-spot !default;
-$global-border-color-1:          $light-gray !default;
+$global-border-color-1:          $theme-secondary !default;
 $global-border-color-2:          $utility-color-1 !default;
 $global-border-color-3:          $theme-primary !default;
 $global-border-color-4:          $utility-color-1 !default;
@@ -66,8 +66,8 @@ $h6-color: 												$maroon !default;
  * Links
  */
 
-$link-color:                       $gray !default;
-$link-hover-color:                 $gray !default;
+$link-color:                       $theme-secondary !default;
+$link-hover-color:                 $theme-tertiary !default;
 $link-active-color:                $theme-secondary !default;
 $link-visited-color:               $link-color !default;
 $link-focus-color:                 $link-color !default;

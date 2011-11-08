@@ -13,7 +13,7 @@
     @include h2-color;
   }
 
-  .no-results { margin-bottom: 1em; }
+  .no-results { margin: 1em $global-horiz-margin 1em $global-horiz-margin; }
   .comment { 
     @include clearfix; 
     position: relative; 
@@ -57,7 +57,7 @@
 }
 
 #comment-form {
-  margin-top: 1em; 
+  margin: 1em $global-horiz-margin 1em $global-horiz-margin; 
   padding: 15px; 
   background: none;
   textarea {

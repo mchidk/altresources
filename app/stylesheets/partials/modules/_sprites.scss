@@ -58,7 +58,7 @@ body.slide .action-links {
 
 @import "sprites/social/*.png"; /**/
 
-.social-sprite { width: 35px; height: 35px; }
+.social-sprite { width: 30px; height: 30px; }
 
 a.social-link {
   .img { @extend social-sprite; }

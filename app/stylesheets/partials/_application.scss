@@ -87,7 +87,7 @@ min-height:184px;
 	
 	p{
 		font-weight:normal;
-		margin:0px 40px;
+		margin:0pxx;
 		padding-top:10px;	
 	}
 }
@@ -156,6 +156,7 @@ html body.home #content-main p{
 #top-nav {
 	margin-bottom:40px;
   //border-bottom: 1px solid #EEE;
+	border-top: 5px solid $theme-secondary;
   font-size: 13px; 
   font-weight:normal;
   color: #666; 
@@ -251,39 +252,60 @@ body.admin table td{
     }
   }
 }
-
+	
 .footer-module {
-  @include column(15, true);
+  @include column(8, true);
 
-  a { text-decoration: none; }
+	dd{
+		//@include serif;
+	}
+	
+	dd span{
+		font-weight:bold;
+	}
 
+	.h4, h4 { 
+		font-size:$base-font-size;
+		text-decoration:none;
+		}
+		
+  //a { text-decoration: underline; }
+	
   .footer-menu {
     padding-bottom: 0.5em;
     margin-bottom: 0.5em;
-    border-bottom: 1px solid #fff;
     font-weight: bold;
-		li{
+    font-size:$medium-font-size;
+	
+	li{
+			list-style-type:none;
 			margin-left: 35px;
-      &:first-child {
-        margin-left: 0;
-      }
+			 margin-left: 0;
 		}
-  }
+
+		a {
+	text-decoration:none;
+	}
+}
 
   ul {
+	li ul{
+		margin-left:1.5em;
+		font-weight:normal;
+		}
     &, li { list-style-type: none; }
     li {
-      margin-left: 27px;
+      //margin-left: 27px;
       &:first-child {
         margin-left: 0;
       }
-      display: inline;
+      display: block;
     }
   }
 }
-
+	
 $footer-border: 1px;
-$footer-height: 163px;
+$footer-height: 290px;
 
 @import 'compass/layout/sticky-footer';
 @include sticky-footer($footer-height, '#root', '#root-footer', '#footer-wrapper');
@@ -292,23 +314,63 @@ $footer-height: 163px;
   background: transparent url(images/bg_black_trans.png) top left;
   border-top: 1px solid #ccc;
   color: $gray;
+ border-bottom: 5px solid $theme-alternate;
   a {
-    @include link-colors($gray, $link_hover_color);
+    @include link-colors(white, $link_hover_color);
   }
   #bottom-footer {
     &, a { color: #999; }
   }
 }
 
-#footer { 
+
+
+#footer {
+	color:white;
   padding-top: 12px;
-  .renderable {
+
+	dd{
+			margin-left: 0;
+	}
+  
+	.renderable {
+	  @include column(8, true);
     float: left;
+		margin-right:10px;
+		
+		&:last-child { margin-top:0px;
+		}
   }
+
+
+		span{
+			display:block;
+			color:#fff;
+			font-size:$medium-font-size;
+		}
+	
+	
+		.renderable-header, dl dt h4, h4 {
+	  @include h2_typography;
+	  //@include h2_color;
+	  margin: 0 0 1em;
+	  padding: 0 0 0.65em;
+	  font-weight:normal;
+	  border-bottom: 2px solid $theme-primary;
+
+	  a { @include alt-link-colors;}
+	  }
+
+		.renderable:first-child + .renderable + .renderable {
+			 .renderable-header, dl dt h4, h4 {
+		border-bottom: 2px solid $theme-secondary;
+		  }
+		}
 
   > div {
     @include inline-block;
   }
+
   #sub-footer-menu { 
     @include column(16, true);
     color: #f09;
@@ -327,6 +389,7 @@ $footer-height: 163px;
       } 
     }
   }
+
   .footer-bios { 
     @include column(17);
     .feed-listing {  
@@ -341,13 +404,20 @@ $footer-height: 163px;
       }
     }
   }
+
+
   .get-in-touch {
     @include column(16, true); 
     padding-top: 15px; 
     dl {
       width: 75px; float: left; 
       dt { width: 35px; height: 35px; }
-      dd { font-size: 10px; font-style: italic; color: #666; margin-top: 5px; }
+      dd { 
+	font-size: 10px; 
+	font-style: italic; 
+	color: #666; 
+	margin-top: 5px;
+	}
     }
     .hello {
       float: left; 
@@ -363,6 +433,8 @@ $footer-height: 163px;
     }
   }
 }
+
+
 
 h4.help a {
 	color:red;
@@ -381,3 +453,6 @@ div.help {
 		font-weight:bold;
 	
 }
+
+html .home #footer .renderable:last-child { margin-top:10px;
+	}

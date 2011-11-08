@@ -7,6 +7,8 @@ body.sidebar-right {
     @include append(1); 
   }
   #right { 
-    @include column(9, true); 
+    @include column(9, true);
+    border-top:15px solid $theme-alternate;
+		margin-top:23px; 
   }
 }

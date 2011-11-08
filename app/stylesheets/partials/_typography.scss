@@ -58,6 +58,7 @@ dl              { margin: 0 0 1.5em 0;
 dt              { font-weight: bold; } }
 dd              { margin-left: 1.5em; }
 
+
 hr { 
   clear: both; 
   width: 100%; 
@@ -73,6 +74,7 @@ hr {
 
 /* tweaks for content-body */
 .content-body {
+	margin:0 $global-horiz-margin;
   /* 
    * lessened (and no top) margin/padding for h(1|2) 
    **/

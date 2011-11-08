@@ -3,15 +3,15 @@
 
 #top-nav li.search {
   padding: 0;
-  width: 27px;
+  width: 24px;
   float: right;
   a {
     text-align: left;
     @include inline-block;
-    margin: 5px 0 0 5px;
-    background: transparent url(/images/site/searchIcon.png) left top scroll no-repeat;
-    width: 22px;
-    height: 22px;
+    margin: 7px 0 0 0;
+    background: transparent url(/images/site/searchIcon.png) left top no-repeat;
+    width: 24px;
+    height: 20px;
     text-indent: -999em;
     &:focus {
       outline: none;
@@ -22,14 +22,14 @@
   }
   form {
     float: left;
-    margin: 5px 0 0;
+    margin: 7px 0 0 5px;
     fieldset { 
       border: 0 none; 
-      margin: 0; 
+      margin: 0 0 0 0; 
       padding: 0; 
-      input { 
-        display: inline;
-        margin: 0; 
+      input {
+        display: inline-block;
+        margin: 0 0 0 0; 
       }
       input[type=text] {
         width: 200px;

@@ -18,9 +18,13 @@ ul.social-module {
     font-size: $small-font-size;
     @include column(2);
     @include append(1);
-    height: 75px;
+    height: 30px;
     margin-top: 6px;
-    .text {
+		
+		padding-right:0px;
+		width: 30px;
+    
+		.text {
       margin-top: 4px;
     }
     &.hello {
@@ -39,22 +43,37 @@ a.social-link {
   @include clearfix;
   @include h4-typography;
   @include alt-link-colors;
+overflow:hidden;
+position:relative;
+padding-right: 12px;
 
   &:hover {
     text-decoration: underline;
-    .text { text-decoration: inherit; }
-  }
-
-  .img, .text { 
+	}
+	
+	div.text {
+	z-index:100;
+	text-decoration: inherit;
+				margin-left:-999em;
+		}
+		
+  .img, .text {
+		position:absolute; 
+		width:35px;
+		height:35px; 
     float: left; 
   }
-  .img { margin-right: 8px; }
+
+  .img { 
+	z-index:200;
+	margin-right: 8px;
+	}
 }
 
-.social-feed-title {
-  line-height: 35px;
-  a.social-link .text { display: none; } 
-}
+//.social-feed-title {
+  ///line-height: 35px;
+  //a.social-link .text { display: none; } 
+//}
 
 /* social popup form */
 #social-networking-form {
