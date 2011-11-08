@@ -25,7 +25,7 @@ $renderable-bottom-margin: 1em;
     margin: 0 $global-sidebar-margin $renderable-bottom-margin $global-sidebar-margin;
   }
 
-	.info { color: #000; }
+	.info { color: $light-gray; }
 
   .renderable-body > * {
     &:first-child { margin-top: 0; }

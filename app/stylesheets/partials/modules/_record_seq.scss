@@ -27,25 +27,28 @@
   }
 
   .record-seq-prev, .record-seq-next { 
-    float: left; 
+    //float: left;
+		display:block;
 
     &.record-seq-next { 
-      width: 45%; 
-      padding-left: 4%; 
+      //width: 45%; 
+      //padding-left: 4%; 
     }
 
     &.record-seq-prev { 
-      border-right: $global-border-style-1;
-      width: 45%; 
-      padding-right: 3%; 
+      //border-right: $global-border-style-1;
+      //width: 45%; 
+      //padding-right: 3%; 
     }
   }
 
   .record-seq-dateline, .record-seq-author { 
     font-size: $tiny-font-size;
+		color:$light-gray;
   }
 
   .record-seq-summary { 
     font-size: $small-font-size;
+		line-height:1.25em;
   }
 }
