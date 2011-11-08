@@ -11,11 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111021191501) do
+ActiveRecord::Schema.define(:version => 20111107234742) do
 
   create_table "advertising_costs", :force => true do |t|
     t.integer "cost", :default => 0
     t.date    "date"
+  end
+
+  create_table "attachments", :force => true do |t|
+    t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "image_spec_id"
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.integer  "position"
+    t.string   "type"
   end
 
   create_table "campaign_groups", :force => true do |t|
@@ -221,6 +232,7 @@ ActiveRecord::Schema.define(:version => 20111021191501) do
     t.integer  "requests"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "recipients"
   end
 
   create_table "emails", :force => true do |t|
@@ -278,16 +290,6 @@ ActiveRecord::Schema.define(:version => 20111021191501) do
     t.date     "created_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "images", :force => true do |t|
-    t.string   "file"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "image_spec_id"
-    t.string   "imaged_type"
-    t.integer  "imaged_id"
-    t.integer  "position"
   end
 
   create_table "layouts", :force => true do |t|
@@ -365,6 +367,26 @@ ActiveRecord::Schema.define(:version => 20111021191501) do
     t.integer  "renderable_id"
     t.integer  "region_id"
     t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "note_assignments", :force => true do |t|
+    t.integer  "assigned_id"
+    t.string   "assigned_type"
+    t.integer  "note_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notes", :force => true do |t|
+    t.string   "type"
+    t.string   "title"
+    t.text     "details"
+    t.integer  "contact_id"
+    t.date     "due_date"
+    t.boolean  "completed",    :default => false
+    t.datetime "completed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -616,6 +638,7 @@ ActiveRecord::Schema.define(:version => 20111021191501) do
     t.string   "smtp_url"
     t.string   "system_mailing_address"
     t.text     "can_spam_mailing_address"
+    t.integer  "notes_per_page"
   end
 
   create_table "share_sites", :force => true do |t|
