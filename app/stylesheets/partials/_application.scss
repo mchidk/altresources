@@ -84,6 +84,7 @@ min-height:184px;
 }
 
 #content-main{
+	padding-top:3px;
 	background-color:#000;
 	font-size:$base-font-size;
 	font-weight:normal;
@@ -317,7 +318,7 @@ $footer-height: 290px;
 
 #footer-wrapper {
   background: transparent url(images/bg_black_trans.png) top left;
-  border-top: 1px solid #ccc;
+  //border-top: 1px solid #ccc;
   color: $gray;
  border-bottom: 5px solid $theme-alternate;
   a {

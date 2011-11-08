@@ -22,8 +22,10 @@ form label{
 	color:$gray;
 }
 
-#right form label, #right label{
-	color:$theme-tertiary;
+.page form, #right form, #right{	
+	label{
+		color:$theme-tertiary;
+	}
 }
 
 #right input[type="text"]{
