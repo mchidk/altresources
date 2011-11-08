@@ -105,24 +105,6 @@ SystemEmail.create!(opts)
 #-------------------------------------------------------
 
 opts = {}
-opts[:name] = "Email a Friend Email"
-opts[:identifier] = SystemEmail::Identifiers::FRIEND_EMAIL
-opts[:subject] = "I just saw this on {{ config.site_name }} - {{ page.title }}"
-opts[:html_body] = <<-BODY
-<p>{{ sender.email }} just sent you a link:</p>
-
-<p>{{ email.message }}</p>
-
-<p>You can visit "{{ page.title }}" by clicking the link or pasting it into your browser: {{ page.url }}</p>
-
-<p>The {{ config.site_name }} Team</p>
-BODY
-opts[:text_body] = sanitizer.sanitize(opts[:html_body])
-SystemEmail.create!(opts)
-
-#-------------------------------------------------------
-
-opts = {}
 opts[:name] = "Revocation Confirmation"
 opts[:identifier] = SystemEmail::Identifiers::REVOCATION_CONFIRMATION
 opts[:subject] = "{{ config.site_name }} -- Your account has been revoked"

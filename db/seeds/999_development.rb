@@ -24,27 +24,7 @@ if Rails.env.development?
   end
 
   faqs = %w(guest user employee).map {|a| Faq.create!(:title => "FAQ #{a}", :role => a) }
-  faqs[0].questions.create!(:title => "guest question", :body => "guest answer", :author => author)
-  faqs[1].questions.create!(:title => "user question", :body => "user answer", :author => author)
-  faqs[2].questions.create!(:title => "employee question", :body => "employee answer", :author => author)
-
-  f = Forum.create!(:title => "User Forum")
-  3.times do |b|
-    f.topics.create!(:title => "Topic #{b} of #{f.title}", :body => "initial comment on #{b}", :author => author)
-  end
-
-  f = Forum.create!(:title => "Employee Forum", :role => 'employee')
-  3.times do |b|
-    f.topics.create!(:title => "Topic #{b} of #{f.title}", :body => "initial comment on #{b}", :author => author)
-  end
-
-  slideshow = Slideshow.create!(:title => "My Slideshow").tap do |slideshow|
-    slideshow.slides << slide_layout.reload.prototype!(Slide, :image => File.open("#{Rails.root}/public/images/test/slide_1.png"), :title => "slide 1", :body => "slide 1 body", :author => author, :published => true)
-    slideshow.slides << slide_layout.reload.prototype!(Slide, :image => File.open("#{Rails.root}/public/images/test/slide_2.png"), :title => "slide 2", :body => "slide 2 body", :author => author, :published => true)
-    slideshow.slides << slide_layout.reload.prototype!(Slide, :image => File.open("#{Rails.root}/public/images/test/slide_3.png"), :title => "slide 3", :body => "slide 3 body", :author => author, :published => true)
-    slideshow.slides << slide_layout.reload.prototype!(Slide, :image => File.open("#{Rails.root}/public/images/test/slide_4.png"), :title => "slide 4", :body => "slide 4 body", :author => author, :published => true)
-    slideshow.slides << slide_layout.reload.prototype!(Slide, :image => File.open("#{Rails.root}/public/images/test/slide_5.png"), :title => "slide 5", :body => "slide 5 body", :author => author, :published => true)
-  end
-
-  SoftLink.create!(:parent => Menu.find_by_identifier('main_menu'), :link => slideshow.link)
+  faqs[0].questions.create!(:title => "What is a guest question?", :body => lorem, :author => author)
+  faqs[1].questions.create!(:title => "What is a user question?", :body => lorem, :author => author)
+  faqs[2].questions.create!(:title => "What is a employee question?", :body => lorem, :author => author)
 end

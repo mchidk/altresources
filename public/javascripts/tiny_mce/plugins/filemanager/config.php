@@ -19,7 +19,7 @@
 	$mcFileManagerConfig['general.allow_export'] = "demo,tools,disabled_tools,debug";
 
 	// Preview options
-	$mcFileManagerConfig['preview.wwwroot'] = '/srv/uploads/e9_staging'; // absolute or relative from this script path, try to leave blank system figures it out.
+	$mcFileManagerConfig['preview.wwwroot'] = '/srv/uploads/altresources'; // absolute or relative from this script path, try to leave blank system figures it out.
 	$mcFileManagerConfig['preview.urlprefix'] = "{proto}://{host}/"; // domain name
 	$mcFileManagerConfig['preview.urlsuffix'] = "";
 	$mcFileManagerConfig['preview.include_file_pattern'] = '';
@@ -30,8 +30,8 @@
 
 	// General file system options
 	$mcFileManagerConfig['filesystem'] = "Moxiecode_LocalFileImpl";
-	$mcFileManagerConfig['filesystem.path'] = '/srv/uploads/e9_staging/uploads'; // absolute or relative from this script path, optional.
-	$mcFileManagerConfig['filesystem.rootpath'] = '/srv/uploads/e9_staging/uploads'; // absolute or relative from this script path, required.
+	$mcFileManagerConfig['filesystem.path'] = '/srv/uploads/altresources/uploads'; // absolute or relative from this script path, optional.
+	$mcFileManagerConfig['filesystem.rootpath'] = '/srv/uploads/altresources/uploads'; // absolute or relative from this script path, required.
 	$mcFileManagerConfig['filesystem.datefmt'] = "Y-m-d H:i";
 	$mcFileManagerConfig['filesystem.include_directory_pattern'] = '';
 	$mcFileManagerConfig['filesystem.exclude_directory_pattern'] = '/^mcith$/i';

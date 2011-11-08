@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111107234742) do
+ActiveRecord::Schema.define(:version => 20111108201352) do
 
   create_table "advertising_costs", :force => true do |t|
     t.integer "cost", :default => 0
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(:version => 20111107234742) do
     t.datetime "updated_at"
     t.integer  "layout_id"
     t.boolean  "editable_content",               :default => true
-    t.string   "author_string"
+    t.string   "custom_css_classes"
     t.integer  "faq_id"
     t.integer  "position"
     t.boolean  "social_feed_settings_completed", :default => false

@@ -22,9 +22,13 @@ body.controller-users {
   }
 }
 
-#root{
-	background:transparent url(/images/backgrounds/bg_image1.jpg) center bottom fixed;
+
+body {
+	background: transparent url(/images/backgrounds/bg_image1.jpg) center bottom fixed;
+
+  &.cust-image1 { background-image: url(/images/logo.png); }
 }
+
 
 #body {
   margin: 1.5em auto;

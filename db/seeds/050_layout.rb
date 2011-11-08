@@ -6,27 +6,22 @@ bottom_footer_region  = RegionType.create!(:name => 'Bottom Footer',  :domid => 
 footer_region         = RegionType.create!(:name => 'Footer',         :domid => "footer",         :role => 'administrator')
 nav_regions           = [top_nav_region, main_nav_region, footer_region, bottom_footer_region]
 
-#admin_nav_region     = RegionType.create!(:name => 'Admin Nav',      :domid => "admin-nav")
-banner_region         = RegionType.create!(:name => 'Main Banner',    :domid => "main-banner",    :role => 'administrator',  :identifier => "banner_main")
+column_regions = []
+column_regions << right_col_region  = RegionType.create!(:name => 'Right Column',   :domid => "right",          :role => 'administrator')
 
-column_regions        = []
-column_regions        << right_col_region  = RegionType.create!(:name => 'Right Column',   :domid => "right",          :role => 'administrator')
-#column_regions       << middle_col_region = RegionType.create!(:name => 'Middle Column',  :domid => "middle",         :role => 'administrator')
-#column_regions       << left_col_region   = RegionType.create!(:name => 'Left Column',    :domid => "left",           :role => 'administrator')
+content_regions = []
+content_regions << top_region = RegionType.create!(:name => 'Content Top', :domid => "content-top", :role => 'e9_user')
+content_regions << bottom_region = RegionType.create!(:name => 'Content Bottom', :domid => "content-bottom", :role => 'administrator')
 
-content_regions       = []
-content_regions       << top_region = RegionType.create!(:name => 'Content Top',    :domid => "content-top",    :role => 'administrator')
-content_regions       << bottom_region = RegionType.create!(:name => 'Content Bottom', :domid => "content-bottom", :role => 'administrator')
-
-one_column_regions = [nav_regions, content_regions, banner_region].flatten
+slide_layout_regions =
+one_column_regions   = [nav_regions, content_regions].flatten
 
 page_layout_regions  = 
 blog_layout_regions  = 
-slide_layout_regions =
-forum_layout_regions = [nav_regions, content_regions, banner_region, column_regions].flatten
+forum_layout_regions = [nav_regions, content_regions, column_regions].flatten
 
 # admin nav is only nav and admin nav
-admin_layout_regions = [nav_regions].flatten
+admin_layout_regions = [nav_regions - [footer_region]].flatten
 
 ########################################################################################################################################
 
@@ -44,10 +39,9 @@ home_layout = page_layout.prototype!(
   :name => "Page: Home",
   :template => "application/home",
   :identifier => "user_page_home",
+  :region_types => one_column_regions,
   :system => true
 ).init!
-
-two_col_layout = page_layout
 
 one_col_layout = page_layout.prototype!(
   :name => "Page: One Column",
@@ -83,16 +77,26 @@ Layout.create!(
 ).init!
 
 Layout.create!(
-  :name => "Slide Default",
-  :identifier => "slide",
-  :template => "application/default/slides/one",
-  :image_spec => ImageSpec.create!(:name => "Slide One", :width => 505, :height => 335, :system => true),
+  :name => "Slide Page",
+  :identifier => "user_page_slide",
+  :template => "application/default/slide",
   :region_types => slide_layout_regions,
   :system => true
 ).init!
 
+Layout.create!(
+  :name => "Slide One",
+  :identifier => "slide",
+  :template => "application/default/slides/one",
+  :image_spec => ImageSpec.create!(:name => "Slide One", :width => 310, :height => 465, :system => true),
+  :region_types => slide_layout_regions,
+  :system => true
+).init!
+
+##############################################################################
+
 puts "Generating Widget Templates"
-default_feed_template = WidgetTemplate.create!(:name => "Default Feed", :body => <<-TEMPLATE)
+default_feed_template = WidgetTemplate.create!(:name => "Full Data and Thumbs", :body => <<-TEMPLATE)
 <div class="default-feed-module">
   <div class="left image">
     <a href="{{record.path}}">
@@ -134,19 +138,31 @@ author_template = WidgetTemplate.create!(:name => "Titles and Authors", :body =>
 </div>
 TEMPLATE
 
-page_layout  = Layout.for(UserPage)
-slide_layout = Layout.for(Slide)
-forum_layout = Layout.for(Forum)
-blog_layout  = Layout.for(Blog)
-admin_layout = Layout.find_by_identifier('user_page_admin')
-layouts      = Layout.all
+titles_template = WidgetTemplate.create!(:name => "Titles Only", :body => <<-TEMPLATE)
+<span>
+  <a href="{{ record.url }}">{{ record.title }}</a>
+</span>
+TEMPLATE
+
+##############################################################################
+
+layouts              = Layout.all
+admin_layout         = Layout.find_by_identifier('user_page_admin')
+layouts_except_admin = layouts - [admin_layout]
+
+puts "Generating admin menu snippet"
+admin_layout.region("main-nav").add_renderable!( Snippet.create!( :name => "Admin Menu", :template => "<ul class=\"menu\">{% menu identifier[admin_menu] %}</ul>", :role => 'user', :region_types => [ main_nav_region ]))
 
 puts "Generating Main Menu"
 main_menu_snippet = Snippet.create!(:name => "Main Menu", :template => "<ul class=\"menu\">{% menu identifier[main_menu] %}</ul>", :region_types => [main_nav_region])
-(layouts - [admin_layout]).each {|layout| layout.region('main-nav').add_renderable!(main_menu_snippet) }
+layouts_except_admin.each {|layout| layout.region('main-nav').add_renderable!(main_menu_snippet) }
+
+def add_renderable(renderable, domid, layouts)
+  layouts.map {|l| l.region(domid) }.compact.each {|r| r.add_renderable!(renderable) }
+end
 
 puts "Generating Top Nav Menu"
-top_nav_content = Snippet.create!(:name => "Top Nav Content", :template => <<-TEMPLATE, :region_types => [top_nav_region])
+mv = Snippet.create!(:name => "Top Nav Content", :template => <<-TEMPLATE, :region_types => [top_nav_region])
 <ul class="right">
   <li class="welcome">
     {% if current_user %}
@@ -166,34 +182,73 @@ top_nav_content = Snippet.create!(:name => "Top Nav Content", :template => <<-TE
   </li>
 </ul>
 TEMPLATE
-layouts.each {|layout| layout.region('top-nav').add_renderable!(top_nav_content) }
+add_renderable(mv, 'top-nav', layouts)
 
-puts "Generating footer feed"
-mv = FeedWidget.create!(:name => "Title & Author Feed", :region_types => [footer_region], :widget_template => author_template, :options => {
-  :content_type => ['user_page'],
+puts "Generating Footer Menu"
+mv = Snippet.create!(:name => "Footer Menu", :template => <<-TEMPLATE, :region_types => [footer_region], :set_revert_template => true)
+<div class="footer-module">
+  <dl>
+    <dt><h4>Navigate our site</h4></dt>
+    <dd>
+      <ul class="footer-menu menu">
+        {% menu identifier[footer_menu] %}
+      </ul>
+    </dd>
+  </dl>
+</div>
+TEMPLATE
+add_renderable(mv, 'footer', layouts)
+
+puts "Generating Footer Feed 1"
+mv = FeedWidget.create!(:name => "Single Blog Feed", :region_types => [footer_region, column_regions].flatten, :widget_template => default_feed_template, :options => {
+  :header_text => 'Latest News and Events',
+  :content_type => 'blog_post',
+  :limit => 1
+})
+add_renderable(mv, 'footer', layouts)
+
+puts "Generating Contact Us Today!"
+mv = Snippet.create!(:name => "Contacts Us", :template => <<-TEMPLATE, :region_types => [footer_region], :set_revert_template => true)
+<div class="footer-module">
+  <dl class="contact-info">
+    <dt><h4>Contact Us</h4></dt>
+    <dd>
+      <p class="company">AltResources LLC</p>
+      <p class="numbers"><span>Main: 1.646.820.2660<br/>
+      Fax: 1.646.820.2630</span></p>
+
+      <p class="name"><span>John Wiencek<br/>
+      (T) 1.646.820.0015</span></p>
+
+      <p class="emails">John.Wiencek@altrllc.com<br/>
+      Information: info@altrllc.com<br/>
+      Careers: careers@altrllc.com</p>
+    </dd>
+  </dl>
+</div>
+TEMPLATE
+add_renderable(mv, 'footer', layouts)
+
+puts "Generating Footer Feed 1"
+mv = FeedWidget.create!(:name => "Career Blog Feed", :region_types => [footer_region, column_regions].flatten, :widget_template => titles_template, :options => {
+  :header_text => 'Career Opportunities',
+  :content_type => 'blog_post',
   :limit => 2
 })
-layouts.map {|layout| layout.region('footer') }.compact.each {|region| region.add_renderable!(mv) }
+add_renderable(mv, 'footer', layouts)
 
-puts "Generating footer nav + social"
-mv = Snippet.create!(:name => "Footer Menu & Social Links", :template => <<-TEMPLATE, :region_types => [footer_region], :set_revert_template => true)
+puts "Generating social module"
+mv = Snippet.create!(:name => "Footer Social Module", :template => <<-TEMPLATE, :region_types => [footer_region], :set_revert_template => true, :formatter => 1)
 <div class="footer-module">
-  <ul class="footer-menu menu">
-    {% menu identifier[footer_menu] %}
-  </ul>
+  <h4>Connect With Us!</h4>
   <ul class="social-module">
     <li><a class="social-link facebook" href="{{ config.facebook_company_page_url }}" rel="external">Favorite us on Facebook</a></li>
     <li><a class="social-link twitter" href="{{ config.twitter_company_page_url }}" rel="external">Follow us on Twitter</a></li>
     <li><a class="social-link linked-in" href="{{ config.linked_in_company_page_url }}" rel="external">Connect on LinkedIn</a></li>
-    <li>
-      <a class="social-link hello" href="/contact-us">
-        For more BNI Lucky 62 info, call us at: <span class="maroon italic">1.646.233.1068</span>
-      </a>
-    </li>
   </ul>
 </div>
 TEMPLATE
-layouts.each {|layout| layout.region('footer').add_renderable!(mv) }
+add_renderable(mv, 'footer', layouts)
 
 mv = Snippet.create!(:name => "Bottom Footer Content", :template => <<-TEMPLATE, :region_types => [bottom_footer_region], :set_revert_template => true, :role => 'e9_user')
 <span class="copyright">{% helper footer_copyright_content %}</span>
@@ -207,12 +262,21 @@ mv = Snippet.create!(:name => "Bottom Footer Content", :template => <<-TEMPLATE,
   {% helper link_to_google_bomb %}
 </span>
 TEMPLATE
-layouts.each {|layout| layout.region('bottom-footer').add_renderable!(mv) }
+add_renderable(mv, 'bottom-footer', layouts)
 
-puts "Generating default banner (#{E9::Config[:banner_width]}x#{E9::Config[:banner_height]})"
-banner = Banner.create!(:name => "Main Banner", :height => E9::Config[:banner_height], :width => E9::Config[:banner_width], :region_types => [banner_region], :role => 'user')
-banner.images << Image.create!(:file => File.open("#{Rails.root}/public/images/site/banner.jpg"))
-layouts.map {|layout| layout.region('main-banner') }.compact.each {|region| region.add_renderable!(banner) }
+puts "Generating Home Headlines"
+mv = Snippet.create!(:name => "Home Headlines", :template => <<-TEMPLATE, :region_types => [top_region], :set_revert_template => true)
+<div class="headline" style="display:none">
+   Headline 1. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod...
+</div>
+<div class="headline" style="display:none">
+   Headline 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod...
+</div>
+<div class="headline">
+   Headline 3. Bibendum euismod, leo diam interdum ligula, eu scelerisque sem purus in tellus.
+</div>
+TEMPLATE
+home_layout.region('content-top').add_renderable!(mv)
 
 puts "Adding forum menu to forum layout"
 forums_menu = Partial.create!(:name => "Forum Menu", :file => "partials/forum_menu", :role => 'e9_user', :region_types => column_regions)
@@ -260,11 +324,9 @@ TEMPLATE
 Layout.for(Blog).region("right").add_renderable!(prev_next_links)
 
 puts "Generating sidebar feed"
-mv = FeedWidget.create!(:name => "Blog Feed", :region_types => column_regions, :widget_template => default_feed_template, :options => {
-  :header_text => 'Find more tips in my energy saving blog!',
-  :limit => 2
+mv = FeedWidget.create!(:name => "Sidebar Blog Feed", :region_types => column_regions, :widget_template => default_feed_template, :options => {
+  :header_text => 'Latest News and Events',
+  :limit => 2,
+  :content_type => 'blog_post'
 })
-layouts.map {|layout| layout.region('right') }.compact.each {|region| region.add_renderable!(mv) }
-
-puts "Generating admin menu snippet"
-admin_layout.region("main-nav").add_renderable!(Snippet.create!(:name => "Admin Menu", :template => "<ul class=\"menu\">{% menu identifier[admin_menu] %}</ul>", :role => 'user', :region_types => [ main_nav_region ]))
+add_renderable(mv, 'right', layouts)
