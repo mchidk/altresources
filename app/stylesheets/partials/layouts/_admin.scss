@@ -106,7 +106,7 @@ body.admin {
 	line-height:1.5em;
 	height:1.5em;
 	padding:.3em .3em .3em .3em;
-	margin-bottom:0;
+	margin:0;
 }
 
 .contact-contact-fields input[type="text"]{
@@ -236,3 +236,5 @@ legend{
 		}
 	}
 }
+
+.admin .breadcrumbs{padding-left:18px;}

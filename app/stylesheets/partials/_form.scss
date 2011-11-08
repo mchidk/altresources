@@ -281,3 +281,16 @@ html body .nested-associations .field.checkbox{
 .nested-association .field {
 	margin-bottom:.5em;
 }
+
+
+form {
+	margin:.75em $global-horiz-margin;
+}
+
+.admin form{
+	margin:0;
+}
+
+#right form {
+	margin:.75em $global-sidebar-margin;
+}
