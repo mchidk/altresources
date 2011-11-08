@@ -1,0 +1,3 @@
+[submodule "vendor/e9_base"]
+	path = vendor/e9_base
+	url = git@github.com:e9digital/e9_base.git
