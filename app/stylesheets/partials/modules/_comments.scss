@@ -11,13 +11,16 @@
   .header {
     @include h2-typography;
     @include h2-color;
+    margin-bottom:1em;
   }
 
   .no-results { margin: 1em $global-horiz-margin 1em $global-horiz-margin; }
-  .comment { 
+  .comment {
+	
+	
     @include clearfix; 
     position: relative; 
-    margin-bottom: 18px; 
+    margin: 0 $global-horiz-margin 18px; 
     .anchor { display: none; }
     .block {
       .comment-body, .comment-prefix { margin-bottom: 1em; } 
@@ -102,6 +105,6 @@
   .avatar { 
     float: left; 
     margin-right: 10px; 
-    width: 100px;
+    width: 70px;
   }
 }

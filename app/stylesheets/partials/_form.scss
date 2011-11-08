@@ -89,7 +89,7 @@ textarea {
 label, fieldset legend {
   &.req, &.required { 
     padding-right: 9px; 
-    background: url(/images/star.png) no-repeat right center; 
+    background: url(/images/star.png) no-repeat right top; 
   } 
 }
 
@@ -291,6 +291,10 @@ form {
 	margin:0;
 }
 
-#right form {
+html body #right form {
 	margin:0;
+	
+	label{
+		color:theme-tertiary;
+	}
 }

@@ -13,7 +13,38 @@
 	@include contact-details-module;
 }
 
+/*form tweaks*/
+form label{
+	color:$gray;
+}
+
+.toolbar form label{
+	color:$gray;
+}
+
+#right form label, #right label{
+	color:$theme-tertiary;
+}
+
+#right input[type="text"]{
+	margin-top:.5em;
+}
+
+#right input[type="submit"]{
+	margin-bottom:1em;
+}
+
 body.admin {
+	color:$gray;
+	
+	a{
+		@include link-colors($theme-primary, $theme-alternate);
+	}
+	
+	table td.links a, .note-edit	a{
+			@include link-colors(white, $theme-tertiary);
+		}
+	
 	
 	.contact-photo img{
 		width:90px;
@@ -237,4 +268,10 @@ legend{
 	}
 }
 
-.admin .breadcrumbs{padding-left:18px;}
+.admin .breadcrumbs {
+	padding-left:18px;
+	}
+
+#profile-tabs{
+	margin:0 $global-horiz-margin;
+}

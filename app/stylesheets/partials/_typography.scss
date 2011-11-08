@@ -22,6 +22,14 @@ body {
 
 h1, .h1 { @include h1-typography; }
 
+html body #content #right .offer, #right{
+	h1, .h1{ 
+	margin:0 0 0 0;
+	font-size:$medium-font-size;
+	padding: 5px 0 0.33em;
+	}
+}
+
 .controller-sessions, .controller-registrations {
 	h1, .h1 { @include h2-typography; }
 }

@@ -9,6 +9,19 @@ body.sidebar-right {
   #right { 
     @include column(9, true);
     border-top:15px solid $theme-alternate;
-		margin-top:23px; 
+		margin-top:23px;
+		padding-bottom:25px;
+		background:transparent url(images/sidebar_bottom.png) bottom left no-repeat;
+		
   }
+
+	#right-wrapper{
+		background-color:#000;
+		padding-top:5px;
+	}
+}
+
+
+#right .offer{
+	font-size:$medium-font-size;
 }

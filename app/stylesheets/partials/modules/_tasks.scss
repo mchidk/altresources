@@ -1,0 +1,158 @@
+.notes-container {
+  margin-bottom: 1em;
+  min-height:250px;
+
+
+  div, p {
+    margin-bottom: 0.33em;
+  }
+
+  .note, .note-status {
+    border-width: 2px;
+    border-style: solid;
+  }
+
+  .task, .note  {
+		position:relative;
+    margin-bottom: 5px;
+    padding: 10px;
+    min-height:150px;
+		background-color:white;
+		color:#000;
+  }
+
+	.note-dates{
+	font-size:$small-font-size;
+	color:#fff;
+	padding:.5em .5em .2em;
+	}
+	
+	.note-dates,.note-responsible, .note-assigned {
+		font-size:$small-font-size;
+		display:block;
+		clear:both;
+		width:27%;
+		float:left;
+		
+	}
+	
+	.note-dates{
+		margin-top:5px;
+		margin-right:10px;
+	}
+	
+	.note-details{
+	font-size:$small-font-size;
+	width:69%;
+	margin-left:30%;
+	margin-right:5%;
+	}
+
+	.note.task .note-title {
+		position:absolute;
+		left:40px;
+		top:14px;
+		font-size:$large-font-size;
+		font-weight:bold;
+	}
+	
+	.note.message .note-title {
+		position:static;
+    display:block;
+		font-size:$large-font-size;
+		font-weight:bold;
+		line-height:2em;
+	}
+	.note-edit{
+	position:absolute;
+	right:10px;
+	top:10px;
+	z-index:100;
+	}
+
+  .show-more {
+    display: block;
+    width: 70px;
+    height: 25px;
+    margin: 1em auto;
+    border: 1px solid blue;
+    cursor: pointer;
+  }
+
+  .note-status {
+    text-indent: -999em;
+    display: block;
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+    &:hover {
+      background-color: white !important;
+    }
+  }
+
+  .message {
+    border-style: dashed;
+    border-color: tan;
+		
+		.note-title{
+			color:tan;
+			}
+			
+			.note-dates{
+				background-color:tan;
+	  }
+  }
+
+  .task {
+    &.completed {
+      border-color: pink;
+      .note-status {
+        background: transparent url(images/checked.png) center center no-repeat;
+      }
+    }
+
+    .note-status {
+       background: transparent url(images/unchecked.png) center center no-repeat;
+border:none;
+				
+				.note-dates{
+					background-color:yellow;
+		    }
+    }
+
+    &.overdue {
+      border-color: red;
+
+			.note-title{
+				color:red;
+				}
+				
+				.note-dates{
+					background-color:red;
+		  }
+    }
+
+    &.today {
+      border-color: blue;
+    .note-title{
+			color:blue;
+			}
+			
+			.note-dates{
+				background-color:blue;
+	    }
+    }
+
+    &.future {
+      border-color: green;
+
+			.note-title{
+				color:green;
+				}
+				
+				.note-dates{
+					background-color:green;
+		    }
+    }
+  }
+}

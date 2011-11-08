@@ -34,9 +34,13 @@ $renderable-bottom-margin: 1em;
 
   .renderable {
     &.feed_widget, &.top_widget, &.slideshow_widget, &.poll {
-      padding-bottom: $renderable-bottom-margin;
+      padding-bottom: .5em;//$renderable-bottom-margin;
       border-bottom: $global-border-style-1;
     }
+
+		&:last-child {
+			border-bottom:0;
+		}
 
     &:empty {
       margin: 0;
