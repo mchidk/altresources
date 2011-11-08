@@ -1,7 +1,7 @@
 PATH
   remote: vendor/e9_base
   specs:
-    e9_base (1.6.beta23)
+    e9_base (1.6.beta24)
       acts_as_list (= 0.1.3)
       awesome_nested_set (= 2.0.2)
       bitly (= 0.6.1)
@@ -40,31 +40,31 @@ PATH
 PATH
   remote: vendor/e9_base/engines/e9_attributes
   specs:
-    e9_attributes (1.6.beta23)
+    e9_attributes (1.6.beta24)
 
 PATH
   remote: vendor/e9_base/engines/e9_crm
   specs:
-    e9_crm (1.6.beta23)
+    e9_crm (1.6.beta24)
       kramdown (~> 0.13)
       money
 
 PATH
   remote: vendor/e9_base/engines/e9_polls
   specs:
-    e9_polls (1.6.beta23)
+    e9_polls (1.6.beta24)
 
 PATH
   remote: vendor/e9_base/engines/e9_tags
   specs:
-    e9_tags (1.6.beta23)
+    e9_tags (1.6.beta24)
       acts-as-taggable-on (~> 2.0.6)
       rails (~> 3.0.0)
 
 PATH
   remote: vendor/e9_base/engines/e9_vendors
   specs:
-    e9_vendors (1.6.beta23)
+    e9_vendors (1.6.beta24)
 
 GEM
   remote: http://rubygems.org/
