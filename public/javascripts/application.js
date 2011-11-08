@@ -26,4 +26,11 @@
       style: { classes: 'ui-tooltip-light', tip: { corner: false } },
     }
   });
+
+  $('#content-top .headlines').cycle({
+    fx: 'scrollRight',
+    timeout: 5000
+  });
+
+
 });
