@@ -1,10 +1,10 @@
 !!! XML
 !!!
 %html
-  %body{ :style =>"margin: 0px; padding: 0px; font-size: 13px; background-color: #8A132C;" }
-    %table{:width => "640", :bgcolor =>"#ffffff", :style => "background-color: #ffffff; margin: 0 auto", :cellspacing => "0", :cellpadding => "0"}
+  %body{:style =>"margin: 0px; padding: 0px; font-size: 13px; background-color: #1890ba;" }
+    %table{:width => "640", :background =>"#ffffff", :style => "background-color: #ffffff; margin: 0 auto", :cellspacing => "0", :cellpadding => "0"}
       %tr
-        %th{:height => "60"} EMAIL TEMPLATE
+        %td= link_to image_tag( "http://#{E9::Config[:domain_name]}/images/email/logo.jpg", :style => "border:0;border:none;"), "http://#{E9::Config[:domain_name]}"
       %tr
-        %td{:style => "padding: 30px;"}
-          = @html_body
+        %td{:style => "padding: 20px;"}
+          = @email.r(:html_body).html_safe
