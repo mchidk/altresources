@@ -10,25 +10,75 @@
 
 body{
 	
-	&.admin{
+	background:#000 url(/images/site/backgrounds/default.jpg) bottom center fixed;
+	
+	
+	&.about-us {
 		background:#000 url(/images/site/backgrounds/admin.jpg) bottom center fixed;
 		}
 		
-	&.home{
-		background:#000 url(/images/site/backgrounds/home.jpg) bottom center fixed;
+	&.admin {
+		background:#000 url(/images/site/backgrounds/admin.jpg) bottom center fixed;
 		}
-
-	&.default{
+	
+	&.beyond-accounting {
+		background:#000 url(/images/site/backgrounds/beyond-accounting.jpg) bottom center fixed;
+		}
+	
+	&.compliance-service {
+		background:#000 url(/images/site/backgrounds/compliance-service.jpg) bottom center fixed;
+		}
+		
+	&.contact {
+		background:#000 url(/images/site/backgrounds/contact.jpg) bottom center fixed;
+		}
+				
+	&.default {
 		background:#000 url(/images/site/backgrounds/default.jpg) bottom center fixed;
 		}
-			
-	&.admin{
-		background:#000 url(/images/site/backgrounds/admin.jpg) bottom center fixed;
+	
+	&.fund-startup {
+		background:#000 url(/images/site/backgrounds/fund-start-up.jpg) bottom center fixed;
+		}	
+		
+		
+	&.home {
+		background:#000 url(/images/site/backgrounds/home.jpg) bottom center fixed;
 		}
 		
-	&.services{
-	background:#000 url(/images/site/backgrounds/admin.jpg) bottom center fixed;
+	
+	&.howard {
+		background:#000 url(/images/site/backgrounds/howard.jpg) bottom center fixed;
+		}
+
+
+	&.john {
+		background:#000 url(/images/site/backgrounds/john.jpg) bottom center fixed;
+		}
+
+	&.lorraine {
+		background:#000 url(/images/site/backgrounds/lorraine.jpg) bottom center fixed;
+		}
+			
+	&.nick {
+		background:#000 url(/images/site/backgrounds/nick.jpg) bottom center fixed;
+		}
+			
+	&.our-people {
+		background:#000 url(/images/site/backgrounds/our-people.jpg) bottom center fixed;
+		}
+	
+	&.reporting {
+		background:#000 url(/images/site/backgrounds/reporting.jpg) bottom center fixed;
+		}
+			
+	&.services {
+	background:#000 url(/images/site/backgrounds/services.jpg) bottom center fixed;
 	}
+	
+	&.why-outsource {
+		background:#000 url(/images/site/backgrounds/why-outsource.jpg) bottom center fixed;
+		}
 }
 
 
@@ -61,7 +111,7 @@ body.controller-users {
 
 
 body {
-	//background: transparent url(/images/backgrounds/bg_image1.jpg) center bottom fixed;
+	background: transparent url(/images/backgrounds/bg_image1.jpg) center bottom fixed;
 
   &.cust-image1 { background-image: url(/images/logo.png); }
 }
