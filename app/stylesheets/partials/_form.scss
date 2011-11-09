@@ -310,3 +310,9 @@ html body #right form {
 		color:theme-tertiary;
 	}
 }
+
+html	body.controller-admin-settings-contents { 
+		legend, fieldset {
+	background-color:#fff;
+			}
+		}
