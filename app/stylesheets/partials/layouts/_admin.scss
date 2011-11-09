@@ -14,7 +14,7 @@
 }
 
 /*form tweaks*/
-form label{
+form label {
 	color:$gray;
 }
 
@@ -38,6 +38,11 @@ form label{
 
 body.admin {
 	color:$gray;
+
+  legend {
+    font-size: 11px;
+    color: inherit;
+  }
 	
 	a{
 		@include link-colors($theme-primary, $theme-alternate);
@@ -111,15 +116,15 @@ body.admin {
     #regions { float: left; 
 	}
 
-    #selected-layout {
-      float: right;
-      margin: 0 1em 1em 0;
-      label { 
-        display: block; 
-        margin-bottom: 0.5em; 
-      }
+  #selected-layout {
+    float: right;
+    margin: 0 1em 1em 0;
+    label { 
+      display: block; 
+      margin-bottom: 0.5em; 
     }
   }
+}
 
   #banner-images > .field {
     label { display: block; }
@@ -142,12 +147,12 @@ body.admin {
 	margin:0;
 }
 
-.contact-contact-fields input[type="text"]{
+.contact-contact-fields input[type="text"] {
 	@extend .contacts-details-edit-item;
 	margin:12px 4px 0 12px;
 }
 
-	html .record-attribute .ui-button{
+html .record-attribute .ui-button{
 	position:absolute !important;
 	right:6px;
 	top:6px;
@@ -231,9 +236,6 @@ body.admin {
 	}
 }
 
-legend{
-	font-size:11px;
-}
 
 .admin-content-main{
 	display: inline;
