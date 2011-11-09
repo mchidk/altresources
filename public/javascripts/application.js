@@ -29,7 +29,7 @@
 
   $('#content-top .headlines').cycle({
     fx: 'scrollRight',
-    timeout: 5000
+    timeout: 6500
   });
 
 
