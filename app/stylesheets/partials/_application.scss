@@ -84,14 +84,15 @@ min-height:184px;
 }
 
 #content-main{
+	padding-top:3px;
 	background-color:#000;
-	font-size:$large-font-size;
+	font-size:$base-font-size;
 	font-weight:normal;
 	line-height:1.45em;
 	
 	p{
 		font-weight:normal;
-		margin:0pxx;
+		margin:0px;
 		padding-top:10px;	
 	}
 }
@@ -218,7 +219,8 @@ body.admin #logo {
 }
 
 body.admin table td{
-	 background: transparent url(images/bg_black_trans.png) top left;
+	 //background: transparent url(images/bg_black_trans.png) top left;
+	background-color:white;
 }
 
 .content-feed {
@@ -316,7 +318,7 @@ $footer-height: 290px;
 
 #footer-wrapper {
   background: transparent url(images/bg_black_trans.png) top left;
-  border-top: 1px solid #ccc;
+  //border-top: 1px solid #ccc;
   color: $gray;
  border-bottom: 5px solid $theme-alternate;
   a {

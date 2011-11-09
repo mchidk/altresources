@@ -14,4 +14,4 @@ environment = Compass::AppIntegration::Rails.env
 # relative_assets = true
 preferred_syntax = :scss
 
-output_style = defined?(Rails) ? :nested : :compressed
+output_style = :nested
