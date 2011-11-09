@@ -1,8 +1,8 @@
 unless Rails.env.development?
   CarrierWave.configure do |config|
     config.storage        = :fog
-    config.fog_directory  = 'e9-staging'
-    config.fog_host       = 'https://e9-staging.s3.amazonaws.com'   # optional, defaults to nil
+    config.fog_directory  = 'altresources'
+    config.fog_host       = 'https://altresources.s3.amazonaws.com'   # optional, defaults to nil
     config.fog_public     = true                                    # optional, defaults to true
     config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}  # optional, defaults to {}
   end
