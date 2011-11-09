@@ -49,7 +49,7 @@ h6, .h6 { @include h6-typography; }
 img             { margin: 0; }
 p               { margin: 0 0 $global-spacing-margin; }
 p:empty         { margin-bottom: 0; }
-blockquote      { margin: $global-spacing-margin; font-style: italic; color:#000; }
+blockquote      { margin: $global-spacing-margin; font-style: italic; }
 strong, dfn     { font-weight: bold; }
 em, dfn         { font-style: italic; }
 sup, sub        { line-height: 0; }
@@ -61,7 +61,7 @@ ul, ol          { margin: 0 1.2em 1.2em 0; padding-left: 2em; list-style-positio
 li ul, li ol    { margin: 0; }
 ul              { list-style-image: url('/images/bullet.gif'); }
 ol              { list-style-type: decimal; }
-li              { padding: 5px 0; }
+li              { padding: 2px 0; }
 dl              { margin: 0 0 1.5em 0;
 dt              { font-weight: bold; } }
 dd              { margin-left: 1.5em; }
