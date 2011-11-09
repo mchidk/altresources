@@ -4,6 +4,43 @@
 @import 'includes/colors';
 @import 'includes/global';
 
+
+/*--------backgrounds-----------*/
+
+
+body{
+	
+	&.admin{
+		background:#000 url(/images/site/backgrounds/admin.jpg) bottom center fixed;
+		}
+		
+	&.home{
+		background:#000 url(/images/site/backgrounds/home.jpg) bottom center fixed;
+		}
+
+	&.default{
+		background:#000 url(/images/site/backgrounds/default.jpg) bottom center fixed;
+		}
+			
+	&.admin{
+		background:#000 url(/images/site/backgrounds/admin.jpg) bottom center fixed;
+		}
+		
+	&.services{
+	background:#000 url(/images/site/backgrounds/admin.jpg) bottom center fixed;
+	}
+}
+
+
+
+
+
+
+
+/*--------end backgrounds-----------*/
+
+
+
 #footer, #top-nav > div, #banner > div, #body, #bottom-footer, #nav {
   @include container;
 }
@@ -24,7 +61,7 @@ body.controller-users {
 
 
 body {
-	background: transparent url(/images/backgrounds/bg_image1.jpg) center bottom fixed;
+	//background: transparent url(/images/backgrounds/bg_image1.jpg) center bottom fixed;
 
   &.cust-image1 { background-image: url(/images/logo.png); }
 }
