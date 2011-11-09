@@ -5,12 +5,13 @@
 
 - content_for :application_content do
   #content
+    = flash_messages
+    #breadcrumbs-wrapper
+      = breadcrumbs_helper
     #content-top
       = render_region 'content-top'
     #content-main-wrapper
       #content-main
-        = flash_messages
-        = breadcrumbs_helper
         = content_for?(:default_content) ? yield(:default_content) : yield
     #content-bottom
       = render_region 'content-bottom'
