@@ -79,3 +79,23 @@ table.records .handle {
     border: none;
   }
 }
+
+.controller-profiles{
+	
+	form label{
+		color:$theme-tertiary;
+	}	
+	
+	input[type="submit"]{
+		font-size:$small-font-size;
+		//height:25px;
+		}
+		
+	.actions{
+		a{
+			color:#fff;
+			padding: .3em 1em .2em 1em;
+			}
+		}
+	
+}
