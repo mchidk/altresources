@@ -2,6 +2,7 @@
 @import 'includes/colors';
 @import 'compass/css3/box-shadow';
 
+
 ul.menu {
   &, ul {
     @include blank-list;
@@ -10,6 +11,7 @@ ul.menu {
 
 #nav {
   ul.menu {
+	
     /* top level are inline block because of the way centering is handled */
     > li { 
       @include inline-block; 
@@ -89,22 +91,42 @@ ul.menu {
         @include link-colors(#666, $theme-alternate);
         display: block;
         text-decoration: none; 
-        padding: 13px 15px; 
+        padding: 6px 12px 6px 12px; 
         display: block; 
         border-width: 0px 1px 0px 0px;
         font-size: 15px;
+				@include serif;
+				//text-transform:uppercase;
+				/*global font-family */
+				border-right:$theme-wildcard 1px solid;
+				border-left:white 1px solid;
       }
 
       /* dropdown links */
       ul a { 
+				//@include sans;
+				font-style:italic;
+				/*dropdown font-family overide*/
+				
         @include link-colors($theme-secondary, $theme-tertiary);
         background: $theme-alternate;
         width: $a-width; 
         padding: 5px 15px 7px 15px; 
         border-width: 1px 1px 0px 0px;
         border-right-color: #ddd;
-        font-size: 13px;
+        border-left:0;
+        font-size: 13px;   
       }
+			
+			&:first-child a { 
+				border-left:0;
+				}
+				
+
+      &:last-child a{
+        border-right:0;
+     	}
+
     } 
   }
 }

@@ -3,10 +3,19 @@
 $disabled_color: #ddd !default;
 
 .pagination {
+	font-style:italic;
+	
   @include horizontal-list;
+	margin: 0 $global-horiz-margin;
   em { font-style: normal; font-weight: bold; } 
 	a{
-		font-weight: bold;
-		color: #aa7175;
+		font-weight: normal;
+		@include alt-utility2-link-colors;
+	}
+	.selected{
+		font-weight:bold;
+	}
+	.disabled{
+		color:$gray;
 	}
 }

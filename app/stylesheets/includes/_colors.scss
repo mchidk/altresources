@@ -9,7 +9,7 @@ $theme-secondary:               #e9d76d; // yellow
 $theme-alternate:               #4f8b5a; // Green
 $theme-tertiary:                #fdf6ce; // Creme
 $theme-accent:                  #000; // black
-$theme-spot:                    #333; // gray
+$theme-spot:                    #cccccc; // gray
 $theme-alert:                   #e0182f; // red
 $theme-wildcard:                #666666; // Turquoise
 
@@ -79,6 +79,8 @@ $alt-link-hover-color:             $theme-tertiary !default;
 @mixin base-link-colors { @include link-colors($link-color, $link-hover-color, $link-active-color, $link-visited-color, $link-focus-color); }
 @mixin alt-link-colors { @include link-colors($alt-link-color, $alt-link-hover-color); }
 @mixin alt-utility-link-colors { @include link-colors($theme-tertiary, $theme-primary); }
+
+@mixin alt-utility2-link-colors { @include link-colors($theme-spot, $theme-tertiary,$theme-tertiary,$theme-spot,$gray); }
 
 /**
  * Forms

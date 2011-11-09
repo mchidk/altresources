@@ -444,6 +444,7 @@ $footer-height: 290px;
 	
 		.renderable-header, dl dt h4, h4 {
 	  @include h2_typography;
+	  @include serif;
 	  //@include h2_color;
 	  margin: 0 0 1em;
 	  padding: 0 0 0.65em;
