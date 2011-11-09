@@ -105,7 +105,14 @@ body.admin {
     padding: 0.25em 0 0; 
     margin-bottom: 1em;
   }
-
+  
+	.controller-admin-settings-contents{ 
+		legend, fieldset {
+	background-color:#fff;
+			}
+		}
+	
+	
   fieldset.regions {
     .region {
       margin: 0;

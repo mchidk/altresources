@@ -58,7 +58,11 @@ ul.menu {
         left: 0;
 				top:34px;
 	      padding-top:22px; 
-        background: transparent url(images/tab_green.png) 10% 0% no-repeat; 
+        background: transparent url(images/tab_green.png) 10% 0% no-repeat;
+ 				> li:last-child{ 
+						background: transparent url(images/nav_shadow.png) left bottom no-repeat;padding-bottom:22px;
+						
+						}
         > li:hover {
           > ul {
             top: 0;
@@ -77,7 +81,7 @@ ul.menu {
         z-index: 999;
         left: -999em; 
         text-align: left; 
-        border-bottom: 1px solid #ddd;
+        //border-bottom: 1px solid #ddd;
       }
 
       /* all links */
@@ -96,6 +100,7 @@ ul.menu {
         @include link-colors($theme-secondary, $theme-tertiary);
         background: $theme-alternate;
         width: $a-width; 
+        padding: 5px 15px 7px 15px; 
         border-width: 1px 1px 0px 0px;
         border-right-color: #ddd;
         font-size: 13px;

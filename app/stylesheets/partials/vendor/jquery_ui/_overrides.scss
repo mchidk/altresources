@@ -99,3 +99,14 @@ table.records .handle {
 		}
 	
 }
+
+.ui-widget-content a { @include link-colors($theme-primary, $theme-secondary);
+}
+
+.ui-widget-content a.button { color: #fff; }
+
+.ui-widget-content{
+	color: #fff;
+}
+
+.ui-tabs .ui-tabs-nav li a { font-size:$medium-font-size; float: left; padding: .5em 1em; text-decoration: none; }

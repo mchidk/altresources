@@ -74,7 +74,7 @@ $link-focus-color:                 $link-color !default;
 $link-current-color:               $theme-alternate !default;
 
 $alt-link-color:                   $theme-primary !default;
-$alt-link-hover-color:             $theme-secondary !default;
+$alt-link-hover-color:             $theme-tertiary !default;
 
 @mixin base-link-colors { @include link-colors($link-color, $link-hover-color, $link-active-color, $link-visited-color, $link-focus-color); }
 @mixin alt-link-colors { @include link-colors($alt-link-color, $alt-link-hover-color); }

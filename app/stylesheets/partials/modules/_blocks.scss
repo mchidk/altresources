@@ -28,6 +28,7 @@
       width: $width - $padding * 2;
       text-decoration: underline;
       font-size:$medium-font-size;
+			@include serif;
     }
   }
   .thumb, .avatar {

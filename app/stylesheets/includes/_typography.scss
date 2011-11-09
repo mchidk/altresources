@@ -10,10 +10,10 @@ $huge-font-size:  24px !default;
 $giant-font-size: 32px !default;
 
 $sans-font-family:        Arial, Verdana, sans-serif !default;
-$serif-font-family:       "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+$serif-font-family:       Georgia, "Times New Roman", serif !default;
 $fixed-width-font-family: "andale mono", "lucida console", monospace !default;
 
-$base-font: $base-font-size $serif-font-family;
+$base-font: $base-font-size $sans-font-family;
 $base-line-height: 1.35em !default;
 
 @mixin sans        { font-family: $sans-font-family; }

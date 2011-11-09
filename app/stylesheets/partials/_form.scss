@@ -211,6 +211,10 @@ textarea
   }
 }
 
+#profile_general_form .field.checkbox{
+	width:100%;
+}
+
 .email-wrapper{
 	position:relative;
 }
@@ -221,6 +225,14 @@ html body .nested-associations .field.checkbox{
 	position:relative;
 	display:block;
 }
+
+.controller-profiles {
+	form.edit_user input[type="text"], form.new_user input[type="text"], input[type="text"] {
+	font-size:11px;
+	height:2em;
+	}
+}
+
 
 /*fix for merge contacts radio button being on right side of inputs*/
 	

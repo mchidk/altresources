@@ -7,24 +7,33 @@
   .record-seq-author, 
   .record-seq-summary, 
   .record-seq-title { 
-    margin: 3px 0; 
+    margin: 0 0; 
   }
 
 	.record-seq-title { 
-		font-weight: bold; 
+		font-weight: bold;
+		
+		a { @include alt-link-colors;
+			} 
 	}
 
+	.record-seq-author{
+		line-height:1em;
+		padding-bottom:.5em;
+	}
+	
   .record-seq-link {
     font-size: $base-font-size;
     margin-bottom: 0.6em;
     a {
-      @include alt-link-colors;
-      text-decoration: none;
+      @include base-link-colors;
+      text-decoration: underline;
       span { text-decoration: underline; }
       margin-bottom: .7em;
       font-weight: bold;
     }
   }
+
 
   .record-seq-prev, .record-seq-next { 
     //float: left;

@@ -278,7 +278,7 @@ html body.home #content-main p{
 
 #header {
 	height:127px;
-	background:transparent url(images/bg_white_trans.png) top left;
+	background:transparent url(images/header_bg.png) top left;
 }
 
 #logo {
@@ -403,7 +403,7 @@ $footer-height: 290px;
 @include sticky-footer($footer-height, '#root', '#root-footer', '#footer-wrapper');
 
 #footer-wrapper {
-  background: transparent url(images/bg_black_trans.png) top left;
+  background: transparent url(images/footer_bg2.png) top left;
   //border-top: 1px solid #ccc;
   color: $gray;
  border-bottom: 5px solid $theme-alternate;
