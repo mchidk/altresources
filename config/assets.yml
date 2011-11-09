@@ -14,6 +14,7 @@ javascripts:
     - vendor/e9_base/app/javascripts/e9/base/*.js
     - vendor/e9_base/app/javascripts/application.js
     - public/javascripts/jquery.cycle.all.js
+    - public/javascripts/flash.js
     - public/javascripts/application.js
 
   images:
