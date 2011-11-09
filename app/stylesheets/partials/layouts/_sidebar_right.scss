@@ -1,7 +1,4 @@
-body.sidebar-right { 
-  #body {
-    //background: url(/images/site/divider-vertical.png) repeat-y top right;
-  }
+body.sidebar-right, body.one-column { 
   #content { 
     @include column(23); 
     @include append(1); 
@@ -12,15 +9,13 @@ body.sidebar-right {
 		margin-top:23px;
 		padding-bottom:25px;
 		background:transparent url(images/sidebar_bottom.png) bottom left no-repeat;
-		
   }
 
-	#right-wrapper{
+	#right-wrapper {
 		background-color:#000;
 		padding-top:5px;
 	}
 }
-
 
 #right .offer{
 	font-size:$medium-font-size;
