@@ -14,7 +14,7 @@ a.alt { @include alt-link-colors; }
 		}
 	}
 		
-blockquote      { color: $alt-text-color; }
+blockquote      { color: $theme-spot; }
 abbr, acronym   { border-color: $global-border-color-1; }
 del             { color: $alt-text-color; }
 thead th        { background: $table-header-color; }

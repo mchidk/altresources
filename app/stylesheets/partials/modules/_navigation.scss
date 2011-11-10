@@ -91,7 +91,7 @@ ul.menu {
         @include link-colors(#666, $theme-alternate);
         display: block;
         text-decoration: none; 
-        padding: 6px 12px 6px 12px; 
+        padding: 8px 12px 8px 12px; 
         display: block; 
         border-width: 0px 1px 0px 0px;
         font-size: 15px;
@@ -113,7 +113,7 @@ ul.menu {
         width: $a-width; 
         padding: 5px 15px 7px 15px; 
         border-width: 1px 1px 0px 0px;
-        border-right-color: #ddd;
+        //border-right-color: #ddd;
         border-left:0;
         font-size: 13px;   
       }

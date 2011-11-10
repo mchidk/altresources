@@ -36,6 +36,7 @@
 }
 
 .comment .actions {
+	color:$theme-alert;
   overflow: hidden; 
   float: left; 
   position: absolute;
@@ -43,25 +44,22 @@
   right: 0;
   font-size: $small-font-size;
 	
-  a {
-    &, .text {
-      text-decoration: underline;
-    }
-    @include alt-link-colors;
+	a.remove-flag, a.delete-comment {
+		@include alt-link-colors;
     font-weight: normal;
     }
-  .text{
-	color:$theme-alert;
-}
-ul { 
-    li { 		
-      font-weight: bold;
-      @include inline-block; 
-      margin-left: 0.5em;
-      &:first-child { margin-left: 0; 
-	    }
-    }
-  }
+
+
+
+	ul { 
+	    li { 		
+	    			font-weight: bold;
+		      @include inline-block; 
+		      margin-left: 0.5em;
+		      &:first-child { margin-left: 0; 
+	         }
+	       }
+	     }
 }
 
 #comment-form {
@@ -82,8 +80,6 @@ ul {
       li { 
         float: left;  
         margin-left: 1.5em;
-				.text{ color:$theme-alert;
-					}
 					
         &:first-child {
           margin-left: 0;
@@ -115,8 +111,4 @@ ul {
     margin-right: 10px; 
     width: 70px;
   }
-}
-
-html body .comment .actions ul li .text{
-	color:$theme-alert;
 }
