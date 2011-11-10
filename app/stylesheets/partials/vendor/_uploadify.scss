@@ -7,7 +7,7 @@ a.button {
   margin-right: 0.25em;
 
 
-  &.browse { 
+  &.browse, &.reset { 
 	@include link-colors(#fff, $theme-tertiary);
     position: relative;
     object {
