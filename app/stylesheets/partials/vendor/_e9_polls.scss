@@ -4,8 +4,7 @@
 @import "compass/css3/inline-block";
 
 .e9-poll {
-	padding-top:15px;
-	border-top:1px solid $theme-secondary;
+	padding-top:10px;
 	
   .poll-question {
     padding: 0;
@@ -51,6 +50,11 @@ form {
       vertical-align: top !important;
     }
   }
+}
+
+.offer{
+	padding-bottom:8px;
+		border-bottom:1px solid $theme-secondary;
 }
 
 .poll-header {
