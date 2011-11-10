@@ -166,7 +166,7 @@ $renderable-bottom-margin: 1em;
 	
 		.poll-header, .feed_widget .renderable-header, h2, h3 {
 		color:$theme-secondary;
-		font-size:$small-font-size;
+		font-size:$medium-font-size;
 		@include serif;
 		border-bottom:0;
 		border-style:none;

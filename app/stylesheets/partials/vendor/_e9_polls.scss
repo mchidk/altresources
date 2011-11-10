@@ -100,16 +100,26 @@ form.edit_poll .actions { margin: 1em 0; }
  */
 
 .pab-1 {
-  $color: $maroon;
+  $color: $theme-primary;
   @include linear-gradient(color-stops($color + #111, $color - #111));
 }
 
 .pab-2 {
-  $color: $off-gray;
+  $color: $theme-secondary;
   @include linear-gradient(color-stops($color + #111, $color - #111));
 }
 
 .pab-3 {
-  $color: $light-maroon;
+  $color: $theme-alternate;
+  @include linear-gradient(color-stops($color + #111, $color - #111));
+}
+
+.pab-4 {
+  $color: $theme-spot;
+  @include linear-gradient(color-stops($color + #111, $color - #111));
+}
+
+.pab-5 {
+  $color: $theme-wildcard;
   @include linear-gradient(color-stops($color + #111, $color - #111));
 }
