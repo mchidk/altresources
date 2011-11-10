@@ -48,6 +48,10 @@ body.admin {
 		@include link-colors($theme-primary, $theme-alternate);
 	}
 	
+	.breadcrumbs a{
+		@include link-colors(#fff, $theme-tertiary);
+	}
+	
 	table td.links a, .note-edit	a{
 			@include link-colors(white, $theme-tertiary);
 		}
