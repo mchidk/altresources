@@ -112,7 +112,7 @@ ul.menu {
         background: $theme-alternate;
         width: $a-width; 
         padding: 5px 15px 7px 15px; 
-        border-width: 1px 1px 0px 0px;
+        border-width: 1px 0px 0px 0px;
         //border-right-color: #ddd;
         border-left:0;
         font-size: 13px;   
@@ -123,7 +123,7 @@ ul.menu {
 				}
 				
 
-      &:last-child a{
+      &:last-child a,  &:last-child a:hover{
         border-right:0;
      	}
 

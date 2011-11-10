@@ -40,6 +40,12 @@ h2, .h2 { @include h2-typography; }
 .admin h2 a, .admin .h2 a, a.remove { 
 	text-decoration:underline;
 	}
+	
+#right{
+	h2,h3,h4,h5{
+		margin:0 0 0 0;
+	}
+}
 
 h3, .h3 { @include h3-typography; }
 h4, .h4 { @include h4-typography; }
