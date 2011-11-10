@@ -89,9 +89,9 @@ form#social-networking-form {
 
   border: $colorbox_border_style;
   h1 { 
-    padding: 5px 15px;
+	  text-indent:0;
+    padding: 5px 0;
     font-size: 24px;
-    margin: 0;
   }
   form {
     @include colorbox-container;
@@ -151,8 +151,24 @@ form#social-networking-form {
   background: $colorbox_background;
 }
 
-#cboxLoadedContent {
+html body #cboxLoadedContent {
+	
+	h1{
+		font-size:$large-font-size;
+		}
+	
+	@include clearfix;
   border: $colorbox_border_style;
+
+	.poll-answers{
+		margin:0 $global-horiz-margin;
+		
+		h5, .h5, .poll-header {
+			
+		margin: 0 0 0 $global-horiz-margin !important;
+
+		}
+	}
 }
 
 #cboxTitle {
@@ -161,6 +177,7 @@ form#social-networking-form {
   top: -20px;
   left: 0;
   color: #ccc;
+  visibility:hidden;
 }
 
 #cboxCurrent {

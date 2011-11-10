@@ -50,7 +50,7 @@
  *
  * http://docs.jquery.com/UI/Theming/API
  *
- * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Verdana,Arial,sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=ffffff&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=75&borderColorHeader=e9d76d&fcHeader=666666&iconColorHeader=e9d76d&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=100&borderColorContent=1890ba&fcContent=666666&iconColorContent=e9d76d&bgColorDefault=1890ba&bgTextureDefault=04_highlight_hard.png&bgImgOpacityDefault=50&borderColorDefault=666666&fcDefault=ffffff&iconColorDefault=ffffff&bgColorHover=fdf6ce&bgTextureHover=05_inset_soft.png&bgImgOpacityHover=100&borderColorHover=1890ba&fcHover=1890ba&iconColorHover=1890ba&bgColorActive=fdf6ce&bgTextureActive=01_flat.png&bgImgOpacityActive=100&borderColorActive=1890ba&fcActive=1890ba&iconColorActive=1890ba&bgColorHighlight=fdf6ce&bgTextureHighlight=01_flat.png&bgImgOpacityHighlight=55&borderColorHighlight=4f8b5a&fcHighlight=000000&iconColorHighlight=4f8b5a&bgColorError=fef1ec&bgTextureError=01_flat.png&bgImgOpacityError=100&borderColorError=e0182f&fcError=e0182f&iconColorError=e0182f&bgColorOverlay=000000&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=100&opacityOverlay=40&bgColorShadow=000000&bgTextureShadow=01_flat.png&bgImgOpacityShadow=40&opacityShadow=40&thicknessShadow=4px&offsetTopShadow=0&offsetLeftShadow=0&cornerRadiusShadow=4px
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Verdana,Arial,sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=ffffff&bgTextureHeader=01_flat.png&bgImgOpacityHeader=100&borderColorHeader=e9d76d&fcHeader=666666&iconColorHeader=e9d76d&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=100&borderColorContent=1890ba&fcContent=666666&iconColorContent=1890ba&bgColorDefault=1890ba&bgTextureDefault=05_inset_soft.png&bgImgOpacityDefault=70&borderColorDefault=666666&fcDefault=ffffff&iconColorDefault=ffffff&bgColorHover=fdf6ce&bgTextureHover=04_highlight_hard.png&bgImgOpacityHover=100&borderColorHover=1890ba&fcHover=1890ba&iconColorHover=1890ba&bgColorActive=fdf6ce&bgTextureActive=01_flat.png&bgImgOpacityActive=100&borderColorActive=1890ba&fcActive=1890ba&iconColorActive=1890ba&bgColorHighlight=fdf6ce&bgTextureHighlight=01_flat.png&bgImgOpacityHighlight=100&borderColorHighlight=4f8b5a&fcHighlight=000000&iconColorHighlight=4f8b5a&bgColorError=fef1ec&bgTextureError=06_inset_hard.png&bgImgOpacityError=100&borderColorError=e0182f&fcError=e0182f&iconColorError=e0182f&bgColorOverlay=000000&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=100&opacityOverlay=50&bgColorShadow=000000&bgTextureShadow=01_flat.png&bgImgOpacityShadow=100&opacityShadow=40&thicknessShadow=4px&offsetTopShadow=3px&offsetLeftShadow=3px&cornerRadiusShadow=8px
  */
 
 
@@ -61,24 +61,24 @@
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Verdana,Arial,sans-serif; font-size: 1em; }
 .ui-widget-content { border: 1px solid #1890ba; background: #ffffff url(images/ui-bg_flat_100_ffffff_40x100.png) 50% 50% repeat-x; color: #666666; }
 .ui-widget-content a { color: #666666; }
-.ui-widget-header { border: 1px solid #e9d76d; background: #ffffff url(images/ui-bg_highlight-soft_75_ffffff_1x100.png) 50% 50% repeat-x; color: #666666; font-weight: bold; }
+.ui-widget-header { border: 1px solid #e9d76d; background: #ffffff url(images/ui-bg_flat_100_ffffff_40x100.png) 50% 50% repeat-x; color: #666666; font-weight: bold; }
 .ui-widget-header a { color: #666666; }
 
 /* Interaction states
 ----------------------------------*/
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid #666666; background: #1890ba url(images/ui-bg_highlight-hard_50_1890ba_1x100.png) 50% 50% repeat-x; font-weight: bold; color: #ffffff; }
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid #666666; background: #1890ba url(images/ui-bg_inset-soft_70_1890ba_1x100.png) 50% 50% repeat-x; font-weight: bold; color: #ffffff; }
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #ffffff; text-decoration: none; }
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #1890ba; background: #fdf6ce url(images/ui-bg_inset-soft_100_fdf6ce_1x100.png) 50% 50% repeat-x; font-weight: bold; color: #fff; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #1890ba; background: #fdf6ce url(images/ui-bg_highlight-hard_100_fdf6ce_1x100.png) 50% 50% repeat-x; font-weight: bold; color: #1890ba; }
 .ui-state-hover a, .ui-state-hover a:hover { color: #1890ba; text-decoration: none; }
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { font-size:$medium-font-size; border: 1px solid #1890ba; background: #fdf6ce url(images/ui-bg_flat_100_fdf6ce_40x100.png) 50% 50% repeat-x; font-weight: bold; color: #1890ba; }
-.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { font-size:$medium-font-size; color: #1890ba; text-decoration: none; }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: 1px solid #1890ba; background: #fdf6ce url(images/ui-bg_flat_100_fdf6ce_40x100.png) 50% 50% repeat-x; font-weight: bold; color: #1890ba; }
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #1890ba; text-decoration: none; }
 .ui-widget :active { outline: none; }
 
 /* Interaction Cues
 ----------------------------------*/
-.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  {border: 1px solid #4f8b5a; background: #fdf6ce url(images/ui-bg_flat_55_fdf6ce_40x100.png) 50% 50% repeat-x; color: #000000; }
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  {border: 1px solid #4f8b5a; background: #fdf6ce url(images/ui-bg_flat_100_fdf6ce_40x100.png) 50% 50% repeat-x; color: #000000; }
 .ui-state-highlight a, .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { color: #000000; }
-.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {border: 1px solid #e0182f; background: #fef1ec url(images/ui-bg_flat_100_fef1ec_40x100.png) 50% 50% repeat-x; color: #e0182f; }
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {border: 1px solid #e0182f; background: #fef1ec url(images/ui-bg_inset-hard_100_fef1ec_1x100.png) 50% bottom repeat-x; color: #e0182f; }
 .ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a { color: #e0182f; }
 .ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text { color: #e0182f; }
 .ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary { font-weight: bold; }
@@ -89,8 +89,8 @@
 ----------------------------------*/
 
 /* states and images */
-.ui-icon { width: 16px; height: 16px; background-image: url(images/ui-icons_e9d76d_256x240.png); }
-.ui-widget-content .ui-icon {background-image: url(images/ui-icons_e9d76d_256x240.png); }
+.ui-icon { width: 16px; height: 16px; background-image: url(images/ui-icons_1890ba_256x240.png); }
+.ui-widget-content .ui-icon {background-image: url(images/ui-icons_1890ba_256x240.png); }
 .ui-widget-header .ui-icon {background-image: url(images/ui-icons_e9d76d_256x240.png); }
 .ui-state-default .ui-icon { background-image: url(images/ui-icons_ffffff_256x240.png); }
 .ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(images/ui-icons_1890ba_256x240.png); }
@@ -286,8 +286,8 @@
 .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br { -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; -khtml-border-bottom-right-radius: 4px; border-bottom-right-radius: 4px; }
 
 /* Overlays */
-.ui-widget-overlay { background: #000000 url(images/ui-bg_flat_100_000000_40x100.png) 50% 50% repeat-x; opacity: .40;filter:Alpha(Opacity=40); }
-.ui-widget-shadow { margin: 0 0 0 0; padding: 4px; background: #000000 url(images/ui-bg_flat_40_000000_40x100.png) 50% 50% repeat-x; opacity: .40;filter:Alpha(Opacity=40); -moz-border-radius: 4px; -khtml-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }/*
+.ui-widget-overlay { background: #000000 url(images/ui-bg_flat_100_000000_40x100.png) 50% 50% repeat-x; opacity: .50;filter:Alpha(Opacity=50); }
+.ui-widget-shadow { margin: 3px 0 0 3px; padding: 4px; background: #000000 url(images/ui-bg_flat_100_000000_40x100.png) 50% 50% repeat-x; opacity: .40;filter:Alpha(Opacity=40); -moz-border-radius: 8px; -khtml-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; }/*
  * jQuery UI Resizable 1.8.16
  *
  * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
@@ -482,7 +482,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-tabs { position: relative; padding: .2em; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 .ui-tabs .ui-tabs-nav { margin: 0; padding: .2em .2em 0; }
 .ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: 1px; margin: 0 .2em 1px 0; border-bottom: 0 !important; padding: 0; white-space: nowrap; }
-.ui-tabs .ui-tabs-nav li a { font-size:$medium-font-size; float: left; padding: .5em 1em; text-decoration: none; }
+.ui-tabs .ui-tabs-nav li a { float: left; padding: .5em 1em; text-decoration: none; }
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom: 1px; }
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */

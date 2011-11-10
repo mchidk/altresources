@@ -106,11 +106,12 @@ body.admin {
     margin-bottom: 1em;
   }
   
-html	body.controller-admin-settings-contents, html	body.controller-admin-feed-widgets { 
+html	body.controller-admin-settings-contents, html	body.controller-admin-feed-widgets,  html	body.controller-admin-user-pages { 
 		legend, fieldset {
 	background-color:#fff;
 			}
 		}
+
 	
 	
   fieldset.regions {

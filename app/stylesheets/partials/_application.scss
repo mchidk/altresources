@@ -554,3 +554,12 @@ div.help {
 
 html .home #footer .renderable:last-child { margin-top:10px;
 	}
+	
+	
+	
+	/* Admin */
+	html	body.controller-admin-settings-contents, html	body.controller-admin-feed-widgets,  html	body.controller-admin-user-pages { 
+			legend, fieldset {
+		background-color:#fff;
+				}
+			}

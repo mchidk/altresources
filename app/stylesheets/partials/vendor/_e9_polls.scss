@@ -3,6 +3,8 @@
 @import "compass/css3/gradient";
 @import "compass/css3/inline-block";
 
+
+
 .e9-poll {
 	padding-top:10px;
 	
@@ -40,7 +42,7 @@ form {
 
     .field, textarea {
       width: $width;
-      height: 60px;
+      min-height: 60px;
     }
     .actions {
       margin: 1em 0;
@@ -114,12 +116,19 @@ form.edit_poll .actions { margin: 1em 0; }
   @include linear-gradient(color-stops($color + #111, $color - #111));
 }
 
-.pab-4 {
-  $color: $theme-spot;
-  @include linear-gradient(color-stops($color + #111, $color - #111));
-}
 
-.pab-5 {
-  $color: $theme-wildcard;
-  @include linear-gradient(color-stops($color + #111, $color - #111));
+#cboxLoadedContent{
+
+.poll-header{
+	margin:0 0 0 $global-horiz-margin;
+  }
+
+h1{
+		margin:0 0 0 $global-horiz-margin;
+		font-weight:normal;
+		height:auto;
+   }
+
+.poll-answwers{ font-size:$small-font-size;}
+
 }
