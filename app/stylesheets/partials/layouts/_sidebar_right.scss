@@ -26,7 +26,7 @@ body.sidebar-right, body.one-column {
 	display:block;
 	
 	.record-seq-link{
-		width:41%;
+		width:30%;
 		margin:0;
 		padding:0 10px 0 0;
 		display:inline-block;
@@ -34,6 +34,10 @@ body.sidebar-right, body.one-column {
 		clear:both;
 		min-height:190px;
 		text-align:right;
+		a{ 
+			font-size:$small-font-size;
+			font-weight:normal;
+			}
 	}
 	
 	a{
@@ -44,12 +48,12 @@ body.sidebar-right, body.one-column {
 	
 .record-seq-data{
 	display:inline;
-	width:49%;
+	width:67%;
 		margin:0 0 0 50%;
 		padding:0;
 		
 	a{
-		@include serif;
+		//@include serif;
 	}
 		
 	img{

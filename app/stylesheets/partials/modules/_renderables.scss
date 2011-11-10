@@ -34,7 +34,7 @@ $renderable-bottom-margin: 1em;
 
   .renderable {
     &.feed_widget, &.top_widget, &.slideshow_widget, &.poll {
-      padding-bottom: .5em;//$renderable-bottom-margin;
+      padding-bottom: .2em;//$renderable-bottom-margin;
       border-bottom: $global-border-style-1;
     }
 
@@ -67,9 +67,10 @@ $renderable-bottom-margin: 1em;
 
 	.default-feed-module {
 		p { 
-	    font-size: 12px; 
+	    font-size: $small-font-size; 
 	    margin-bottom: 12px;
 			line-height: 1.3em;
+			color:$light-gray;
 	  }
 
 		img {
@@ -105,6 +106,9 @@ $renderable-bottom-margin: 1em;
 	  }
 	}
 }
+
+
+
 
 .renderable-header {
   @include h2_typography;
@@ -150,5 +154,41 @@ $renderable-bottom-margin: 1em;
 	dd,p, span{
 	font-size:$medium-font-size;
 	//font-weight:bold;
+	}
+}
+
+.poll{
+ .poll-answer{margin-left:20px;}
+}
+
+
+#right {
+	
+		.poll-header, .feed_widget .renderable-header, h2, h3 {
+		color:$theme-secondary;
+		font-size:$small-font-size;
+		@include serif;
+		border-bottom:0;
+		border-style:none;
+		padding: 0 0 0.2em;
+	}
+	
+	.offer-body, .poll-question{
+		margin-top:.5em;
+		font-size:$medium-font-size;
+		border:0;
+		line-height:1.3em;
+	}
+	
+	.default-feed-module {
+	
+	  h3 { 
+			a {
+				@include link-colors($theme-primary, $theme-tertiary);
+				text-decoration: none;
+				font-size: $small_font_size;
+				@include serif;
+			}
+		}
 	}
 }
