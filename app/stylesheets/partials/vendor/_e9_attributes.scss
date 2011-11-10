@@ -48,6 +48,8 @@ form.edit_user, form.new_user, form.edit_poll, form.new_poll {
 
   .add-nested-association {
     margin-top: 3px;
+    color:#fff;
+    &:hover {color:$theme-tertiary;}
   }
 
   .nested-association .field { 
