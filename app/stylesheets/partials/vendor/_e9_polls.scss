@@ -4,6 +4,21 @@
 @import "compass/css3/inline-block";
 
 
+html body #right .poll{
+	
+	.poll-question{
+		color:$theme-spot;
+	}
+	
+	.poll-answer{
+		
+		label{
+			font-weight:normal;
+			color:$theme-spot;
+		}	
+	}
+}
+
 
 .e9-poll {
 	padding-top:10px;
@@ -131,4 +146,8 @@ h1{
 
 .poll-answwers{ font-size:$small-font-size;}
 
+}
+
+#right .e9-poll {
+	padding-top:0px;
 }

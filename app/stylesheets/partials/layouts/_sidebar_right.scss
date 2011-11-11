@@ -3,7 +3,8 @@ body.sidebar-right, body.one-column {
     @include column(23); 
     @include append(1); 
   }
-  #right { 
+  
+	#right { 
     @include column(9, true);
     border-top:15px solid $theme-alternate;
 		margin-top:23px;
@@ -17,9 +18,10 @@ body.sidebar-right, body.one-column {
 	}
 }
 
-#right .offer{
-	font-size:$medium-font-size;
-}
+
+
+
+/* - - - - - - prev/next ------*/
 
 .record-seq-prev,.record-seq-next{
 	@include clearfix;
@@ -73,4 +75,27 @@ body.sidebar-right, body.one-column {
 	border-bottom:1px $theme-wildcard solid;
 	padding-bottom:5px;
 	margin-bottom:12px;
+}
+
+
+
+/* - - - - - -offers ------*/
+
+#right .offer {
+	
+	font-size:$small-font-size;
+	
+	label{
+		font-weight:normal;
+		color:$theme-spot;
+	}
+	
+	.field.checkbox{
+		margin: 0px 0px 0px 0px;
+	}
+	
+	.offer-body{
+		color:$theme-spot;
+	}
+	
 }
