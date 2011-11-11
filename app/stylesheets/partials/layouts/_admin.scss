@@ -291,6 +291,10 @@ html .record-attribute .ui-button{
 .admin .breadcrumbs {
 	padding-left:18px;
 	}
+	
+html body.admin .links a {
+@include link-colors(#fff, $theme-tertiary);
+		}
 
 #profile-tabs{
 	margin:0 $global-horiz-margin;
