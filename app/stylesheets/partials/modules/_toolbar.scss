@@ -63,6 +63,7 @@
     border: 0;
     display: block;
 		margin-bottom:3px;
+		background-color:none !important;
   }
 
   label, input[type=submit], button, .ui-button-text { 
@@ -160,6 +161,7 @@
 	border-style:none;
 	margin:0 0 .5em 0;
 	padding:0;
+	background-color:none !important;
 	}
 	
 	.toolbar-right { 

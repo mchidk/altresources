@@ -558,24 +558,15 @@ html .home #footer .renderable:last-child { margin-top:10px;
 
 	.breadcrumbs .gt{
 		color:$theme-spot;
-	}	
+	}
 	
-/* Admin */
-html	body.admin.controller-admin-settings-contents, html	body.admin.controller-admin-feed-widgets,  html	body.admin.controller-admin-user-pages, html body.admin.controller-e9-polls-polls, html body.admin.controller-admin-settings-generals, body.admin.template-index { 
-legend, fieldset {
-background-color:#fff;
-	}
-}
-
-html	body.admin.controller-admin-settings-contents, html	body.admin.controller-admin-feed-widgets,  html	body.admin.controller-admin-user-pages, html body.admin.controller-e9-polls-polls, html body.admin.controller-admin-settings-generals, body.admin.template-index, body.admin.template-edit { 
-legend, fieldset {
-background-color:#fff;
-	}
-}
-
-html body .toolbar {
-	legend, fieldset {
-background-color:none;
-	}
-}
+	html .admin .toolbar fieldset, 	html .admin .toolbar legend{
+		background:none !important;
+		}
+		
+		.admin fieldset, .admin legend {
+		background-color:white;
+		}
+		
+		
 
