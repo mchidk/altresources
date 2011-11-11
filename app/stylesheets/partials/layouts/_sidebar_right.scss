@@ -81,11 +81,11 @@ body.sidebar-right, body.one-column {
 
 /* - - - - - -offers ------*/
 
-#right .offer {
+html body #right .offer {
 	
 	font-size:$small-font-size;
 	
-	label{
+	form label{
 		font-weight:normal;
 		color:$theme-spot;
 	}
@@ -99,3 +99,24 @@ body.sidebar-right, body.one-column {
 	}
 	
 }
+
+html body #right{
+	
+/* 
+ * A default width is set for most form elements, but note that this is
+ * overridden on elements inside .field divs, which manage their own width.
+ */
+		.input,
+		input[type=email], 
+		input[type=text], 
+		input[type=password], 
+		input[type=file],
+		select
+		{
+		  padding: $input_padding;
+		  margin:  0;
+		  width:   $sidebar-global-select-width;
+		}
+
+}
+
