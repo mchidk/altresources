@@ -18,7 +18,7 @@ form label {
 	color:$gray;
 }
 
-.toolbar form label{
+.toolbar form label, .toolbar label{
 	color:$gray;
 }
 
@@ -38,6 +38,10 @@ form label {
 
 body.admin {
 	color:$gray;
+	
+	#header{
+		border-bottom: 1px solid #ddd;
+		}
 
   legend {
     font-size: 11px;
