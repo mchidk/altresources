@@ -22,7 +22,7 @@ form label {
 	color:$gray;
 }
 
-.page form, #right form, #right{	
+.page form, #right form, #right, .controller-sessions form{	
 	label{
 		color:$theme-tertiary;
 	}
@@ -298,4 +298,8 @@ html body.admin .links a {
 
 #profile-tabs{
 	margin:0 $global-horiz-margin;
+}
+
+.notes-container > h2{
+	margin:0 0;
 }
