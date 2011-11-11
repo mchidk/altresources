@@ -68,7 +68,9 @@ ul.menu {
         > li:hover {
           > ul {
             top: 0;
-            left: $li-width;
+            //left: $li-width;
+            left: 187px;
+            border-left:1px solid $theme-wildcard;
           }
         }
 
@@ -126,6 +128,12 @@ ul.menu {
       &:last-child a,  &:last-child a:hover{
         border-right:0;
      	}
+
+      /* submenu dropdown links */
+			ul .current a:hover ul.submenu, ul ul.submenu{
+				padding-top:0px;
+				left:180;
+				}
 
     } 
   }
