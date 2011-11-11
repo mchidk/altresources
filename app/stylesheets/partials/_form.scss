@@ -316,3 +316,26 @@ html	body.controller-admin-settings-contents {
 	background-color:#fff;
 			}
 		}
+		
+
+
+/*---------*/
+html body #right{
+
+		/* 
+		 * A default width is set for most form elements, but note that this is
+		 * overridden on elements inside .field divs, which manage their own width.
+		 */
+				.input,
+				input[type=email], 
+				input[type=text], 
+				input[type=password], 
+				input[type=file],
+				select
+				{
+				  padding: $input_padding;
+				  margin:  0;
+				  width:   $sidebar-global-select-width;
+				}
+
+		}
