@@ -19,9 +19,9 @@ html body #right .poll{
 	}
 }
 
-
 .e9-poll {
 	padding-top:10px;
+	padding-bottom:10px;
 	
   .poll-question {
     padding: 0;
@@ -30,6 +30,11 @@ html body #right .poll{
     margin: 10px 5px 0 0;
     float: left;
   }
+
+	.view-poll-form{
+	font-size: 12px;
+	}
+	
   .view-poll-results {
     @include inline-block;
     font-size: 12px;
