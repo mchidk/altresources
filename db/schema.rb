@@ -176,6 +176,8 @@ ActiveRecord::Schema.define(:version => 20111206193654) do
     t.boolean  "event_show_promo_code",          :default => true
     t.boolean  "event_is_free",                  :default => true
     t.text     "event_registration_message"
+    t.text     "meta_keywords"
+    t.string   "meta_title"
   end
 
   add_index "content_views", ["blog_id"], :name => "index_content_views_on_blog_id"
