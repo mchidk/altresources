@@ -104,6 +104,7 @@ label, fieldset legend {
 label { 
   color: $label-color; 
   @include h4_typography;
+  line-height:2em;
 }
 
 .field_with_errors label {

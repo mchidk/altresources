@@ -17,7 +17,7 @@ ul.social-module {
     font-style: italic;
     //font-size: $x-small;
     font-size: x-small;
-    @include column(2);
+    @include column(1);
     @include append(1);
     height: 75px;
     margin-top: 6px;

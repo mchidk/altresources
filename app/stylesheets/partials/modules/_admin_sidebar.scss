@@ -1,5 +1,9 @@
 .admin-sidebar-right {
 	
+	h2,.h2{
+		margin:0 0 0 0;
+	}
+	
 	legend {
     color:#999;
     font-weight:bold;
@@ -21,6 +25,7 @@
 }
 
 .admin .admin-sidebar-right {
+
 	
 	table th, table td {
     border: 1px solid #ccc;

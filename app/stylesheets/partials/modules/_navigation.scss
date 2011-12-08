@@ -61,7 +61,7 @@ ul.menu {
 				top:34px;
 	      padding-top:22px; 
         background: transparent url(images/tab_green.png) 10% 0% no-repeat;
- 				> li:last-child{ 
+ 				> li:last-child,li.last { 
 						background: transparent url(images/nav_shadow.png) left bottom no-repeat;padding-bottom:22px;
 						
 						}
@@ -125,7 +125,7 @@ ul.menu {
 				}
 				
 
-      &:last-child a,  &:last-child a:hover{
+      &:last-child a,  &:last-child a:hover,  &.last a,  &.last a:hover{
         border-right:0;
      	}
 
