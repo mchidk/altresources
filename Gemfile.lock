@@ -1,7 +1,8 @@
 PATH
   remote: vendor/e9_base
   specs:
-    e9_base (1.6.beta25)
+    e9_base (1.6.1)
+      activemerchant (= 1.20.0)
       acts_as_list (= 0.1.3)
       awesome_nested_set (= 2.0.2)
       bitly (= 0.6.1)
@@ -25,7 +26,7 @@ PATH
       mini_magick (= 3.3)
       no_peeping_toms
       oauth (= 0.4.5)
-      oauth2 (= 0.4.1)
+      oauth2 (= 0.5.1)
       rack-cache (= 1.0.2)
       rack-recaptcha (= 0.6.3)
       rails (= 3.0.10)
@@ -40,31 +41,31 @@ PATH
 PATH
   remote: vendor/e9_base/engines/e9_attributes
   specs:
-    e9_attributes (1.6.beta25)
+    e9_attributes (1.6.1)
 
 PATH
   remote: vendor/e9_base/engines/e9_crm
   specs:
-    e9_crm (1.6.beta25)
+    e9_crm (1.6.1)
       kramdown (~> 0.13)
       money
 
 PATH
   remote: vendor/e9_base/engines/e9_polls
   specs:
-    e9_polls (1.6.beta25)
+    e9_polls (1.6.1)
 
 PATH
   remote: vendor/e9_base/engines/e9_tags
   specs:
-    e9_tags (1.6.beta25)
+    e9_tags (1.6.1)
       acts-as-taggable-on (~> 2.0.6)
       rails (~> 3.0.0)
 
 PATH
   remote: vendor/e9_base/engines/e9_vendors
   specs:
-    e9_vendors (1.6.beta25)
+    e9_vendors (1.6.1)
 
 GEM
   remote: http://rubygems.org/
@@ -87,6 +88,17 @@ GEM
       rack-mount (~> 0.6.14)
       rack-test (~> 0.5.7)
       tzinfo (~> 0.3.23)
+    active_utils (1.0.1)
+      activesupport (>= 2.3.11)
+      i18n
+    activemerchant (1.20.0)
+      active_utils (>= 1.0.1)
+      activesupport (>= 2.3.11)
+      braintree (>= 2.0.0)
+      builder (>= 2.0.0)
+      i18n
+      json (>= 1.5.1)
+      money (<= 3.7.1)
     activemodel (3.0.10)
       activesupport (= 3.0.10)
       builder (~> 2.1.2)
@@ -112,6 +124,8 @@ GEM
       crack (>= 0.1.4)
       httparty (>= 0.5.2)
       oauth2 (>= 0.1.1)
+    braintree (2.13.1)
+      builder (>= 2.0.0)
     breadcrumbs_on_rails (1.0.1)
     builder (2.1.2)
     carrierwave (0.5.7)
@@ -127,7 +141,7 @@ GEM
       compass (>= 0.10.0)
     crack (0.3.1)
     daemons (1.1.4)
-    declarative_authorization (0.5.3)
+    declarative_authorization (0.5.4)
     delayed_job (2.1.4)
       activesupport (~> 3.0)
       daemons
@@ -142,14 +156,14 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     excon (0.7.6)
-    faraday (0.6.1)
-      addressable (~> 2.2.4)
-      multipart-post (~> 1.1.0)
-      rack (< 2, >= 1.1.0)
+    faraday (0.7.5)
+      addressable (~> 2.2.6)
+      multipart-post (~> 1.1.3)
+      rack (>= 1.1.0, < 2)
     fb_graph (1.9.2)
       httpclient (>= 2.2.0.2)
       rack-oauth2 (>= 0.8.0)
-    ffi (1.0.10)
+    ffi (1.0.11)
     fog (1.0.0)
       builder
       excon (~> 0.7.3)
@@ -174,7 +188,7 @@ GEM
       responders (~> 0.6.0)
     jammit (0.6.3)
       yui-compressor (>= 0.9.3)
-    json (1.6.1)
+    json (1.6.2)
     kgio (2.6.0)
     kramdown (0.13.3)
     liquid (2.2.2)
@@ -186,12 +200,11 @@ GEM
     mime-types (1.16)
     mini_magick (3.3)
       subexec (~> 0.1.0)
-    money (4.0.1)
+    money (3.7.1)
       i18n (~> 0.4)
-      json
     multi_json (1.0.3)
     multi_xml (0.4.1)
-    multipart-post (1.1.3)
+    multipart-post (1.1.4)
     mysql2 (0.2.13)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
@@ -201,10 +214,10 @@ GEM
       activesupport (>= 3.0.0)
     nokogiri (1.5.0)
     oauth (0.4.5)
-    oauth2 (0.4.1)
-      faraday (~> 0.6.1)
-      multi_json (>= 0.0.5)
-    open4 (1.2.0)
+    oauth2 (0.5.1)
+      faraday (~> 0.7.4)
+      multi_json (~> 1.0.3)
+    open4 (1.3.0)
     polyglot (0.3.3)
     rack (1.2.4)
     rack-cache (1.0.2)
@@ -260,7 +273,7 @@ GEM
       json (>= 1.1.9)
       mime-types (>= 1.16)
       oauth (>= 0.4.1)
-    tzinfo (0.3.30)
+    tzinfo (0.3.31)
     unicorn (3.6.2)
       kgio (~> 2.3)
       rack

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111108201352) do
+ActiveRecord::Schema.define(:version => 20111206193654) do
 
   create_table "advertising_costs", :force => true do |t|
     t.integer "cost", :default => 0
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.integer  "position"
     t.string   "type"
   end
+
+  add_index "attachments", ["image_spec_id"], :name => "index_attachments_on_image_spec_id"
+  add_index "attachments", ["owner_id", "owner_type"], :name => "index_attachments_on_owner_id_and_owner_type"
 
   create_table "campaign_groups", :force => true do |t|
     t.string   "name"
@@ -49,8 +52,10 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.datetime "updated_at"
   end
 
+  add_index "campaigns", ["affiliate_id"], :name => "index_campaigns_on_affiliate_id"
   add_index "campaigns", ["campaign_group_id"], :name => "index_campaigns_on_campaign_group_id"
   add_index "campaigns", ["code"], :name => "index_campaigns_on_code"
+  add_index "campaigns", ["sales_person_id"], :name => "index_campaigns_on_sales_person_id"
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -69,7 +74,9 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.text     "description"
   end
 
+  add_index "categories", ["layout_id"], :name => "index_categories_on_layout_id"
   add_index "categories", ["permalink"], :name => "index_categories_on_permalink", :unique => true
+  add_index "categories", ["user_id"], :name => "index_categories_on_user_id"
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id"
@@ -160,9 +167,22 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.boolean  "display_actions"
     t.string   "link_text"
     t.boolean  "display_more_info"
+    t.integer  "parent_id"
+    t.text     "form_html"
+    t.datetime "event_time"
+    t.date     "event_last_register_date"
+    t.integer  "event_capacity",                 :default => 0
+    t.integer  "event_max_guests",               :default => 0
+    t.boolean  "event_show_promo_code",          :default => true
+    t.boolean  "event_is_free",                  :default => true
+    t.text     "event_registration_message"
   end
 
+  add_index "content_views", ["blog_id"], :name => "index_content_views_on_blog_id"
+  add_index "content_views", ["forum_id"], :name => "index_content_views_on_forum_id"
+  add_index "content_views", ["layout_id"], :name => "index_content_views_on_layout_id"
   add_index "content_views", ["permalink"], :name => "index_pages_on_permalink", :unique => true
+  add_index "content_views", ["user_id"], :name => "index_content_views_on_user_id"
 
   create_table "dated_costs", :force => true do |t|
     t.integer  "costable_id"
@@ -171,7 +191,15 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "deal_id"
+    t.string   "label"
+    t.boolean  "credit",        :default => false
+    t.integer  "contact_id"
   end
+
+  add_index "dated_costs", ["contact_id"], :name => "index_dated_costs_on_contact_id"
+  add_index "dated_costs", ["costable_id", "costable_type"], :name => "index_dated_costs_on_costable_id_and_costable_type"
+  add_index "dated_costs", ["deal_id"], :name => "index_dated_costs_on_deal_id"
 
   create_table "deals", :force => true do |t|
     t.string   "type"
@@ -235,6 +263,9 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.text     "recipients"
   end
 
+  add_index "email_deliveries", ["campaign_id"], :name => "index_email_deliveries_on_campaign_id"
+  add_index "email_deliveries", ["email_id"], :name => "index_email_deliveries_on_email_id"
+
   create_table "emails", :force => true do |t|
     t.integer  "mailing_list_id"
     t.string   "name"
@@ -253,6 +284,56 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.string   "sub_type"
   end
 
+  add_index "emails", ["mailing_list_id"], :name => "index_emails_on_mailing_list_id"
+
+  create_table "event_registrations", :force => true do |t|
+    t.integer  "contact_id"
+    t.integer  "event_transaction_id"
+    t.integer  "event_id"
+    t.string   "email"
+    t.string   "name"
+    t.string   "promo_code"
+    t.text     "details"
+    t.boolean  "attended",             :default => false
+    t.boolean  "cancelled",            :default => false
+    t.integer  "paid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "event_registrations", ["event_id"], :name => "index_event_registrations_on_event_id"
+  add_index "event_registrations", ["event_transaction_id"], :name => "index_event_registrations_on_event_transaction_id"
+  add_index "event_registrations", ["user_id"], :name => "index_event_registrations_on_user_id"
+
+  create_table "event_transactions", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "campaign_id"
+    t.integer  "total_paid"
+    t.string   "transaction_id"
+    t.string   "cc_first_name"
+    t.string   "cc_last_name"
+    t.string   "cc_number"
+    t.string   "cc_expire_month"
+    t.string   "cc_expire_year"
+    t.string   "response_code"
+    t.string   "response_reason_code"
+    t.string   "response_reason_text"
+    t.string   "avs_result_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "token"
+  end
+
+  add_index "event_transactions", ["event_id"], :name => "index_event_transactions_on_event_id"
+
+  create_table "event_types", :force => true do |t|
+    t.integer "position"
+    t.string  "name"
+    t.text    "form_html"
+    t.string  "permalink"
+  end
+
   create_table "favorites", :force => true do |t|
     t.integer  "user_id"
     t.integer  "favoritable_id"
@@ -263,6 +344,9 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.string   "role"
   end
 
+  add_index "favorites", ["favoritable_id", "favoritable_type"], :name => "index_favorites_on_favoritable_id_and_favoritable_type"
+  add_index "favorites", ["user_id"], :name => "index_favorites_on_user_id"
+
   create_table "flags", :force => true do |t|
     t.integer  "flaggable_id"
     t.string   "flaggable_type"
@@ -272,6 +356,7 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.datetime "updated_at"
   end
 
+  add_index "flags", ["flaggable_id", "flaggable_type"], :name => "index_flags_on_flaggable_id_and_flaggable_type"
   add_index "flags", ["user_id"], :name => "index_flags_on_user_id"
 
   create_table "friend_emails", :force => true do |t|
@@ -291,6 +376,8 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "hits", ["hittable_id", "hittable_type"], :name => "index_hits_on_hittable_id_and_hittable_type"
 
   create_table "layouts", :force => true do |t|
     t.string   "identifier"
@@ -312,6 +399,9 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.integer "region_type_id"
   end
 
+  add_index "layouts_region_types", ["layout_id"], :name => "index_layouts_region_types_on_layout_id"
+  add_index "layouts_region_types", ["region_type_id"], :name => "index_layouts_region_types_on_region_type_id"
+
   create_table "links", :force => true do |t|
     t.integer  "linkable_id"
     t.string   "linkable_type"
@@ -320,6 +410,8 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "links", ["linkable_id", "linkable_type"], :name => "index_links_on_linkable_id_and_linkable_type"
 
   create_table "mailing_lists", :force => true do |t|
     t.string   "name"
@@ -363,6 +455,9 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.boolean  "editable",               :default => true
   end
 
+  add_index "menus", ["link_id"], :name => "index_menus_on_link_id"
+  add_index "menus", ["parent_id"], :name => "index_menus_on_parent_id"
+
   create_table "nodes", :force => true do |t|
     t.integer  "renderable_id"
     t.integer  "region_id"
@@ -371,6 +466,9 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.datetime "updated_at"
   end
 
+  add_index "nodes", ["region_id"], :name => "index_nodes_on_region_id"
+  add_index "nodes", ["renderable_id"], :name => "index_nodes_on_renderable_id"
+
   create_table "note_assignments", :force => true do |t|
     t.integer  "assigned_id"
     t.string   "assigned_type"
@@ -378,6 +476,9 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "note_assignments", ["assigned_id", "assigned_type"], :name => "index_note_assignments_on_assigned_id_and_assigned_type"
+  add_index "note_assignments", ["note_id"], :name => "index_note_assignments_on_note_id"
 
   create_table "notes", :force => true do |t|
     t.string   "type"
@@ -391,6 +492,8 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.datetime "updated_at"
   end
 
+  add_index "notes", ["contact_id"], :name => "index_notes_on_contact_id"
+
   create_table "offer_responses", :force => true do |t|
     t.integer  "offer_id"
     t.integer  "campaign_id"
@@ -398,6 +501,10 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "offer_responses", ["campaign_id"], :name => "index_offer_responses_on_campaign_id"
+  add_index "offer_responses", ["contact_id"], :name => "index_offer_responses_on_contact_id"
+  add_index "offer_responses", ["offer_id"], :name => "index_offer_responses_on_offer_id"
 
   create_table "offers", :force => true do |t|
     t.string   "type"
@@ -409,6 +516,10 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.datetime "converted_at"
     t.string   "status",             :limit => 32
   end
+
+  add_index "offers", ["campaign_id"], :name => "index_offers_on_campaign_id"
+  add_index "offers", ["offer_id"], :name => "index_offers_on_offer_id"
+  add_index "offers", ["tracking_cookie_id"], :name => "index_offers_on_tracking_cookie_id"
 
   create_table "page_views", :force => true do |t|
     t.integer  "tracking_cookie_id"
@@ -430,6 +541,8 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.integer "votes",   :default => 0
     t.text    "value"
   end
+
+  add_index "poll_answers", ["poll_id"], :name => "index_poll_answers_on_poll_id"
 
   create_table "questions", :force => true do |t|
     t.integer  "faq_id"
@@ -453,6 +566,8 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.text    "options"
   end
 
+  add_index "record_attributes", ["record_id", "record_type"], :name => "index_record_attributes_on_record_id_and_record_type"
+
   create_table "region_types", :force => true do |t|
     t.string  "name"
     t.string  "domid"
@@ -468,6 +583,9 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.integer "renderable_id"
   end
 
+  add_index "region_types_renderables", ["region_type_id"], :name => "index_region_types_renderables_on_region_type_id"
+  add_index "region_types_renderables", ["renderable_id"], :name => "index_region_types_renderables_on_renderable_id"
+
   create_table "regions", :force => true do |t|
     t.integer  "view_id"
     t.string   "view_type"
@@ -477,6 +595,9 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "regions", ["region_type_id"], :name => "index_regions_on_region_type_id"
+  add_index "regions", ["view_id", "view_type"], :name => "index_regions_on_view_id_and_view_type"
 
   create_table "renderables", :force => true do |t|
     t.string   "name"
@@ -497,6 +618,10 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.text     "options"
   end
 
+  add_index "renderables", ["associated_id"], :name => "index_renderables_on_associated_id"
+  add_index "renderables", ["owner_id", "owner_type"], :name => "index_renderables_on_owner_id_and_owner_type"
+  add_index "renderables", ["template_id"], :name => "index_renderables_on_template_id"
+
   create_table "searches", :force => true do |t|
     t.string   "query"
     t.string   "search_type"
@@ -507,6 +632,8 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "searches", ["user_id"], :name => "index_searches_on_user_id"
 
   create_table "settings", :force => true do |t|
     t.string   "name"
@@ -639,6 +766,19 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.string   "system_mailing_address"
     t.text     "can_spam_mailing_address"
     t.integer  "notes_per_page"
+    t.boolean  "event_display_actions"
+    t.boolean  "event_show_labels"
+    t.boolean  "event_show_social_bookmarks"
+    t.string   "event_submenu"
+    t.string   "event_thumb"
+    t.text     "facebook_event_template"
+    t.boolean  "facebook_events_by_default",     :default => true
+    t.text     "twitter_event_template"
+    t.boolean  "twitter_events_by_default",      :default => true
+    t.string   "m_gateway"
+    t.string   "m_gateway_login"
+    t.string   "m_gateway_pass"
+    t.boolean  "m_gateway_test",                 :default => true
   end
 
   create_table "share_sites", :force => true do |t|
@@ -667,6 +807,9 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.integer "position"
   end
 
+  add_index "slideshow_assignments", ["slide_id"], :name => "index_slideshow_assignments_on_slide_id"
+  add_index "slideshow_assignments", ["slideshow_id"], :name => "index_slideshow_assignments_on_slideshow_id"
+
   create_table "subscriptions", :force => true do |t|
     t.integer  "user_id"
     t.integer  "mailing_list_id"
@@ -675,7 +818,9 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.string   "unsubscribe_token"
   end
 
+  add_index "subscriptions", ["mailing_list_id"], :name => "index_subscriptions_on_mailing_list_id"
   add_index "subscriptions", ["unsubscribe_token"], :name => "index_subscriptions_on_unsubscribe_token", :unique => true
+  add_index "subscriptions", ["user_id"], :name => "index_subscriptions_on_user_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -761,6 +906,7 @@ ActiveRecord::Schema.define(:version => 20111108201352) do
     t.boolean  "has_bounced",                                    :default => false
   end
 
+  add_index "users", ["contact_id"], :name => "index_users_on_contact_id"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
