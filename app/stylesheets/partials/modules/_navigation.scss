@@ -61,7 +61,11 @@ ul.menu {
 				top:34px;
 	      padding-top:22px; 
         background: transparent url(images/tab_green.png) 10% 0% no-repeat;
- 				> li:last-child,li.last { 
+ 				> li:last-child { 
+						background: transparent url(images/nav_shadow.png) left bottom no-repeat;padding-bottom:22px;
+					}
+					
+				> li.last { 
 						background: transparent url(images/nav_shadow.png) left bottom no-repeat;padding-bottom:22px;
 						
 						}
@@ -102,6 +106,7 @@ ul.menu {
 				/*global font-family */
 				border-right:$theme-wildcard 1px solid;
 				border-left:white 1px solid;
+				
       }
 
       /* dropdown links */
@@ -125,8 +130,12 @@ ul.menu {
 				}
 				
 
-      &:last-child a,  &:last-child a:hover,  &.last a,  &.last a:hover{
-        border-right:0;
+      &:last-child a,  &:last-child a:hover{
+        border-width:0px 0px 0px 1px;
+     	}
+
+			&.last a,  &.last a:hover{
+        border-width:0px 0px 0px 1px;
      	}
 
       /* submenu dropdown links */
