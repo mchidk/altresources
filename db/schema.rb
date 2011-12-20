@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206193654) do
+ActiveRecord::Schema.define(:version => 20111216155036) do
 
   create_table "advertising_costs", :force => true do |t|
     t.integer "cost", :default => 0
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20111206193654) do
     t.boolean  "active",                          :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_page_id"
   end
 
   add_index "campaigns", ["affiliate_id"], :name => "index_campaigns_on_affiliate_id"
@@ -225,6 +226,7 @@ ActiveRecord::Schema.define(:version => 20111206193654) do
     t.string   "offer_name"
     t.string   "campaign_code"
     t.integer  "dated_cost_id"
+    t.boolean  "followed_up",                      :default => false
   end
 
   add_index "deals", ["campaign_id"], :name => "index_deals_on_campaign_id"
@@ -440,21 +442,19 @@ ActiveRecord::Schema.define(:version => 20111206193654) do
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
-    t.integer  "depth"
     t.boolean  "new_window",             :default => false
     t.boolean  "external",               :default => false
     t.boolean  "system",                 :default => false
     t.boolean  "logged_out_only",        :default => false
     t.boolean  "delegate_title_to_link", :default => true
     t.string   "href"
-    t.string   "toggle_eval"
     t.string   "icon"
     t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "path_pattern"
     t.string   "type"
     t.boolean  "editable",               :default => true
+    t.boolean  "show_children",          :default => true
   end
 
   add_index "menus", ["link_id"], :name => "index_menus_on_link_id"
