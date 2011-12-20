@@ -13,8 +13,8 @@
     #content-main-wrapper
       #content-main
         = content_for?(:default_content) ? yield(:default_content) : yield
-    #content-bottom
-      = render_region 'content-bottom'
+        #content-bottom
+          = render_region 'content-bottom'
 
 - add_body_class("one-column")
 = render :file => 'layouts/application'
