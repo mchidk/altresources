@@ -132,11 +132,15 @@
 	.toolbar-left { 
 		
 		.contact-photo,.deal-photo{
-		float: left;
-		margin-right: 12px;
+      float: left;
+      margin-right: 12px;
 		}
-
-		.deal-info{
+    .deal-category, .deal-value-text{ font-weight:bold;}
+		.contact-info,.deal-info{
+			float:left;
+		  width:840px;
+		  display:inline-block;
+		
 		  p{
 		  font-size:.8em;
 		  }
@@ -366,7 +370,7 @@ body.admin {
       background: transparent none !important; 
     }
     .toolbar-left { 
-      width: 96%; 
+      width: 98%; 
     }
     .toolbar-middle, .toolbar-right { 
       display: none; 
@@ -427,6 +431,8 @@ body.admin {
 	}	
 	
   /*- - - - 1 columns - - - - -*/
+  &.controller-e9-crm-contacts.template-show,
+  &.controller-e9-crm-deals.template-show,
   &.controller-admin-comments, 
   &.controller-admin-searches, 
   &.controller-admin-email-deliveries, 
