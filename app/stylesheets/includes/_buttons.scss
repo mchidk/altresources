@@ -29,6 +29,7 @@ $button-margin: 0 0 0.5em 0 !default;
 }
 
 @mixin button-color($background) {
+	background-color:$background;
   border: solid 1px darken($background, 4%);
   &, &:visited, &:hover {
     color: mix(#fff, $background, 95%);

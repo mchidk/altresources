@@ -38,23 +38,11 @@ $fieldset-margin: 0 0 0.67em;
 
 @mixin inline-form {
   display: inline;
-  input, select, label { display: inline; margin: 0 0.33em 0 0; }
+  input, select, label {display: inline; margin: 0 0.33em 0 0; }
   /*input[type=text] { width: 100%; }*/
   select { width: 200px; }
   p { margin: 0; }
 }
 
 @mixin form-label {
-}
-
-//created by chris@cr 9.23 to edit contact tool bar
-@mixin toolbar-form($width: 315px) {
-	width: $width;
-	
-	input[type="text"], select {
-		//adjustments for toolbar-middle
-		float:right;
-		width:$sidebar-global-select-width;
-		margin-right:6px;
-		}
 }

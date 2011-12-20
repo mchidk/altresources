@@ -15,16 +15,13 @@ ul.social-module {
   a {
     font-weight: normal;
     font-style: italic;
-    font-size: $small-font-size;
-    @include column(2);
+    //font-size: $x-small;
+    font-size: x-small;
+    @include column(1);
     @include append(1);
-    height: 30px;
+    height: 75px;
     margin-top: 6px;
-		
-		padding-right:0px;
-		width: 30px;
-    
-		.text {
+    .text {
       margin-top: 4px;
     }
     &.hello {
@@ -43,39 +40,134 @@ a.social-link {
   @include clearfix;
   @include h4-typography;
   @include alt-link-colors;
-overflow:hidden;
-position:relative;
-padding-right: 12px;
 
   &:hover {
     text-decoration: underline;
-	}
-	
-	div.text {
-	z-index:100;
-	text-decoration: inherit;
-				margin-left:-999em;
-		}
-		
-  .img, .text {
-		position:absolute; 
-		width:35px;
-		height:35px; 
-    float: left; 
+    .text { text-decoration: inherit; }
   }
 
-  .img { 
-	z-index:200;
-	margin-right: 8px;
-	}
+  .img, .text { 
+    float: left; 
+  }
+  .img { margin-right: 8px; }
 }
 
-//.social-feed-title {
-  ///line-height: 35px;
-  //a.social-link .text { display: none; } 
-//}
+.social-feed-title {
+  line-height: 35px;
+  a.social-link .text { display: none; } 
+}
 
 /* social popup form */
 #social-networking-form {
   textarea { height: 140px; }
+}
+
+.social-feed {
+  @include spaceless;
+  color: #000;
+  float: left;
+  width: 49%;
+  border-left: none;
+  .social-feed-title {
+    padding: 5px 10px;
+    border-bottom: 1px solid #cccccc;
+    @extend .site-sans;
+    font-weight: bold; 
+  }
+  .pagination { text-align: center; }
+  .feed {
+    padding: 10px;
+    .feed-item {
+      display: block;
+      position: relative;
+      @include clearfix;
+      margin-bottom: 1.5em;
+      .feed-time {
+        @extend .small-sans;
+        font-style: italic; }
+      .feed-status {
+        @extend .small-sans; }
+      .feed-caption {
+        @extend .small-sans;
+        font-style: italic;
+        margin-bottom: 0; }
+      .inner {
+        width: 355px;
+        float: left;
+        overflow: hidden; }
+      .actions {
+        position: absolute;
+        top: 0;
+        right: 0;
+        a {
+          @extend .icon-delete; } } }
+    .feed-item.fb-post {
+      .feed-from {
+        margin-right: 5px; }
+      .feed-avatar {
+        float: left;
+        width: 50px;
+        height: 100%;
+        margin-right: 10px; }
+      .feed-from {
+        font-weight: bold;
+        float: left; }
+      .feed-picture {
+        img {
+          margin-right: 10px; } }
+      .feed-body {
+        > div {
+          padding-bottom: 0.5em; } } }
+    .feed-item.tw-status {
+      .inner {
+        > div {
+          padding-bottom: 0.5em; 
+          width: 370px;
+        } 
+        > div.actions {
+          width: auto;
+        }
+      }
+      .feed-avatar {
+        float: left;
+        width: 50px;
+        height: 100%;
+        margin-right: 10px; }
+      .feed-from {
+        @include clearfix;
+        .feed-screen-name {
+          float: left;
+          font-weight: bold;
+          margin-right: 5px; 
+        }
+      } 
+    } 
+  } 
+}
+
+html body.admin .admin-sidebar-right{
+	
+		.social-feed .feed .feed-item .inner {
+		width: 180px !important;
+		float: left;
+		overflow: hidden;
+		
+			&> div{
+				padding-bottom: 0.5em;
+				width: 180px !important;
+				line-height: 1.2em;
+			}
+		}	
+		
+		table.plain, table.plain th, table.plain tr, table.plain td {
+			border:0;
+			border-style:none;
+		}
+		
+}
+
+html body.controller-admin-social-feeds{
+	table td, table td.field{
+		font-size:medium;
+	}
 }

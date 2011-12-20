@@ -1,70 +1,87 @@
 @import 'compass/utilities/general/clearfix';
 @import 'compass/css3/inline-block';
+@import 'includes/css3';
 @import 'includes/form';
 @import 'includes/global';
 
-	.toolbar.showcontact .toolbar-middle{
-		min-height:94px;
-	}
-
-.toolbar-inner{
-	background:transparent url(images/toolbar_dividers.png) top center repeat-y;
-}	
-
+.toolbar.showcontact .toolbar-middle {
+  min-height:94px;
+}
+	
 .toolbar {
   @include clearfix;
   margin-bottom: $global_spacing_margin;
-  font-size: $small_font_size;
   padding: 0.5em;
-  border: $global-border-style-3;
+  border: $global-border-style-1;
   background: #eee;
+
+	.field {
+		margin: 0 0 0 0;
+	}
+	
+	p,.contact-tags a, .contact-who{
+		//font-size: $small;
+		font-size: small;
+	}
+
+	fieldset { 
+    //min-height:92px;
+    border-style:none;
+    margin:0 0 .5em 0;
+    padding:0;
+    background-color:none !important;
+	}
+
+	/*trying target every label that's follows an input*/
+	input + label {
+		display:inline-block !important;
+		vertical-align:middle;
+	}
+	
+	/*trying target every label that's acting as a header*/
+	div.field:first-child {
+		display: block !important;
+		vertical-align: middle;
+	}
+
+	.toolbar-inner {
+		background: transparent url(images/toolbar_dividers.png) top center repeat-y;
+	}
 	
 	.input, input[type="email"], input[type="text"], input[type="password"], input[type="file"], textarea, select {
 		display: inline;
-		//float:right;
+		//float: right;
 	}
 	
-	button,
-	input[type="reset"],
-	input[type="button"],
-	input[type="submit"],
-	input[type="file"] > input[type="button"],
-	a.button,
-	.toolbar-right a,
-	td.links a,
-	.add-nested-association,
-	#add-tag-btn,
-	#sidebar-actions a {
-	margin:0;
+	//.contact-photo {
+		//width: 30%;
+		//float: left;
+		//display: inline;
+	//}
+	
+	.contact-who-company {
+		display:block;
 	}
 	
-	.contact-photo {
-		width:110px;
-		float:left;
-		display:inline;
-	}
-	
-	.contact-who, .contact-company, #contact-related-info {
-		width:65%;
-		//float:right;
-		display:inline-block;
-		padding-bottom:.5em;
+	.contact-who{
+		//width: 65%;
+		//float: right;
+		display: inline;
 		
 		.contact-subheader{
-			position:relative;
-			top:8px;
-			height:1em;
-			font-weight:bold;
+			position: relative;
+			top: 8px;
+			height: 1em;
+			font-weight: bold;
 		}
 	}
-
-	label {
+	
+  label {
     margin: 0;
     border: 0;
     display: block;
-		margin-bottom:3px;
-		background-color:none !important;
-		color:$theme-wildcard;
+    color: #666;
+		//margin-bottom: 3px;
   }
 
   label, input[type=submit], button, .ui-button-text { 
@@ -85,179 +102,204 @@
   }
 
 	> div.actions {
-	float:right;
-	//changed by @chris.cr addressing button inside divs in toolbar area looking like huge
+    float:right;
+    //changed by @chris.cr addressing button inside divs in toolbar area looking like huge
     //change brings it in line with form input buttons
   }
 
 	.toolbar-right, .toolbar-right fieldset{
 		position:relative;
-		a, input {
-			margin-left:0;
-		}
+		a { margin-left: 0; }
 	}
-
+	
 	> #contact_tag_list input {
-	display:inline;
-	//changed by @chris.cr addressing button inside divs in toolbar area looking like huge
-  //change brings it in line with form input buttons
+    display:inline;
+    //changed by @chris.cr addressing button inside divs in toolbar area looking like huge
+    //change brings it in line with form input buttons
 	}
 
 	> div.actions a{
-	//changed by @chris.cr addressing button inside divs in toolbar area looking like huge
+    //changed by @chris.cr addressing button inside divs in toolbar area looking like huge
     line-height:1.2;//change brings it in line with form input buttons
   }
 
-  .toolbar-left, .toolbar-right { 
-	margin-top:5px;
-	  @include toolbar-form;
+  .toolbar-left, .toolbar-middle, .toolbar-right { 
+    margin-top: 5px;
+	  position: relative;
+    width: 315px;
 	}
   
-.toolbar-left > #user_search_form {
-	margin:.5em;
-}
-
 	.toolbar-left { 
+		
+		.contact-photo,.deal-photo{
+		float: left;
+		margin-right: 12px;
+		}
 
+		.deal-info{
+		  p{
+		  font-size:.8em;
+		  }
+		}
+		
+		
     float: left; 
-    label,select { 
+    label, select { 
       @include inline-block; 
       vertical-align: middle;  
     }
 
-    input#search{
-			float:left;
-		}
+    #user_search_form {
+      float: left; 
+
+      #search { 
+        float: left;
+        margin-left: 8px;  
+      }
+
+      input[type="text"] {
+        margin-top: 0px;
+      }
+      
+      input[type="submit"] {
+        margin-top: 0px;
+        float: right;
+      }
+    }
   }
 	
-	.toolbar-middle{
-		margin-left:20px;
-		margin-top:5px;
+	.toolbar-middle {
+		margin-left: 20px;
+		margin-top: 5px;
 		float: left; 
-		width:310px;
-		@extend toolbar-form;
-		margin-right:0px;
-
+		width: 310px;
+		margin-right: 0px;
 		//border-left:dotted 2px #ccc;
 		//border-right:dotted 2px #ccc;
+
+		.field.clear {
+			position: absolute;
+			right: 0px;
+			top: 5px;
+			width: 4em;
+			font-size:75%;
+		}
+
+    div {
+      width: 300px;
+    }
 		
-		#contact_tag_select li{
-			display:inline-block;
+		#contact_tag_select li {
+			display: inline-block;
 			margin: 5px 1px 2px 0;
 		}
-	}
-	
-	.toolbar-middle input#contact_search_clear {
-	position:relative;
-	left:168px;
-	float: none;
-	}
-	
-	.toolbar-middle div{
-		width:300px;
-	}
-		
-	fieldset { 
-  //min-height:92px;
-	border-style:none;
-	margin:0 0 .5em 0;
-	padding:0;
-	background-color:none !important;
+
+    input#contact_search_clear {
+      position: relative;
+      left: 168px;
+      float: none;
+    }
+
+		input, select { 
+      width:294px;
+    }
 	}
 	
 	.toolbar-right { 
-	margin-left:6px;
-	float:right;
-	
-	form{
-		margin-top:6px;
-	}
-	
-	input{
-		margin-left:4px;
-	}
-		select{
-			width:260px;
-			margin-right:0;
-			float:left;
+    margin-left: 6px;
+    float: right;
+    
+
+
+		.contact-tags label{
+			display:inline;
 		}
 		
-		//legend{
-			//padding-left:2px;
-		//}
-	}
+    input, select { 
+      vertical-align: middle; 
+    }
 
-//end of toolbar mega rule ////
+    input[type="text"]{
+      float: right;
+      width: $sidebar-global-select-width;
+      margin-right: 0;
+    }
 
-  input, select {
-			vertical-align: middle;
+		select {
+			width: 220px;
+			margin-right: 3px;
+			float: none;
+			display: inline-block;
 		}
-	}
-
-	.controller-e9-crm-deals, .controller-e9-crm-campaigns{ 
 		
-		.toolbar-middle select{
-		width:300px;
+		legend {
+			padding-left:2px;
 		}
+		
+		.actions{
+	  font-size:medium;
+	  }
 	}
-	
-//.controller-e9-crm-campaigns .toolbar-left { 
-  //@include toolbar-form(450px);
-//}
+} //end of toolbar mega rule ////
 
-//.controller-e9-crm-campaigns .toolbar-left { 
-	
-	//input, select{
-	//	float:left;
-	//	margin-right:6px;
-	//	}
-  
-//width:600px;
-//}
-
-.toolbar-header{
-margin-bottom:8px;	
+.controller-e9-crm-deals, .controller-e9-crm-campaigns { 
+  .toolbar-middle select {
+    width:294px;
+    float:none;
+  }
 }
 
-.toolbar-actions{
-	padding-bottom:10px;
-	//background:transparent url(images/horiz-dotted.png) bottom left repeat-x;
+.controller-users .toolbar {
+	@include linear-gradient(lighten($theme-primary, 23%), lighten($theme-secondary, 11%));
+	background-color:$theme-primary;
 }
 
 
+.toolbar-header, .toolbar legend {
+	color: $theme-primary;
+	font-weight: bold;
+	//font-size: $medium;
+	font-size: medium;
+	margin: .5em 0;
+}
+
+.toolbar .toolbar-right .toolbar-forms label {
+  //display: inline-block;
+  vertical-align: middle;
+}
 
 /*- - - - - - - - - - view contacts edits- - - - - - - - - - - */
 
 .toolbar.showdeal, .toolbar.showcontact {
-	.toolbar-left, .toolbar-right{
-		width:46%;
+	.toolbar-left, .toolbar-right {
+		width: 46%;
 	}
 	
-	.toolbar-middle{
-	display:none;	
+	.toolbar-middle {
+    display: none;	
 	}
 }
 
 .toolbar legend {
-	color:#999;
-	font-weight:bold;
+	color: #999;
+	font-weight: bold;
   padding: .25em 0;
-  //background-color: #fff;
-	//margin:20px 0 0 0;
+  //background-color:  #fff;
+	//margin: 20px 0 0 0;
 }
 
 .toolbar-left #contact-related-info {
 	
-	fieldset:first-child legend{
-	display:none;
+  fieldset:first-child legend {
+    display:none;
 	}
 	
-	label{
-		display:block;
-		color:#999;
-		font-weight:bold;
-		padding: .25em 0 0 0;
-		margin-bottom:0;
+	label {
+		display: block;
+		color: #999;
+		font-weight: bold;
+		padding:  .25em 0 0 0;
+		margin-bottom: 0;
 	}
 }
 
@@ -265,37 +307,132 @@ margin-bottom:8px;
 
 .admin-sidebar-right {
 	
+	h2 {
+		font-size: 14px;
+    margin:0 0 0 0;
+    color:#7b733c;
+	}
+
+  h2 .actions, .contact-actions {
+    float: right;
+  }
+	
 	legend {
-    color:#999;
-    font-weight:bold;
+    color: #999;
+    font-weight: bold;
 	}
 	
 	div, a {
-    font-size:11px;
+    font-size: 11px;
 	}
 
 	fieldset {
-    padding-bottom:10px;
+    padding-bottom: 10px;
 	}
 	
 	table th {
-    padding:0;
-    line-height:2em;
-    background-color:#ddd;
+    padding: 0;
+    line-height: 2em;
+    background-color: #ddd;
+    border-bottom: 0;
 	}
-}
-
-.admin .admin-sidebar-right {
 	
 	table th, table td {
-    border: 1px solid #ccc;
+    border:  1px solid #ccc;
+  }
+}
+
+
+/*- - - - column changes for various admin toolbars - - - - -*/
+body.admin {
+  @mixin toolbar-two-col($hide: 'middle') {
+    .toolbar-inner { 
+      background: transparent url(images/toolbar_divider.png) 66% 0% repeat-y; 
+    }
+    .toolbar-left { 
+      width: 64%;
+      padding-right: 18px; 
+    }
+    .toolbar-middle, .toolbar-right {
+      width: 32%;
+      margin-left: 18px;
+    }
+    // see how the variable is used to determine which section to hide?
+    .toolbar-#{$hide} { display: none; }
   }
 
-  table th {
-    border-bottom:0;
+  @mixin toolbar-one-col {
+    .toolbar-inner { 
+      background: transparent none !important; 
+    }
+    .toolbar-left { 
+      width: 96%; 
+    }
+    .toolbar-middle, .toolbar-right { 
+      display: none; 
+    }
   }
 
-  .contact-actions {
-    float:right;
+  @mixin toolbar-two-col-special {
+    .toolbar-inner { 
+      background: transparent url(images/toolbar_divider.png) 30% 0% repeat-y; 
+    }
+    
+    .toolbar-left { 
+      width:25%; 
+    }
+
+    .toolbar-middle { 
+      display: none; 
+    }
+
+    .toolbar-right { 
+      width:69%;; 
+    }
   }
+
+  /*- - - - 2 columns - - - - -*/
+  &.controller-admin-social-feeds,
+  &.controller-e9-crm-offers,
+  &.controller-admin-slideshows,
+  &.controller-admin-slides,
+  &.controller-admin-feed-widgets,
+  &.controller-admin-widget-templates,
+  &.controller-e9-polls-polls,
+  &.controller-admin-snippets,
+  &.controller-admin-top-widgets,
+  &.controller-admin-blogs,
+  &.controller-admin-mailing-lists,
+  &.controller-admin-user-pages, 
+  &.controller-admin-banners,
+  &.controller-admin-banners.template-manage,
+  &.controller-admin-forums,
+  &.controller-admin-events.template-index,
+  &.controller-admin-slideshow-widgets,
+  &.controller-admin-mailing-lists,
+  &.controller-e9-crm-dated-costs,
+  &.controller-admin-event-registrations, 
+  &.controller-e9-crm-contacts.template-edit,
+  &.controller-e9-crm-deals.template-edit,
+  &.controller-e9-crm-companies.template-index {
+    @include toolbar-two-col;
+  }
+	
+	&.controller-admin-email-reports {
+    @include toolbar-two-col($hide: 'right');
+	}
+	
+	&.controller-e9-crm-deals.template-show, &.controller-e9-crm-contacts.template-show {
+		@include toolbar-two-col-special;
+	}	
+	
+  /*- - - - 1 columns - - - - -*/
+  &.controller-admin-comments, 
+  &.controller-admin-searches, 
+  &.controller-admin-email-deliveries, 
+  &.controller-admin-system-emails,
+  &.controller-admin-layouts,
+  &.controller-admin-system-pages {
+    @include toolbar-one-col;
+	}
 }

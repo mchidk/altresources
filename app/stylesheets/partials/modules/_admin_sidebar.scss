@@ -1,0 +1,41 @@
+.admin-sidebar-right {
+	
+	h2,.h2{
+		margin:0 0 0 0;
+	}
+	
+	legend {
+    color:#999;
+    font-weight:bold;
+	}
+	
+	div, a {
+    font-size:11px;
+	}
+
+	fieldset {
+    padding-bottom:10px;
+	}
+	
+	table th {
+    padding:0;
+    line-height:2em;
+    background-color:#ddd;
+	}
+}
+
+.admin .admin-sidebar-right {
+
+	
+	table th, table td {
+    border: 1px solid #ccc;
+  }
+
+  table th {
+    border-bottom:0;
+  }
+
+  .contact-actions {
+    float:right;
+  }
+}
