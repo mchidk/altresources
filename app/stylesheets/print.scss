@@ -16,6 +16,11 @@ body { @include blueprint-print(true); }
   &:after { content: url(/images/logo.png); } 
 }
 
+.breadcrumbs, #right, #comments, .addthis_toolbox, #comments-container{
+  display: none;visibility:hidden;
+  //&:after { content: url(/images/logo.png); } 
+}
+
 /* hide a bunch of UI elements */
 a, #qe-link, .dashboard, .share-bar, .hidden, .tooltip, .qtip, [qtip], .errors,
 .error, #errorExplanation, #error_explanation, ul.menu, #top, #top-nav, #main-nav, 
@@ -25,7 +30,53 @@ a, #qe-link, .dashboard, .share-bar, .hidden, .tooltip, .qtip, [qtip], .errors,
   display: none; 
 }
 
-a[class=tag] 
+a, a[class=tag], img, .image 
 { 
-  display: inline; 
+  display: inline; font-weight:bold; text-decoration:underline;color:#777;border:0;border-style:none;
+}
+
+#logo{
+  display:block;
+  visibility:visible;
+  position:relative;
+  text-transform:uppercase;
+  font-weight:bold;
+  margin:1.5em 0;
+
+  a {
+    text-decoration:none;
+    display:block;
+  }
+
+  &:after {
+    content: url(/images/logo_admin.png);
+  } 	
+}
+
+
+$table-border-style:          $global-border-style-1 !default;
+$table-header-image:     none !default;
+$table-ordered-column-image:  '/images/buttons/arrow_admin.png' !default;
+
+.h1, h1 {
+color: #000;
+}
+
+table {
+
+  th, td {
+    padding: .5em 2em;
+    border: $global-border-style-3;
+    &, &.ui-widget-content, &.ui-state-default {
+      border-left-width: 0;
+      &:first-child { border-left-width: 1px; }
+    }
+
+    &,&.ui-widget-content, &.ui-state-default {
+      border-top-width: 0;
+    }
+  }
+  th {
+    border-top-width: 1px;//adds the border back on top of table
+  }
 }
