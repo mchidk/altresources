@@ -402,7 +402,7 @@ body.admin table td{
 }
 	
 $footer-border: 1px;
-$footer-height: 290px;
+$footer-height: 302px;
 
 @import 'compass/layout/sticky-footer';
 @include sticky-footer($footer-height, '#root', '#root-footer', '#footer-wrapper');
