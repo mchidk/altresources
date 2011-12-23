@@ -80,4 +80,83 @@ namespace :dropbox do
 
   desc "Sync required files from dropbox"
   task :sync => [:images, :favicon]
+
+end
+
+namespace :contacts do
+  desc "Import Contacts from CSV"
+  task :import => :environment do
+    require 'csv'
+
+    csv = Rails.root.join('db/contacts.csv')
+    raise "#{csv} does not exist. Stopping task." if !File.exists?(csv)
+
+    FIRST_NAME = 'B'
+    LAST_NAME  = 'D'
+    COMPANY    = 'F'
+    TITLE      = 'H'
+    SUBSCRIBED = ''
+    EMAIL      = ''
+    PHONE      = ''
+    TAGS       = ''
+    INFO       = ''
+
+    CSV.foreach(csv, :headers => true) do |row|
+      puts "Importing: #{row.fields.join(' > ').inspect}"
+
+      unless email = row[EMAIL]
+        puts "    ERROR: no email found in #{row.fields.join(' > ').inspect}"
+      else
+        mailing_list = MailingList.default
+
+        user = User.find_by_email(email) || begin
+          User.prospects.create({
+            :email         => row[EMAIL],
+            :first_name    => row[FIRST_NAME],
+            :last_name     => row[LAST_NAME],
+            :mailing_lists => row[SUBSCRIBED].to_s.strip == 'TRUE' ? [mailing_list] : []
+          })
+        end
+        
+        unless user.persisted?
+          puts "    ERROR: User record not saved #{user.errors.inspect}"
+          next
+        end
+
+        unless user.contact.present?
+          user.create_contact_if_missing!
+          user.reload
+        end
+
+        contact = user.contact
+
+        # basic columns
+        contact.first_name   = row[FIRST_NAME].presence || contact.first_name
+        contact.last_name    = row[LAST_NAME].presence  || contact.last_name
+        contact.title        = row[TITLE].presence      || contact.title
+        contact.info         = row[INFO].presence       || contact.info
+
+        # company name | company generation
+        contact.company_name = row[COMPANY].presence    || contact.company_name
+
+        # phone number record attributes
+        if row[PHONE].present?
+          numbers = row[PHONE].to_s.split('|').map(&:strip)
+          numbers = numbers - contact.phone_number_attributes.map(&:value)
+          contact.phone_number_attributes_attributes = numbers.map {|num| { :value => num } }
+        end
+
+        # tags
+        if row[TAGS].present?
+          contact.tag_lists = {'users__h__' => row[TAGS].split('|').map(&:strip) | contact.tag_list_on('users__h__') }
+        end
+
+        if contact.save
+          puts "    SUCCESS Contact #{contact.id} Imported : #{contact.name}"
+        else
+          puts "    ERROR Contact #{contact.id} Import Failed : #{contact.errors.inspect}"
+        end
+      end
+    end
+  end
 end
