@@ -1,18 +1,7 @@
 !!! 5
 %html
   %head
-    %meta{'http-equiv' => 'Content-Type', :content => 'text/html; CHARSET=utf-8'}/
-    %title= meta_title
-    = meta_tags
-
-    = yield :stylesheets 
     = render 'shared/head'
-    = yield :javascripts
-    = yield :head
-
-    - if (code = E9::Config[:header_text]).present?
-      = code.html_safe
-
   %body{:class => body_class}
     #root
       #header
