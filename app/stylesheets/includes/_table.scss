@@ -95,6 +95,10 @@ $table-ordered-column-image:  '/images/buttons/arrow_admin.png' !default;
   }
 }
 
+#balance-table tfoot .cost{
+		text-align:right;
+	}
+
 .admin table{
 	
 	th, td {

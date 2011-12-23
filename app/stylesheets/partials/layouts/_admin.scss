@@ -283,7 +283,7 @@ html body.controller-admin-email-deliveries{
 
 /*form tweaks*/
 form label {
-	color:$gray;
+	color:$light-gray;
 }
 
 .page form, #right form, #right, .controller-sessions form{	
@@ -573,10 +573,18 @@ html body.admin .links a {
 @include link-colors(#fff, $theme-tertiary);
 		}
 
-#profile-tabs{
-	margin:0 $global-horiz-margin;
-}
+
 
 .notes-container > h2{
 	margin:0 0;
+}
+
+
+html body .ui-tooltip-content {
+	color:#000 !important;
+	
+	h3{
+		margin-left:0px !important;
+		color:#000;
+	}
 }

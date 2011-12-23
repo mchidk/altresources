@@ -402,7 +402,7 @@ body.admin table td{
 }
 	
 $footer-border: 1px;
-$footer-height: 290px;
+$footer-height: 302px;
 
 @import 'compass/layout/sticky-footer';
 @include sticky-footer($footer-height, '#root', '#root-footer', '#footer-wrapper');
@@ -568,5 +568,32 @@ html .home #footer .renderable:last-child { margin-top:10px;
 		background-color:white;
 		}
 		
-		
+#content-main #content-bottom{
+	margin-top:20px;
+	
+	.offer{
+		border-bottom:0px;
+		border-style:none;
+	}
+	
+	.field.radio, .field.checkbox {
+	width: 95%;
+	}
+	
+	label{
+		color:#fff !important;
+	}
+}	
+	
+	
+	
+#content-main .offer-body, #content-main #offer-body {
+	p {
+		margin: 0.75em 40px;
+	}
+	
+}
 
+#standard-help div{
+border: 1px solid black;
+}

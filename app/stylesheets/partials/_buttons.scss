@@ -20,7 +20,7 @@ a.button,
 .links a,
 .add-nested-association,
 #add-tag-btn,
-#sidebar-actions a,.note-edit a, .actions a
+#sidebar-actions a,.note-edit a
 {
   @include button;
   @include button-color($button-color);
