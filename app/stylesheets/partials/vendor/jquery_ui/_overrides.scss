@@ -20,50 +20,66 @@ li.ui-sortable-helper { list-style-type: none; }
   vertical-align: middle;
 }
 
+@mixin ui-icon {
+  width: 16px; 
+  height: 16px; 
+  text-indent: -999em;
+  background-image: url(images/ui-icons_1890ba_256x240.png);
+}
+
+@mixin ui-icon-button-primary {
+  left: 0.5em;
+}
+
 .ui-corner-reset {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
-  border-radius: 0; }
+  border-radius: 0; 
+}
 
 .ui-sortable .handle, table.sortable .handle {
-  @extend .ui-icon;
-  @extend .ui-icon-carat-2-n-s;
+  @include ui-icon;
+  background-position: -128px 0;
   cursor: pointer;
-  margin: 0 auto; }
+  margin: 0 auto; 
+}
 
 .ordered-column {
   .order-gfx {
-    @extend .ui-icon;
     @include inline-block;
+    @include ui-icon;
   }
   .asc {
-    @extend .ui-icon-triangle-1-n;
+    background-position: 0 -16px;
   }
   .desc {
-    @extend .ui-icon-triangle-1-s;
+    background-position: -64px -16px;
   }
-	.h-asc{
-		@extend .ui-icon-carat-1-n;
-	}
+  .h-asc{
+    background-position: 0 0;
+  }
 }
 
 table.records tr.active .activated {
-  @extend .ui-button-icon-primary;
-  @extend .ui-icon;
-  @extend .ui-icon-check;
-  margin: 0 auto; }
+  @include ui-icon;
+  @include ui-icon-button-primary;
+  background-position: -64px -144px;
+  margin: 0 auto; 
+}
 
 a.delete-tag {
-  @extend .ui-button-icon-primary;
-  @extend .ui-icon;
-  @extend .ui-icon-circle-close; }
+  @include ui-icon;
+  @include ui-icon-button-primary;
+  background-position: -32px -192px;
+}
 
 table.records .handle {
-  float: none; }
+  float: none; 
+}
 
 .ui-tabs {
-	padding: 0;
-	border: none;
+  padding: 0;
+  border: none;
   background: transparent;
   #errorExplanation {
     padding: 10px; 
@@ -72,7 +88,6 @@ table.records .handle {
     border: 1px solid $theme-secondary;
   }
   ul.ui-tabs-nav {
-    /*@extend .ui-corner-reset;*/
     padding-left: 0;
     background: none;
     margin: 0;
@@ -81,23 +96,23 @@ table.records .handle {
 }
 
 .controller-profiles{
-	
-	form label{
-		color:$theme-tertiary;
-	}	
-	
-	input[type="submit"]{
-		font-size:$small-font-size;
-		//height:25px;
-		}
-		
-	.actions{
-		a{
-			color:#fff;
-			padding: .3em 1em .2em 1em;
-			}
-		}
-	
+
+  form label{
+    color:$theme-tertiary;
+  }	
+
+  input[type="submit"]{
+    font-size:$small-font-size;
+    //height:25px;
+  }
+
+  .actions{
+    a{
+      color:#fff;
+      padding: .3em 1em .2em 1em;
+    }
+  }
+
 }
 
 .ui-widget-content a { @include link-colors($theme-primary, $theme-secondary);
@@ -106,12 +121,7 @@ table.records .handle {
 .ui-widget-content a.button { color: #fff; }
 
 .ui-widget-content{
-	color: #fff;
+  color: #fff;
 }
 
 .ui-tabs .ui-tabs-nav li a { font-size:$medium-font-size; float: left; padding: .5em 1em; text-decoration: none; }
-
-.ui-sortable .ui-state-default .handle {
-  background-image: url(images/ui-icons_1890ba_256x240.png);
- }
-

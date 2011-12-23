@@ -6,9 +6,8 @@ $uploadify-progressbar-background-color: $background-color !default;
 a.button {
   margin-right: 0.25em;
 
-
   &.browse, &.reset { 
-	@include link-colors(#fff, $theme-tertiary);
+    @include link-colors(#fff, $theme-tertiary);
     position: relative;
     object {
       display: block;
