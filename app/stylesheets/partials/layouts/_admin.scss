@@ -322,13 +322,13 @@ body.admin {
 	 font-size:12px;
   }
 	
-	a{
+	a {
 		@include link-colors($theme-primary, $theme-alternate);
 	}
 	
-	.actions a{
-		@include link-colors(#fff, $theme-alternate);
-	}
+	/*.actions a {*/
+		/*@include link-colors(#fff, $theme-alternate);*/
+	/*}*/
 	
 	.breadcrumbs a{
 		@include link-colors(#fff, $theme-tertiary);

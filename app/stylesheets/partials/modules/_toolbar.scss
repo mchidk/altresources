@@ -398,6 +398,7 @@ body.admin {
   /*- - - - 2 columns - - - - -*/
   &.controller-admin-social-feeds,
   &.controller-e9-crm-offers,
+  &.controller-admin-comments, 
   &.controller-admin-slideshows,
   &.controller-admin-slides,
   &.controller-admin-feed-widgets,
@@ -433,7 +434,6 @@ body.admin {
   /*- - - - 1 columns - - - - -*/
   &.controller-e9-crm-contacts.template-show,
   &.controller-e9-crm-deals.template-show,
-  &.controller-admin-comments, 
   &.controller-admin-searches, 
   &.controller-admin-email-deliveries, 
   &.controller-admin-system-emails,

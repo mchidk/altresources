@@ -78,8 +78,14 @@ form#social-networking-form {
  */
 
 #colorbox { 
+  fieldset {
+    @include clearfix;
+  }
   textarea {
-    width: 640px;
+    width: 615px;
+  }
+  #social-networking-form {
+    width: 645px;
   }
 }
 

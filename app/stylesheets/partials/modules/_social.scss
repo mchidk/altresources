@@ -81,7 +81,7 @@ a.social-link {
       display: block;
       position: relative;
       @include clearfix;
-      margin-bottom: 1.5em;
+      margin: 0.75em 0;
       .feed-time {
         @extend .small-sans;
         font-style: italic; }
@@ -146,24 +146,29 @@ a.social-link {
 }
 
 html body.admin .admin-sidebar-right{
-	
-		.social-feed .feed .feed-item .inner {
-		width: 180px !important;
+  .social-feed {
+    margin-bottom: 2em;
+    table {
+      margin-bottom: 0;
+    }
+  }
+
+  .social-feed .feed .feed-item .inner {
+    width: 180px !important;
 		float: left;
 		overflow: hidden;
 		
-			&> div{
+    &> div {
 				padding-bottom: 0.5em;
 				width: 180px !important;
 				line-height: 1.2em;
 			}
-		}	
+  }	
 		
-		table.plain, table.plain th, table.plain tr, table.plain td {
-			border:0;
-			border-style:none;
-		}
-		
+  table.plain, table.plain th, table.plain tr, table.plain td {
+    border:0;
+    border-style:none;
+  }
 }
 
 html body.controller-admin-social-feeds{

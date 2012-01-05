@@ -577,7 +577,8 @@ html .home #footer .renderable:last-child { margin-top:10px;
 	}
 	
 	.field.radio, .field.checkbox {
-	width: 95%;
+    width: 95%;
+    padding-left: 25px;
 	}
 	
 	label{
@@ -597,3 +598,4 @@ html .home #footer .renderable:last-child { margin-top:10px;
 #standard-help div{
 border: 1px solid black;
 }
+
