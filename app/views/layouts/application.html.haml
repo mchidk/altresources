@@ -28,6 +28,7 @@
         = render_region 'bottom-footer'
 
     .no-display
+      = yield :hidden
       = yield :bottom_javascripts
 
     - unless !Rails.env.production? || @hide_google_analytics
