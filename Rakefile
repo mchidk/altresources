@@ -91,21 +91,28 @@ namespace :contacts do
     csv = Rails.root.join('db/contacts.csv')
     raise "#{csv} does not exist. Stopping task." if !File.exists?(csv)
 
-    FIRST_NAME = 'B'
-    LAST_NAME  = 'D'
-    COMPANY    = 'F'
-    TITLE      = 'H'
-    SUBSCRIBED = ''
-    EMAIL      = ''
-    PHONE      = ''
-    TAGS       = ''
-    INFO       = ''
+    FIRST_NAME = 0
+    LAST_NAME  = 1
+    COMPANY    = 2
+    TITLE      = 3
+    BIZ_1      = 4
+    BIZ_2      = 5
+    BIZ_3      = 6
+    BIZ_4      = 7
+    FAX_PHONE  = 8
+    BIZ_PHONE  = 9
+    MOB_PHONE  = 10
+    EMAIL      = 11
+    INFO       = 12
+    WEBSITE    = 13
 
     CSV.foreach(csv, :headers => true) do |row|
       puts "Importing: #{row.fields.join(' > ').inspect}"
 
       unless email = row[EMAIL]
         puts "    ERROR: no email found in #{row.fields.join(' > ').inspect}"
+
+        contact = Contact.new
       else
         mailing_list = MailingList.default
 
@@ -114,7 +121,7 @@ namespace :contacts do
             :email         => row[EMAIL],
             :first_name    => row[FIRST_NAME],
             :last_name     => row[LAST_NAME],
-            :mailing_lists => row[SUBSCRIBED].to_s.strip == 'TRUE' ? [mailing_list] : []
+            :mailing_lists => [mailing_list]
           })
         end
         
@@ -129,33 +136,65 @@ namespace :contacts do
         end
 
         contact = user.contact
+      end
 
-        # basic columns
-        contact.first_name   = row[FIRST_NAME].presence || contact.first_name
-        contact.last_name    = row[LAST_NAME].presence  || contact.last_name
-        contact.title        = row[TITLE].presence      || contact.title
-        contact.info         = row[INFO].presence       || contact.info
+      # basic columns
+      contact.first_name   = row[FIRST_NAME].presence || contact.first_name
+      contact.last_name    = row[LAST_NAME].presence  || contact.last_name
+      contact.title        = row[TITLE].presence      || contact.title
+      contact.info         = row[INFO].presence       || contact.info
 
-        # company name | company generation
-        contact.company_name = row[COMPANY].presence    || contact.company_name
+      # company name | company generation
+      contact.company_name = row[COMPANY].presence    || contact.company_name
 
-        # phone number record attributes
-        if row[PHONE].present?
-          numbers = row[PHONE].to_s.split('|').map(&:strip)
-          numbers = numbers - contact.phone_number_attributes.map(&:value)
-          contact.phone_number_attributes_attributes = numbers.map {|num| { :value => num } }
+      # address
+      address = [
+        row[BIZ_1].presence, 
+        [
+          [row[BIZ_2], row[BIZ_3]].join(' ').strip.presence, 
+          row[BIZ_4].presence
+        ].compact.join(', ').presence
+      ].join("\n")
+
+      if address.present?
+        contact.address_attributes_attributes = [{ :value => address, :options => { :type => 'Work' }}]
+      end
+
+      # phone number record attributes
+      number_attrs = []
+
+      if phone = row[BIZ_PHONE].presence
+        unless contact.phone_number_attributes.map(&:value).member?(phone.strip)
+          number_attrs << { :value => phone, :options => { :type => 'Work' } }
         end
+      end
 
-        # tags
-        if row[TAGS].present?
-          contact.tag_lists = {'users__h__' => row[TAGS].split('|').map(&:strip) | contact.tag_list_on('users__h__') }
+      if phone = row[MOB_PHONE].presence
+        unless contact.phone_number_attributes.map(&:value).member?(phone.strip)
+          number_attrs << { :value => phone, :options => { :type => 'Mobile' } }
         end
+      end
 
-        if contact.save
-          puts "    SUCCESS Contact #{contact.id} Imported : #{contact.name}"
-        else
-          puts "    ERROR Contact #{contact.id} Import Failed : #{contact.errors.inspect}"
+      if phone = row[FAX_PHONE].presence
+        unless contact.phone_number_attributes.map(&:value).member?(phone.strip)
+          number_attrs << { :value => phone, :options => { :type => 'Fax' } }
         end
+      end
+
+      if number_attrs.any?
+        contact.phone_number_attributes_attributes = number_attrs
+      end
+
+      if website = row[WEBSITE].presence
+        contact.website_attributes_attributes = [{ :value => website, :options => {:type => 'Work'}}]
+      end
+
+      contact.tag_lists = {'users__h__' => ['Johns Contacts'] | contact.tag_list_on('users__h__') }
+
+      if contact.save
+        puts "    SUCCESS Contact #{contact.id} Imported : #{contact.name}"
+      else
+        puts "    ERROR Contact #{contact.id} Import Failed : #{contact.errors.inspect}"
       end
     end
   end
