@@ -155,10 +155,12 @@
 
 
     #user_search_form {
+      margin: 0;
+
       #search { 
         float: left; 
         margin: 0 5px 0 0;
-        width: 240px;
+        width: 230px;
       }
 
       input[type="text"] {
@@ -167,7 +169,7 @@
       
       input[type="submit"] {
         margin-top: 0px;
-        float: right;
+        float: left;
       }
     }
   }

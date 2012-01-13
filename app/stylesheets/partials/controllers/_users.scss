@@ -11,16 +11,16 @@ body.controller-users {
     padding-bottom: $global-spacing-margin;
     border-bottom: $global-border-style-3;
   }
+  .avatar, .user-body {
+    float: left;
+    display: inline;
+  }
   .avatar {
-    @include column(3);
-    /* ugh */
-    width: 148px;
+    width: 92px;
+    margin: 0 10px;
   }
   .user-body {
-    display: inline;
-    float: left;
-		width:580px;
-		margin-left:12px;
+		width: 557px;
   }
 
   .user-link {
