@@ -63,14 +63,15 @@ ul.attachments {
 
     .delete-attachment {
       display: block;
-      width: 15px;
-      height: 15px; 
       position: absolute;
       top: 2px;
       right: 2px;
       cursor: pointer;
       text-indent: -999em;
-      background-color: red;
+			background-position: -32px -192px;
+			width: 16px;
+			height: 16px;
+			background-image: url(images/ui-icons_1890ba_256x240.png);
     }
   }
 }

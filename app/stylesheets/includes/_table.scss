@@ -69,7 +69,7 @@ $table-ordered-column-image:  '/images/buttons/arrow_admin.png' !default;
       margin-left: 5px;
     }
 
-    &.links { 
+    &.links, &.actions { 
       text-decoration: none; 
       //text-transform: uppercase; 
       white-space: nowrap;
@@ -89,7 +89,7 @@ $table-ordered-column-image:  '/images/buttons/arrow_admin.png' !default;
       text-align: center;
     }
 
-    &.links, &.num {
+    &.links, &.actions, &.num {
       text-align: right;
     }
   }

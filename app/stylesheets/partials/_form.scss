@@ -1,6 +1,7 @@
 @import 'compass/css3/box-sizing';
 @import 'compass/css3/border-radius';
 @import 'compass/utilities/general/clearfix';
+@import 'compass/utilities/general/min';
 @import 'includes/form';
 @import 'includes/typography';
 
@@ -162,7 +163,7 @@ textarea
 /* pesky oddball label for the feed widget form */
 #ft-mixed label { display: block; }
 
-.field {
+div.field {
   @include clearfix;
   margin: 0 0 $global_spacing_margin 0;
   padding: 0.1em 0 0;
@@ -194,17 +195,18 @@ textarea
   &.radio, &.checkbox {
     @include inline-block;
     vertical-align: top;
-    width: 25%;
     position: relative;
-    padding-left: 18px;
+    @include min-height(18px);
+    padding-left: 18px !important;
+
     input[type=radio], input[type=checkbox] {
       background: none;
       position: absolute;
-      left: 1px;
-      margin: 2px 5px 0 0;
-      width: 13px;
-      height: 13px;
-			top:3px;
+      left: 0;
+      top: 0;
+      margin: 5px 5px 0 0;
+      width: 18px;
+      height: 18px;
     }
 		
     label {

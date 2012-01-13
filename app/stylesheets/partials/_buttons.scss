@@ -19,12 +19,19 @@ a.button,
 .toolbar-right a,
 .links a,
 .add-nested-association,
+td.actions a,
 #add-tag-btn,
-#sidebar-actions a,.note-edit a
+#sidebar-actions a,
+.note-edit a,
+.actions a[data-method=delete]
 {
   @include button;
   @include button-color($button-color);
   line-height:1.35em;
+}
+
+.actions a[data-method=delete] {
+  margin: 0.67em 0;
 }
 
 /* tailored for table cells */
@@ -36,14 +43,11 @@ input[type="submit"],
 a.button,
 .toolbar-right a,
 .links a,
+td.actions a,
 .add-nested-association,
 #add-tag-btn,
-#sidebar-actions a, .contact-links.actions a
-{
-
-		@extend button;
-		margin:.5em 0;
-
- }
+#sidebar-actions a, .contact-links.actions a {
+  margin:.5em 0;
+}
 
 }

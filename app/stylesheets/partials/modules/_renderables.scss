@@ -152,15 +152,10 @@ $renderable-bottom-margin: 1em;
 
 #footer-wrapper .contact-info{
 	dd,p, span{
-	font-size:$medium-font-size;
+    font-size:$medium-font-size;
 	//font-weight:bold;
 	}
 }
-
-.poll{
- .poll-answer{margin-left:20px;}
-}
-
 
 #right {
 	

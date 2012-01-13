@@ -32,7 +32,7 @@ $button-margin: 0 0 0.5em 0 !default;
 	background-color:$background;
   border: solid 1px darken($background, 4%);
   &, &:visited, &:hover {
-    color: mix(#fff, $background, 95%);
+    color: mix(#fff, $background, 95%) !important;
   }
   &, &:visited {
     @include linear-gradient(lighten($background, 23%), lighten($background, 11%));
@@ -42,6 +42,6 @@ $button-margin: 0 0 0.5em 0 !default;
   }
   &:active {
     @include linear-gradient($background, lighten($background, 10%));
-    color: mix(#fff, $background, 70%);
+    color: mix(#fff, $background, 70%) !important;
   }
 }

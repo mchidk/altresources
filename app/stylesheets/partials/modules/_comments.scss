@@ -35,7 +35,7 @@
   }
 }
 
-.comment .actions {
+.comment .action-links {
 	color:$theme-alert;
   overflow: hidden; 
   float: left; 
@@ -52,6 +52,8 @@
 
 
 	ul { 
+    margin: 0;
+    padding: 0;
 	    li { 		
 	    			font-weight: bold;
 		      @include inline-block; 

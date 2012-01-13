@@ -153,12 +153,12 @@
       vertical-align: middle;  
     }
 
-    #user_search_form {
-      float: left; 
 
+    #user_search_form {
       #search { 
-        float: left;
-        margin-left: 8px;  
+        float: left; 
+        margin: 0 5px 0 0;
+        width: 240px;
       }
 
       input[type="text"] {
@@ -252,12 +252,6 @@
     float:none;
   }
 }
-
-.controller-users .toolbar {
-	@include linear-gradient(lighten($theme-primary, 23%), lighten($theme-secondary, 11%));
-	background-color:$theme-primary;
-}
-
 
 .toolbar-header, .toolbar legend {
 	color: $theme-primary;

@@ -1,74 +1,105 @@
 @import 'compass/css3/inline-block';
+@import 'compass/css3/border-radius';
+@import 'includes/global';
+@import 'includes/colors';
 
-form.edit_user, form.new_user {
-  input[type=text], textarea {
-    width: 315px;
-    &.short {
-      width: 100px;
+body.admin {
+  .email-wrapper .nested-associations div.field.checkbox {
+    display: block;
+  }
+}
+
+.controller-profiles {
+  .nested-associations {
+    border: none;
+    padding: 0;
+    .nested-association {
+      width: 40%;
     }
   }
-  textarea {
-    height: 100px;
-
-  }
-
-  input[type="text"]{
-    height: 2.25em;
-  }
-
-  input, select, textarea {
-    margin-top: 0;
-  }
-
-  .info-bio textarea {
-    width: 100%;
-    height: 150px;
-  }
-  
-  select {
-	font-size:12px;
-	  //height:1.75em;
-    width: 125px;
-  }
 }
 
+fieldset.contact-contact-fields fieldset {
+  border: 0px dashed $global-border-color-1;
+  border-bottom-width: 1px;
 
-
-
-
-form.edit_user, form.new_user, form.edit_poll, form.new_poll {
-  .add-nested-association, .destroy-nested-association {
-    cursor: pointer;
-  }
-
-  .nested-association .field, .destroy-nested-association {
-    @include inline-block;
-    vertical-align: top;
-  }
-
-  .add-nested-association {
-    margin-top: 3px;
-    color:#fff;
-    &:hover {color:$theme-tertiary;}
-  }
-
-  .nested-association .field { 
+  legend {
+    padding: 0;
     margin: 0;
-    padding-top: 0;
-  }
-  .ui-button-icon-only {
-    height: 20px;
-    width: 20px;
   }
 }
 
-.page form.edit_user .record-attribute .field {
-  input[type=text], textarea {
-    width: 200px;
-		margin:6px 0 5px 12px;
-	}
-	
-	select{
-		margin:6px 0 10px 12px;
-	}
+.contact-contact-fields fieldset.nested-associations {
+  padding: 0 0 $global-spacing-margin;
+}
+
+fieldset.nested-associations {
+  .nested-association {
+    $padding: 8px;
+    $destroy-icon-size: 16px;
+    border: $global-border-style-2;
+    @include border-radius(4px);
+    margin: 0 5px 5px 0;
+    padding: $padding ($padding * 2 + $destroy-icon-size) $padding $padding;
+    display: block;
+    width: 28%;
+    float: left;
+    display: inline;
+    position: relative;
+
+    .add-nested-association, .destroy-nested-association {
+      cursor: pointer;
+    }
+
+    .field { 
+      margin: 0;
+      padding: 0;
+    }
+    .field + .field {
+      margin-top: $padding;
+    }
+
+    .destroy-nested-association {
+      /*background: url(/images/buttons/layer_close.png);*/
+      /*text-indent: -999em;*/
+      /*border: $global-border-style-1;*/
+      position: absolute;
+      right: $padding;
+      top: $padding;
+      height: $destroy-icon-size;
+      width: $destroy-icon-size;
+      display: block;
+    }
+
+    .input, input, select, textarea {
+      margin: 0;
+      width: 100%;
+    }
+
+    // hack to handle the text node styling of unchangeable contact emails
+    .contact-email {
+      padding: 0.4em;
+      @extend .input;
+      margin-top: $padding !important;
+      height: 28px;
+      input {
+        padding: 0;
+        border: none;
+      }
+    }
+
+    textarea {
+      height: 100px;
+    }
+  }  
+}
+
+.event.template-show .nested-associations {
+  .nested-association {
+    width: 95% !important;
+  }
+}
+
+#event_transaction_form .nested-association[style="visibility: visible;"] {
+  border-top: 1px #bbb dashed; 
 }

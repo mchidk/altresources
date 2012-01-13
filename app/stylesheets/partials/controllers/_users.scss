@@ -1,7 +1,11 @@
+
 @import 'includes/blueprint';
 @import 'includes/global';
 
 body.controller-users {
+  .user {
+    @include clearfix;
+  }
   .users .user, .user-section {
     margin-bottom: $global-spacing-margin;
     padding-bottom: $global-spacing-margin;
@@ -10,12 +14,13 @@ body.controller-users {
   .avatar {
     @include column(3);
     /* ugh */
-    width: 95px;
+    width: 148px;
   }
   .user-body {
     display: inline;
     float: left;
 		width:580px;
+		margin-left:12px;
   }
 
   .user-link {
@@ -24,9 +29,8 @@ body.controller-users {
     margin-bottom: 0;
     padding-bottom: 5px;
 		a { 
-      @include link-colors($theme-tertiary, $theme-primary);
 			font-weight:bold;
-			font-size:$base-font-size; 
+			font-size: 12px;
     }
   }
   .user-email {
