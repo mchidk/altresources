@@ -8,12 +8,12 @@ $table-header-image:     none !default;
 $table-ordered-column-image:  '/images/buttons/arrow_admin.png' !default;
 
 @mixin table {
-  border-collapse: separate;
+  border-collapse: collapse;
   margin-bottom: 1.5em; 
   width: 100%;
 
   tbody tr { line-height: 1.33; }
-  caption { background-color: $background-color; }
+  caption { text-align: center; font-weight: bold; }
   th, td, caption { padding: 4px 10px 4px 5px; }
   tfoot { font-style: italic; }
 
@@ -109,7 +109,7 @@ $table-ordered-column-image:  '/images/buttons/arrow_admin.png' !default;
 	    }
 
 	    &,&.ui-widget-content, &.ui-state-default {
-	      border-top-width: 0;
+	      // border-top-width: 0;
 	    }
     }
 		th {

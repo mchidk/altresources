@@ -587,7 +587,9 @@ html .home #footer .renderable:last-child { margin-top:10px;
 	}
 }	
 	
-	
+#content-main th {
+  background-color: $theme-primary;
+}
 	
 #content-main .offer-body, #content-main #offer-body {
 	p {
@@ -597,6 +599,6 @@ html .home #footer .renderable:last-child { margin-top:10px;
 }
 
 #standard-help div{
-border: 1px solid black;
+  border: 1px solid black;
 }
 

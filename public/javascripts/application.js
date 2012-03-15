@@ -33,4 +33,14 @@
   });
 
 
+  $('li.search').each(function(i, el) {
+    var f = $('form', el); 
+
+    f.search_form();
+
+    $('a', el).toggle(
+      function() {f.fadeIn()},
+      function() {f.fadeOut()}
+    );
+  });
 });
