@@ -22,16 +22,11 @@ a.button,
 td.actions a,
 #add-tag-btn,
 #sidebar-actions a,
-.note-edit a,
-.actions a[data-method=delete]
+.note-edit a
 {
   @include button;
   @include button-color($button-color);
   line-height:1.35em;
-}
-
-.actions a[data-method=delete] {
-  margin: 0.67em 0;
 }
 
 /* tailored for table cells */
