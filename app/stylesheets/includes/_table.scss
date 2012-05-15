@@ -48,21 +48,11 @@ $table-ordered-column-image:  '/images/buttons/arrow_admin.png' !default;
 
   th, td {
     border: $global-border-style-1;
-
-    &, &.ui-widget-content, &.ui-state-default {
-      border-left-width: 0;
-      &:first-child { border-left-width: 1px; }
-    }
-
-    &.ui-widget-content {
-      border-top-width: 0;
-    }
   }
 
   td {
     font-size: $small-font-size;
     font-weight: normal !important; 
-    border-top-width: 0px; 
     padding: 0.5em;
 
     .viewable-status {
@@ -100,23 +90,10 @@ $table-ordered-column-image:  '/images/buttons/arrow_admin.png' !default;
 	}
 
 .admin table{
-	
 	th, td {
     border: $global-border-style-3;
-		 &, &.ui-widget-content, &.ui-state-default {
-	      border-left-width: 0;
-	      &:first-child { border-left-width: 1px; }
-	    }
-
-	    &,&.ui-widget-content, &.ui-state-default {
-	      // border-top-width: 0;
-	    }
-    }
-		th {
-			border-top-width: 1px;//adds the border back on top of table
-		}
+  }
 }
-
 
 .admin td.contact-deal-value {
 	text-align:right;
