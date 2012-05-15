@@ -23,62 +23,6 @@ body.sidebar-right, body.one-column {
 
 /* - - - - - - prev/next ------*/
 
-.record-seq-prev,.record-seq-next{
-	@include clearfix;
-	display:block;
-	
-	.record-seq-link{
-		width:30%;
-		margin:0;
-		padding:0 10px 0 0;
-		display:inline-block;
-		float:left;
-		clear:both;
-		min-height:190px;
-		text-align:right;
-		a{ 
-			font-size:$small-font-size;
-			font-weight:normal;
-			}
-	}
-	
-	a{
-		font-size:$medium-font-size;
-		line-height:1.1em;
-		text-decoration:underline;
-	}
-	
-.record-seq-data{
-	display:inline;
-	width:67%;
-		margin:0 0 0 50%;
-		padding:0;
-		
-	a{
-		//@include serif;
-	}
-		
-	img{
-		width:70px;
-		height:70px;
-		}
-	}
-}
-
-.record-seq-prev{
-	border-bottom:1px $theme-alternate solid;
-	padding-bottom:5px;
-	margin-bottom:12px;
-}
-
-.record-seq-next{
-	border-bottom:1px $theme-wildcard solid;
-	padding-bottom:5px;
-	margin-bottom:12px;
-}
-
-
-
 /* - - - - - -offers ------*/
 
 html body #right .offer {

@@ -3,6 +3,10 @@
 @import 'includes/global';
 
 .record-seq {
+  overflow: hidden;
+  border-bottom: 1px $theme-alternate solid;
+  margin-bottom: 12px;
+
   .record-seq-dateline, 
   .record-seq-author, 
   .record-seq-summary, 
@@ -13,13 +17,14 @@
 	.record-seq-title { 
 		font-weight: bold;
 		
-		a { @include alt-link-colors;
-			} 
+		a { 
+      @include alt-link-colors;
+    } 
 	}
 
-	.record-seq-author{
-		line-height:1em;
-		padding-bottom:.5em;
+	.record-seq-author {
+		line-height: 1em;
+		padding-bottom: .5em;
 	}
 	
   .record-seq-link {
@@ -34,31 +39,53 @@
     }
   }
 
-
-  .record-seq-prev, .record-seq-next { 
-    //float: left;
-		display:block;
-
-    &.record-seq-next { 
-      //width: 45%; 
-      //padding-left: 4%; 
-    }
-
-    &.record-seq-prev { 
-      //border-right: $global-border-style-1;
-      //width: 45%; 
-      //padding-right: 3%; 
-    }
-  }
-
   .record-seq-dateline, .record-seq-author { 
     font-size: $tiny-font-size;
-		color:$light-gray;
+		color: $light-gray;
   }
 
   .record-seq-summary { 
     font-size: $small-font-size;
-		line-height:1.25em;
-		color:$light-gray;
+		line-height: 1.25em;
+		color: $light-gray;
   }
+
+  .record-seq-image img {
+    width: 70px;
+    height: 70px;
+    display: block;
+  }
+}
+
+.record-seq-prev, .record-seq-next {
+	@include clearfix;
+	display: block;
+  float: left;
+  display: block;
+  width: 110px;
+  padding-bottom: 5px;
+
+  &.record-seq-next {
+    margin-left: 5px;
+    .record-seq-link {
+      // text-align: right;
+    }
+  }
+
+  &.record-seq-prev .record-seq-link { 
+    text-align: left;
+  }
+	
+  .record-seq-link { 
+    &, a {
+      font-size: $small-font-size;
+      font-weight: normal;
+    }
+	}
+	
+	a {
+		font-size: $medium-font-size;
+		line-height: 1.1em;
+		text-decoration: underline;
+	}
 }

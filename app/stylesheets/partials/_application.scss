@@ -4,6 +4,9 @@
 @import 'includes/colors';
 @import 'includes/global';
 
+.admin-sidebar-right a.delete {
+  display: none !important;
+}
 
 /*--------backgrounds-----------*/
 
